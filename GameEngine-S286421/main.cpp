@@ -29,10 +29,23 @@ int main(int argc, char* argv[])
 	Monster monster(rendere, "./../Assets/monstertrans.bmp", 200, 200, true);
 
 	//VerboseDebugPrintF(Verbosity::Info, "UOSGameEngine started with %d arguments\n", argc);
+	Transform RootTransform;
 
 	GameObject gameObject;
-	std::shared_ptr<BitmapComponent> temp = std::make_shared<BitmapComponent>(rendere, "./../Assets/monster.bmp", 300, 200, false);
+	std::shared_ptr<BitmapComponent> temp = std::make_shared<BitmapComponent>(rendere, "./../Assets/monster.bmp", 300, 200, false, &gameObject);
 	gameObject.AddComponent(temp);
+	gameObject.transform.Location.x = 500;
+	gameObject.transform.Location.y = 200;
+
+	RootTransform.AddChild(&gameObject.transform);
+
+	GameObject gameObject2;
+	std::shared_ptr<BitmapComponent> temp2 = std::make_shared<BitmapComponent>(rendere, "./../Assets/monstertrans.bmp", 300, 200, false, &gameObject2);
+	gameObject2.AddComponent(temp2);
+	gameObject2.transform.Location.x = 10;
+	gameObject2.transform.Location.y = 20;
+
+	gameObject.transform.AddChild(&gameObject2.transform);
 
 	ECS ecs;
 
@@ -79,7 +92,11 @@ int main(int argc, char* argv[])
 
 		background.RenderBackground(rendere, texture);
 
+		RootTransform.UpdateTransform(Transform{});
 		gameObject.Update();
+		gameObject2.Update();
+
+
 		player.Draw();
 		monster.Draw();
 		RendererSystem::Render(ecs, rendere);
