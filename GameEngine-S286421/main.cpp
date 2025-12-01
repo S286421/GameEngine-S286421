@@ -5,6 +5,11 @@
 #include "Input.h"
 #include "Debug.h"
 #include "Background.h"
+#include "GameObject.h"
+#include "BitmapComponent.h"
+#include "ECS.h"
+#include "RendererSystem.h"
+#include "MovementSystem.h"
 #include <iostream>
 #include <random>
 
@@ -24,6 +29,24 @@ int main(int argc, char* argv[])
 	Monster monster(rendere, "./../Assets/monstertrans.bmp", 200, 200, true);
 
 	//VerboseDebugPrintF(Verbosity::Info, "UOSGameEngine started with %d arguments\n", argc);
+
+	GameObject gameObject;
+	std::shared_ptr<BitmapComponent> temp = std::make_shared<BitmapComponent>(rendere, "./../Assets/monster.bmp", 300, 200, false);
+	gameObject.AddComponent(temp);
+
+	ECS ecs;
+
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_real_distribution<float> dist(-1.0f, 1.0f);
+
+	for(int i = 0; i < MAX_ENTITIES; i++)
+	{
+		RendererSystem::AddBitmapComponentToEntity(i, ecs, "./../Assets/monster.bmp", rendere, false);
+		MovementSystem::AddPositionComponentToEntity(i, ecs, 400, 400);
+		float RandomX = dist(gen);
+		MovementSystem::AddVelocityComponentToEntity(i, ecs, RandomX, -30, 1);
+	}
 
 	bool IsRunning = true;
 
@@ -53,11 +76,18 @@ int main(int argc, char* argv[])
 		player.Update();
 
 		SDL_RenderClear(rendere.get());
+
 		background.RenderBackground(rendere, texture);
+
+		gameObject.Update();
 		player.Draw();
 		monster.Draw();
+		RendererSystem::Render(ecs, rendere);
+		MovementSystem::UpdatePositions(ecs);
 		SDL_RenderPresent(rendere.get());
+
 		Input::INSTANCE().LateUpdate();
+
 		SDL_Delay(16);
 	}
 
