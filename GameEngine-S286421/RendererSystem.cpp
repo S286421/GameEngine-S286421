@@ -13,11 +13,11 @@ void RendererSystem::Render(ECS& const ecs, std::shared_ptr<SDL_Renderer> render
 {
 	for (int entityID = 0; entityID < MAX_ENTITIES; entityID++)
 	{
-		if (ecs.entityIDs[0] & (BitmapKey | PositionKey))
+		if (ecs.entityIDs[entityID] & (BitmapKey | PositionKey))
 		{
 			float width, height;
-			SDL_GetTextureSize(ecs.bitmaps[0].texture.get(), &width, &height);
-			SDL_FRect dstRect = { ecs.positions[0].X, ecs.positions[0].Y, width, height };
+			SDL_GetTextureSize(ecs.bitmaps[entityID].texture.get(), &width, &height);
+			SDL_FRect dstRect = { ecs.positions[entityID].X, ecs.positions[entityID].Y, width, height };
 
 			SDL_RenderTexture(renderer.get(), ecs.bitmaps[entityID].texture.get(), NULL, &dstRect);
 		}

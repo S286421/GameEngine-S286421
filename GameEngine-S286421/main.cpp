@@ -10,11 +10,29 @@
 #include "ECS.h"
 #include "RendererSystem.h"
 #include "MovementSystem.h"
+#include "StackArenaAllocator.h"
 #include <iostream>
 #include <random>
 
 int main(int argc, char* argv[])
+
 {
+	StackArenaAllocator stack(1024);
+
+	std::pmr::vector<int> numbers(&stack);
+	for (int i = 0; i < 10; ++i)
+		numbers.push_back(i * 10);
+
+	std::cout << "Numbers : ";
+	for (int n : numbers) std::cout << n << " ";
+	std::cout << "\n";
+
+	std::pmr::string msg("Hello from StackArena!", &stack);
+	std::cout << msg << "\n";
+
+	std::cout << "Resetting stack...\n";
+	stack.reset();
+
 	if (!SDL_Init(SDL_INIT_AUDIO | SDL_INIT_VIDEO | SDL_INIT_EVENTS))
 		printf("error initializing SDL: %s\n", SDL_GetError());
 
@@ -26,7 +44,8 @@ int main(int argc, char* argv[])
 	SDL_Texture* texture = background.LoadBackground(rendere, "./../Assets/backgroundtest.bmp");
 
 	Broker broker;
-	Player player(rendere, "./../Assets/monster.bmp", 100, 200, false, broker);
+	Player player(rendere, "./../Assets/monstertrans.bmp", 100, 200, true, broker);
+
 	Monster monster(rendere, "./../Assets/monstertrans.bmp", 200, 200, true, broker);
 
 	//VerboseDebugPrintF(Verbosity::Info, "UOSGameEngine started with %d arguments\n", argc);
@@ -56,10 +75,12 @@ int main(int argc, char* argv[])
 
 	for(int i = 0; i < MAX_ENTITIES; i++)
 	{
-		RendererSystem::AddBitmapComponentToEntity(i, ecs, "./../Assets/monster.bmp", rendere, false);
+		RendererSystem::AddBitmapComponentToEntity(i, ecs, "./../Assets/monstertrans.bmp", rendere, false);
 		MovementSystem::AddPositionComponentToEntity(i, ecs, 400, 400);
 		float RandomX = dist(gen);
-		MovementSystem::AddVelocityComponentToEntity(i, ecs, RandomX, -30, 1);
+		float RandomY = dist(gen);
+		float RandomGrav = dist(gen);
+		MovementSystem::AddVelocityComponentToEntity(i, ecs, 10*RandomX, RandomY, RandomGrav);
 	}
 
 	bool IsRunning = true;
@@ -93,13 +114,13 @@ int main(int argc, char* argv[])
 
 		background.RenderBackground(rendere, texture);
 
-		RootTransform.UpdateTransform(Transform{});
+		/*RootTransform.UpdateTransform(Transform{});
 		gameObject.Update();
 		gameObject2.Update();
-		monster.Subscribe("Test");
+		monster.Subscribe("Test");*/
 
 		player.Draw();
-		monster.Draw();
+		//monster.Draw();
 		RendererSystem::Render(ecs, rendere);
 		MovementSystem::UpdatePositions(ecs);
 		SDL_RenderPresent(rendere.get());

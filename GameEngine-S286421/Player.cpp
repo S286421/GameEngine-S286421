@@ -8,13 +8,13 @@ void Player::Update()
 {
 	Input::INSTANCE().Update();
 	if (Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_UP))
-		UpdatePosition(0, -1);
+		UpdatePosition(0, -5);
 	if (Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_DOWN))
-		UpdatePosition(0, 1);
+		UpdatePosition(0, 5);
 	if (Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_LEFT))
-		UpdatePosition(-1, 0);
+		UpdatePosition(-5, 0);
 	if (Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_RIGHT))
-		UpdatePosition(1, 0);
+		UpdatePosition(5, 0);
 
 	if (Input::INSTANCE().IsKeyDown(SDL_SCANCODE_P))
 		Publish("Test", new Message("<Test message>"));

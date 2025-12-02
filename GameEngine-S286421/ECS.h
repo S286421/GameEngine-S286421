@@ -1,15 +1,24 @@
 #pragma once
 
 #include <array>
+#include <vector>
 #include "Components.hpp"
 
 uint32_t constexpr MAX_ENTITIES = 100;
 class ECS
 {
 public:
-	std::array<uint64_t, MAX_ENTITIES> entityIDs{ 0 };
-	std::array<PositionECS, MAX_ENTITIES> positions;
-	std::array<VelocityECS, MAX_ENTITIES> velocities;
-	std::array<BitmapECS, MAX_ENTITIES> bitmaps;
+	ECS()
+	{
+		entityIDs.resize(MAX_ENTITIES);
+		positions.resize(MAX_ENTITIES);
+		velocities.resize(MAX_ENTITIES);
+		bitmaps.resize(MAX_ENTITIES);
+	}
+
+	std::vector<uint64_t> entityIDs{ 0 };
+	std::vector<PositionECS> positions;
+	std::vector<VelocityECS> velocities;
+	std::vector<BitmapECS> bitmaps;
 };
 

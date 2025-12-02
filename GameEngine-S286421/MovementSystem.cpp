@@ -31,8 +31,8 @@ void MovementSystem::UpdatePositions(ECS& const ecs)
 	{
 		if (ecs.entityIDs[entityID] & (PositionKey | VelocityKey))
 		{
-			ecs.velocities[entityID].dy += ecs.velocities[0].gravity;
-			ecs.positions[entityID] += ecs.velocities[0];
+			ecs.velocities[entityID].dy += ecs.velocities[entityID].gravity;
+			ecs.positions[entityID] += ecs.velocities[entityID];
 		}
 	}
 }
