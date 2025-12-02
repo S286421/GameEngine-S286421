@@ -1,6 +1,7 @@
 #pragma once
 #include "Bitmap.h"
 #include "Input.h"
+#include <iostream>
 
 class Pawn
 {

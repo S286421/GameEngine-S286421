@@ -13,111 +13,171 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Bitmaps and Sprites">
+      <UniqueIdentifier>{b8d6eab9-9f28-403c-b8bc-1d683a641e84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bitmaps and Sprites\Header Files">
+      <UniqueIdentifier>{3c178dd3-e7a2-4f6e-b464-935f79a24fc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bitmaps and Sprites\Source Files">
+      <UniqueIdentifier>{ff136fb9-7858-4619-b4f6-3a6d7f3de874}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Management, Debugging and Logging">
+      <UniqueIdentifier>{ab2c1d89-3cf7-488f-83aa-4d0b40edd8dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Management, Debugging and Logging\Header Files">
+      <UniqueIdentifier>{3fea6d8e-9e6a-492c-9588-6cc4425a8927}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Management, Debugging and Logging\Source FIles">
+      <UniqueIdentifier>{293dbe89-1cac-4075-be48-25c6bb709c38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components, ECS and Scene Management">
+      <UniqueIdentifier>{a8bf325c-c08f-4884-a5af-26694adc0ba9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components, ECS and Scene Management\Header Files">
+      <UniqueIdentifier>{8605c427-9999-4444-8ca1-d31da8a49428}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components, ECS and Scene Management\Source Files">
+      <UniqueIdentifier>{a473a913-2ffd-4670-9d51-7562ff8b8400}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events and Memory Management">
+      <UniqueIdentifier>{9ac6a7e3-665d-4cad-bd4e-b4065418b013}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events and Memory Management\Header Files">
+      <UniqueIdentifier>{44d1d1ab-5ed5-4671-9fa8-64e3e4307ae7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events and Memory Management\Source Files">
+      <UniqueIdentifier>{b5bbb614-3132-4ad6-9df3-dabcf309261b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Bitmap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Pawn.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Monster.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ResourceManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Debug.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Logging.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Background.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Bitmap.cpp">
+      <Filter>Bitmaps and Sprites\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Pawn.cpp">
+      <Filter>Bitmaps and Sprites\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Bitmaps and Sprites\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Bitmaps and Sprites\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Bitmaps and Sprites\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Resource Management, Debugging and Logging\Source FIles</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Resource Management, Debugging and Logging\Source FIles</Filter>
+    </ClCompile>
+    <ClCompile Include="Logging.cpp">
+      <Filter>Resource Management, Debugging and Logging\Source FIles</Filter>
+    </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Components, ECS and Scene Management\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="I_ComponentBase.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Components, ECS and Scene Management\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BitmapComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Components, ECS and Scene Management\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ECS.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Components, ECS and Scene Management\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RendererSystem.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Components, ECS and Scene Management\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MovementSystem.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Components, ECS and Scene Management\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Subscriber.cpp">
+      <Filter>Events and Memory Management\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Publisher.cpp">
+      <Filter>Events and Memory Management\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Message.cpp">
+      <Filter>Events and Memory Management\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Broker.cpp">
+      <Filter>Events and Memory Management\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bitmap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Pawn.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Monster.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourceManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDL_Deleter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Debug.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Logging.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Background.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Bitmap.h">
+      <Filter>Bitmaps and Sprites\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pawn.h">
+      <Filter>Bitmaps and Sprites\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Bitmaps and Sprites\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Bitmaps and Sprites\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL_Deleter.h">
+      <Filter>Bitmaps and Sprites\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Bitmaps and Sprites\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Resource Management, Debugging and Logging\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>Resource Management, Debugging and Logging\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Logging.h">
+      <Filter>Resource Management, Debugging and Logging\Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Header Files</Filter>
+      <Filter>Components, ECS and Scene Management\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Transform.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Components, ECS and Scene Management\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="I_ComponentBase.h">
-      <Filter>Header Files</Filter>
+      <Filter>Components, ECS and Scene Management\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BitmapComponent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Components, ECS and Scene Management\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Components.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Components, ECS and Scene Management\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ECS.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RendererSystem.h">
-      <Filter>Header Files</Filter>
+      <Filter>Components, ECS and Scene Management\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MovementSystem.h">
-      <Filter>Header Files</Filter>
+      <Filter>Components, ECS and Scene Management\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RendererSystem.h">
+      <Filter>Components, ECS and Scene Management\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Broker.h">
+      <Filter>Events and Memory Management\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Message.h">
+      <Filter>Events and Memory Management\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Publisher.h">
+      <Filter>Events and Memory Management\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Subscriber.h">
+      <Filter>Events and Memory Management\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

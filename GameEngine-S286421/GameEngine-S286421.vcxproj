@@ -132,6 +132,7 @@
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Bitmap.cpp" />
     <ClCompile Include="BitmapComponent.cpp" />
+    <ClCompile Include="Broker.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="ECS.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -139,17 +140,21 @@
     <ClCompile Include="I_ComponentBase.cpp" />
     <ClCompile Include="Logging.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Message.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="MovementSystem.cpp" />
     <ClCompile Include="Pawn.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Publisher.cpp" />
     <ClCompile Include="RendererSystem.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="Subscriber.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Background.h" />
     <ClInclude Include="Bitmap.h" />
     <ClInclude Include="BitmapComponent.h" />
+    <ClInclude Include="Broker.h" />
     <ClInclude Include="Components.hpp" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="ECS.h" />
@@ -157,13 +162,16 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="I_ComponentBase.h" />
     <ClInclude Include="Logging.h" />
+    <ClInclude Include="Message.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="MovementSystem.h" />
     <ClInclude Include="Pawn.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Publisher.h" />
     <ClInclude Include="RendererSystem.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="SDL_Deleter.h" />
+    <ClInclude Include="Subscriber.h" />
     <ClInclude Include="Transform.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

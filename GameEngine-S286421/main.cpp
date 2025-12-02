@@ -25,8 +25,9 @@ int main(int argc, char* argv[])
 	Background background;
 	SDL_Texture* texture = background.LoadBackground(rendere, "./../Assets/backgroundtest.bmp");
 
-	Player player(rendere, "./../Assets/monster.bmp", 100, 200, false);
-	Monster monster(rendere, "./../Assets/monstertrans.bmp", 200, 200, true);
+	Broker broker;
+	Player player(rendere, "./../Assets/monster.bmp", 100, 200, false, broker);
+	Monster monster(rendere, "./../Assets/monstertrans.bmp", 200, 200, true, broker);
 
 	//VerboseDebugPrintF(Verbosity::Info, "UOSGameEngine started with %d arguments\n", argc);
 	Transform RootTransform;
@@ -95,7 +96,7 @@ int main(int argc, char* argv[])
 		RootTransform.UpdateTransform(Transform{});
 		gameObject.Update();
 		gameObject2.Update();
-
+		monster.Subscribe("Test");
 
 		player.Draw();
 		monster.Draw();
