@@ -15,6 +15,8 @@ public:
 		const std::string path, int x, int y, bool isTransparent);
 	void Draw();
 	void Draw(int x, int y);
+	SDL_Rect GetImageBounds() const;
+	std::shared_ptr<SDL_Renderer> GetRenderer();
 private:
 	std::shared_ptr<SDL_Renderer> _renderer;
 	int _xPosition;

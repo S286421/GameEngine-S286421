@@ -11,6 +11,8 @@
 #include "RendererSystem.h"
 #include "MovementSystem.h"
 #include "StackArenaAllocator.h"
+#include "Sol/sol.hpp"
+#include "ScriptComponent.h"
 #include <iostream>
 #include <random>
 
@@ -39,7 +41,7 @@ int main(int argc, char* argv[])
 	SDL_Window* win = SDL_CreateWindow("GAME", 1000, 1000, 0);
 	SDL_SetWindowPosition(win, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
 
-	std::shared_ptr<SDL_Renderer> rendere = std::shared_ptr<SDL_Renderer>(SDL_CreateRenderer(win, NULL), sdl_deleter());
+	std::shared_ptr<SDL_Renderer> rendere = std::shared_ptr<SDL_Renderer>(SDL_CreateRenderer(win,NULL), sdl_deleter());
 	Background background;
 	SDL_Texture* texture = background.LoadBackground(rendere, "./../Assets/backgroundtest.bmp");
 
@@ -75,13 +77,16 @@ int main(int argc, char* argv[])
 
 	for(int i = 0; i < MAX_ENTITIES; i++)
 	{
-		RendererSystem::AddBitmapComponentToEntity(i, ecs, "./../Assets/monstertrans.bmp", rendere, false);
+		RendererSystem::AddBitmapComponentToEntity(i, ecs, "./../Assets/kaboom.png", rendere,false);
 		MovementSystem::AddPositionComponentToEntity(i, ecs, 400, 400);
 		float RandomX = dist(gen);
 		float RandomY = dist(gen);
 		float RandomGrav = dist(gen);
 		MovementSystem::AddVelocityComponentToEntity(i, ecs, 10*RandomX, RandomY, RandomGrav);
 	}
+	
+	/*std::shared_ptr<ScriptComponent> scriptTest = std::make_shared<ScriptComponent>("./../luaSrc/ComponentTest.lua", &gameObject);
+	gameObject.AddComponent(scriptTest);*/
 
 	bool IsRunning = true;
 
@@ -109,6 +114,20 @@ int main(int argc, char* argv[])
 		}
 		
 		player.Update();
+
+		int oldY = player.Position.y;
+
+		player.IsOverlapping(monster, player.DeltaMove);
+
+		if (player.IsOverlapping(monster, player.DeltaMove))
+		{
+			std::cout << "Colliding!" << std::endl;
+		}
+
+		if (player.Position.y == oldY + player.DeltaMove.y && player.DeltaMove.y > 0)
+			player.Grounded = false;
+		else if (player.DeltaMove.y >= 0)
+			player.Grounded = { player.Position.y < oldY + player.DeltaMove.y };
 
 		SDL_RenderClear(rendere.get());
 

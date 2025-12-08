@@ -31,4 +31,9 @@ public:
 			
 		}
 	}
+
+	int GetX()
+	{
+		return Location.x;
+	}
 };

@@ -49,6 +49,15 @@
     <Filter Include="Events and Memory Management\Source Files">
       <UniqueIdentifier>{b5bbb614-3132-4ad6-9df3-dabcf309261b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripting and Physics">
+      <UniqueIdentifier>{2192d67b-064b-4bf0-9359-bea60335d92e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripting and Physics\Header Files">
+      <UniqueIdentifier>{4f355865-dc96-465e-993c-1dedd7eb6449}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripting and Physics\Source Files">
+      <UniqueIdentifier>{d82b5b3d-5fa8-40c9-824f-ae57c9cd4f92}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -113,6 +122,9 @@
     </ClCompile>
     <ClCompile Include="StackArenaAllocator.cpp">
       <Filter>Events and Memory Management\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptComponent.cpp">
+      <Filter>Scripting and Physics\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +196,9 @@
     </ClInclude>
     <ClInclude Include="StackArenaAllocator.h">
       <Filter>Events and Memory Management\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptComponent.h">
+      <Filter>Scripting and Physics\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

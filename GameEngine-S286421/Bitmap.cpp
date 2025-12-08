@@ -20,6 +20,20 @@ void Bitmap::Draw()
 
 void Bitmap::Draw(int x, int y)
 {
+	_xPosition = x;
+	_yPosition = y;
+
 	SDL_FRect dstRect = { x, y, _width, _height };
 	SDL_RenderTexture(_renderer.get(), _texture.get(), NULL, &dstRect);
+}
+
+SDL_Rect Bitmap::GetImageBounds() const
+{
+	SDL_Rect a = { _xPosition, _yPosition, _width, _height };
+	return a;
+}
+
+std::shared_ptr<SDL_Renderer> Bitmap::GetRenderer()
+{
+	return _renderer;
 }
