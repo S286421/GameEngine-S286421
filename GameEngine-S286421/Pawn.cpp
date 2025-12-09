@@ -69,31 +69,91 @@ void Pawn::SetDeltaMove(int x, int y)
 	DeltaMove.y = y;
 }
 
-bool Pawn::IsOverlapping(const Pawn& Other, const SDL_Point& Delta)
+void Pawn::Receive(const IEventData* EventData, const std::string& topic)
+{
+	const MouseEventData* mouseEventData = static_cast<const MouseEventData*>(EventData);
+	if (topic == "MousePositionUpdate")
+	{ }
+	if (topic == "MouseWheelUpdate")
+	{ }
+	if (topic == "MouseButtonUpdate")
+	{
+		SDL_Point mousePosition{ mouseEventData->mousePosition.x, mouseEventData->mousePosition.y };
+		SDL_Rect ImageBounds = Sprite.get()->GetImageBounds();
+
+		if (mouseEventData->mouseButton.button == SDL_BUTTON_LEFT && mouseEventData->mouseButton.clicks == 1 && SDL_PointInRect(&mousePosition, &ImageBounds))
+		{
+			std::cout << "clicked on image" << std::endl;
+		}
+	}
+
+}
+
+bool Pawn::IsOverlapping(const std::vector<Pawn*>& ListOfOtherpawns, const SDL_Point& Delta)
 {
 	bool isColliding = false;
 
 	SDL_Rect a = Sprite->GetImageBounds();
-	SDL_Rect b = Other.Sprite->GetImageBounds();
-
+	a.x = Position.x;
+	a.y = Position.y;
 	a.x += Delta.x;
-	if (SDL_HasRectIntersection(&a, &b))
+	
+
+	for (int i = 0; i < ListOfOtherpawns.size(); i++)
 	{
-		if (Delta.x > 0) a.x = b.x - a.w;
-		else if (Delta.x < 0) a.x = b.x + b.w;
-		isColliding = true;
+
+		//std::cout << "player pos " << Position.x << " " << Position.y << std::endl;
+		SDL_Rect b = ListOfOtherpawns[i]->Sprite->GetImageBounds();
+		b.x = ListOfOtherpawns[i]->Position.x;
+		b.y = ListOfOtherpawns[i]->Position.y;
+
+		if (SDL_HasRectIntersection(&a, &b))
+		{
+
+			if (Delta.x > 0)
+				a.x = b.x - a.w; // right
+			else if (Delta.x < 0)
+				a.x = b.x + b.w; //left
+		}
+		
 	}
+
 
 	a.y += Delta.y;
-	if (SDL_HasRectIntersection(&a, &b))
+	for (int i = 0; i < ListOfOtherpawns.size(); i++)
 	{
-		if (Delta.y > 0) a.y = b.y - a.h;
-		else if (Delta.y < 0) a.y = b.y + b.h;
-		isColliding = true;
+
+		//std::cout << "player pos " << Position.x << " " << Position.y << std::endl;
+		SDL_Rect b = ListOfOtherpawns[i]->Sprite->GetImageBounds();
+		b.x = ListOfOtherpawns[i]->Position.x;
+		b.y = ListOfOtherpawns[i]->Position.y;
+
+		if (SDL_HasRectIntersection(&a, &b))
+		{
+			if (Delta.y > 0) a.y = b.y - a.h;
+			else if (Delta.y < 0) a.y = b.y + b.h;
+			//	isColliding = true;
+
+		}
 	}
+			
+		
+
+			
+		
+		//if ()
+		//{
+		//	a.y -= DeltaMove.y;
+		//	/*if (Delta.y > 0) a.y = b.y - a.h;
+		//	else if (Delta.y < 0) a.y = b.y + b.h;*/
+		//	isColliding = true;
+		//}
+
 
 	Position.x = a.x;
 	Position.y = a.y;
 
 	return isColliding;
 }
+
+

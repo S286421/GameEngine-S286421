@@ -1,15 +1,15 @@
 #pragma once
 #include <string>
 #include "Broker.h"
-class Message;
+class IEventData;
 
 class Publisher
 {
 	Broker* broker;
 public:
-	Publisher(Broker& broker) : broker(&broker) {}
-	void Publish(const std::string& topic, Message* message) const
+	Publisher() {}
+	void Publish(const std::string& topic, IEventData* EventData) const
 	{
-		broker->Publish(topic, message);
+		Broker::INSTANCE().Publish(topic, EventData);
 	}
 };

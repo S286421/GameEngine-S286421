@@ -1,10 +1,13 @@
 #pragma once
 #include "SDL3/SDL.h"
+#include "MouseEventData.h"
+#include "Publisher.h"
 
-class Input
+class Input : public Publisher
 {
 public:
-	void Update();
+	void UpdateKeyBoard();
+	void UpdateMouse(const SDL_Event& event);
 	
 	bool lastFrameKeyState[SDL_SCANCODE_COUNT];
 	const bool* currentKeyState;
@@ -16,5 +19,9 @@ public:
 	static Input& const INSTANCE();
 
 	Input();
+
+	SDL_MouseButtonEvent mouseButton;
+	SDL_MouseMotionEvent mousePosition;
+	SDL_MouseWheelEvent mouseWheel;
 };
 

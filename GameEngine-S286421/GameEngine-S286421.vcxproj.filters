@@ -58,12 +58,24 @@
     <Filter Include="Scripting and Physics\Source Files">
       <UniqueIdentifier>{d82b5b3d-5fa8-40c9-824f-ae57c9cd4f92}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ImGui">
+      <UniqueIdentifier>{85140cba-4a61-4336-add8-556637a40e93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGui\Backends">
+      <UniqueIdentifier>{eb0830f0-e745-4b7a-b09b-f6b0278f3368}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Selection and Properties Window">
+      <UniqueIdentifier>{0aebbbc7-22c9-4bb8-bbfa-828073329e70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Selection and Properties Window\Header Files">
+      <UniqueIdentifier>{098ea0a4-6d5e-4770-944e-e39899bbac9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Selection and Properties Window\Source Files">
+      <UniqueIdentifier>{6f27f414-5c28-4c7e-b214-6004d8fd7509}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Background.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Bitmap.cpp">
@@ -114,7 +126,7 @@
     <ClCompile Include="Publisher.cpp">
       <Filter>Events and Memory Management\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Message.cpp">
+    <ClCompile Include="IEventData.cpp">
       <Filter>Events and Memory Management\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Broker.cpp">
@@ -126,11 +138,35 @@
     <ClCompile Include="ScriptComponent.cpp">
       <Filter>Scripting and Physics\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ImGui\imgui.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_demo.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_draw.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_tables.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_widgets.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\backends\imgui_impl_sdlrenderer3.cpp">
+      <Filter>ImGui\Backends</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\backends\imgui_impl_sdl3.cpp">
+      <Filter>ImGui\Backends</Filter>
+    </ClCompile>
+    <ClCompile Include="Message.cpp">
+      <Filter>Object Selection and Properties Window\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MouseEventData.cpp">
+      <Filter>Object Selection and Properties Window\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Background.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Bitmap.h">
       <Filter>Bitmaps and Sprites\Header Files</Filter>
     </ClInclude>
@@ -185,7 +221,7 @@
     <ClInclude Include="Broker.h">
       <Filter>Events and Memory Management\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Message.h">
+    <ClInclude Include="IEventData.h">
       <Filter>Events and Memory Management\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Publisher.h">
@@ -199,6 +235,36 @@
     </ClInclude>
     <ClInclude Include="ScriptComponent.h">
       <Filter>Scripting and Physics\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imconfig.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui_internal.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imstb_rectpack.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imstb_textedit.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imstb_truetype.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\backends\imgui_impl_sdlrenderer3.h">
+      <Filter>ImGui\Backends</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\backends\imgui_impl_sdl3.h">
+      <Filter>ImGui\Backends</Filter>
+    </ClInclude>
+    <ClInclude Include="Message.h">
+      <Filter>Object Selection and Properties Window\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseEventData.h">
+      <Filter>Object Selection and Properties Window\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

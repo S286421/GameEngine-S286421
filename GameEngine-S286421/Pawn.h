@@ -2,8 +2,11 @@
 #include "Bitmap.h"
 #include "Input.h"
 #include <iostream>
+#include <vector>
+#include "Publisher.h"
+#include "Subscriber.h"
 
-class Pawn
+class Pawn : public Publisher, public Subscriber
 {
 protected:
 	std::unique_ptr<Bitmap> Sprite;
@@ -33,6 +36,8 @@ public:
 	void DrawCollider(SDL_Rect Collider) const;
 
 	void SetDeltaMove(int x, int y);
-	bool IsOverlapping(const Pawn& Other, const SDL_Point& Delta);
+	bool IsOverlapping(const std::vector<Pawn*>& ListOfOtherpawns, const SDL_Point& Delta);
+
+	void Receive(const IEventData* message, const std::string& topic) override;
 };
 

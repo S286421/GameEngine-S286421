@@ -1,4 +1,5 @@
 #include "Input.h"
+#include "Broker.h"
 
 Input::Input()
 {
@@ -8,7 +9,7 @@ Input::Input()
 	}
 }
 
-void Input::Update()
+void Input::UpdateKeyBoard()
 {
 	currentKeyState = SDL_GetKeyboardState(NULL);
 }
@@ -56,3 +57,32 @@ Input& const Input::INSTANCE()
 	return *Input::_instance;
 }
 Input* Input::_instance = nullptr;
+
+void Input::UpdateMouse(const SDL_Event& event)
+{
+	MouseEventData* mouseEventData = nullptr;
+
+	switch (event.type) {
+
+	case SDL_EVENT_MOUSE_MOTION:
+		mousePosition = event.motion;
+		mouseEventData = new MouseEventData(*this, mouseButton, mousePosition, mouseWheel);
+		Broker::INSTANCE().Publish("MousePositionUpdate", mouseEventData);
+		break;
+	case SDL_EVENT_MOUSE_WHEEL:
+		mouseWheel = event.wheel;
+		mouseEventData = new MouseEventData(*this, mouseButton, mousePosition, mouseWheel);
+		Broker::INSTANCE().Publish("MousePositionUpdate", mouseEventData);
+		break;
+	case SDL_EVENT_MOUSE_BUTTON_DOWN:
+	case SDL_EVENT_MOUSE_BUTTON_UP:
+		mouseButton = event.button;
+		mouseEventData = new MouseEventData(*this, mouseButton, mousePosition, mouseWheel);
+		Broker::INSTANCE().Publish("MousePositionUpdate", mouseEventData);
+		break;
+	default:
+		break;
+	}
+	delete mouseEventData;
+	mouseEventData = nullptr;
+}

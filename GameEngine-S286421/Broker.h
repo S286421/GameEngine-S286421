@@ -4,13 +4,15 @@
 #include <vector>
 #include <unordered_map>
 class Subscriber;
-class Message;
+class IEventData;
 
 class Broker
 {
-	std::unordered_map<std::string, std::queue<Message*>> topics;
+	std::unordered_map<std::string, std::queue<IEventData*>> topics;
 	std::unordered_map<std::string, std::vector<Subscriber*>> subscribers;
 public:
 	void Subscribe(const std::string& topic, Subscriber* sub);
-	void Publish(const std::string& topic, Message* message);
+	void Publish(const std::string& topic, IEventData* message);
+	static Broker* _instance;
+	static Broker& const INSTANCE();
 };
