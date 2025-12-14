@@ -168,6 +168,7 @@ int main(int argc, char* argv[])
 		ImGui_ImplSDLRenderer3_NewFrame();
 		ImGui_ImplSDL3_NewFrame();
 		ImGui::NewFrame();
+		EditorGUI::INSTANCE().DrawWindows();
 		ImGui::ShowDemoWindow();
 		std::ostringstream playerPosition;
 		playerPosition << "X: " << player.GetX() << " Y: " << player.GetY();

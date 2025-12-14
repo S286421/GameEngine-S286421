@@ -1,4 +1,5 @@
 #include "Pawn.h"
+#include "imgui.h"
 
 int Pawn::GetX()
 {
@@ -26,11 +27,15 @@ void Pawn::UpdatePosition(int x, int y)
 	DeltaMove.y += y;
 }
 
+int Pawn::CurrentID = 0;
+
 Pawn::Pawn(std::shared_ptr<SDL_Renderer> renderer, const std::string path, int x, int y, bool isTransparent)
 {
 	Sprite = std::unique_ptr<Bitmap>(new Bitmap(renderer, path, x, y, isTransparent));
 	this->Position.x = x;
 	this->Position.y = y;
+
+	ID = CurrentID++;
 }
 
 void Pawn::Draw()
@@ -84,6 +89,7 @@ void Pawn::Receive(const IEventData* EventData, const std::string& topic)
 		if (mouseEventData->mouseButton.button == SDL_BUTTON_LEFT && mouseEventData->mouseButton.clicks == 1 && SDL_PointInRect(&mousePosition, &ImageBounds))
 		{
 			std::cout << "clicked on image" << std::endl;
+			EditorGui::INSTANCE().AttachChildWindow(this);
 		}
 	}
 
@@ -154,6 +160,27 @@ bool Pawn::IsOverlapping(const std::vector<Pawn*>& ListOfOtherpawns, const SDL_P
 	Position.y = a.y;
 
 	return isColliding;
+}
+
+void Pawn::DrawWindow()
+{
+	ImGui::Begin((std::string("Pawn Window") + std::to_string(ID)).c_str());
+
+	if (ImGui::Button("Close"))
+	{
+		EditorGui::INSTANCE().RemoveChildWindow(dynamic_cast<IGuiWindow*>(this));
+	}
+
+	int pos[2] = { Position.x, Position.y };
+	ImGui::InputInt2("Position", pos);
+	Position.x = pos[0];
+	Position.y = pos[1];
+
+	ImGui::InputInt("Speed", &speed);
+	ImGui::InputInt("Gravity", &gravity);
+	ImGui::InputInt("Max Fall Speed", &maxFallSpeed);
+
+	ImGui::End();
 }
 
 
