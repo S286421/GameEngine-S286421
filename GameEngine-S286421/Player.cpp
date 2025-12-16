@@ -10,8 +10,8 @@ void Player::Update()
 	DeltaMove.y = 0;
 
 	Input::INSTANCE().UpdateKeyBoard();
-	if (Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_UP))
-		UpdatePosition(0, -speed);
+	/*if (Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_UP))
+		UpdatePosition(0, -speed);*/
 	if (Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_DOWN))
 		UpdatePosition(0, speed);
 	if (Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_LEFT))

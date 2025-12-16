@@ -17,6 +17,7 @@ public:
 	void Draw(int x, int y);
 	SDL_Rect GetImageBounds() const;
 	std::shared_ptr<SDL_Renderer> GetRenderer();
+	std::shared_ptr<SDL_Texture> GetTextureRef();
 private:
 	std::shared_ptr<SDL_Renderer> _renderer;
 	int _xPosition;

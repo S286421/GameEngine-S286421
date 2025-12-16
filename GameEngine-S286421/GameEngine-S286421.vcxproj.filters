@@ -73,6 +73,15 @@
     <Filter Include="Object Selection and Properties Window\Source Files">
       <UniqueIdentifier>{6f27f414-5c28-4c7e-b214-6004d8fd7509}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Drag and Drop">
+      <UniqueIdentifier>{9baaeef1-9a2d-4496-bd3a-7b941c54b232}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Drag and Drop\Header Files">
+      <UniqueIdentifier>{2ca43545-1af6-4a96-b83d-8b8c569b60f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Drag and Drop\Source Files">
+      <UniqueIdentifier>{77c08403-306f-4cdd-9d64-04b57bcd6f5e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -164,6 +173,21 @@
     </ClCompile>
     <ClCompile Include="MouseEventData.cpp">
       <Filter>Object Selection and Properties Window\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IGuiWindow.cpp">
+      <Filter>Object Selection and Properties Window\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EditorGui.cpp">
+      <Filter>Object Selection and Properties Window\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetWindow.cpp">
+      <Filter>Drag and Drop\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IDirectoryItem.cpp">
+      <Filter>Drag and Drop\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hierarchy.cpp">
+      <Filter>Drag and Drop\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -265,6 +289,21 @@
     </ClInclude>
     <ClInclude Include="MouseEventData.h">
       <Filter>Object Selection and Properties Window\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EditorGui.h">
+      <Filter>Object Selection and Properties Window\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IGuiWindow.h">
+      <Filter>Object Selection and Properties Window\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetWindow.h">
+      <Filter>Drag and Drop\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IDirectoryItem.h">
+      <Filter>Drag and Drop\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hierarchy.h">
+      <Filter>Drag and Drop\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

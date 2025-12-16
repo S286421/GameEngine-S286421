@@ -4,12 +4,9 @@
 
 class Subscriber
 {
-	Broker* broker;
+	
 public:
-	Subscriber() {}
-	void Subscribe(const std::string& topic)
-	{
-		broker->Subscribe(topic, this);
-	}
+	Subscriber();
+	void Subscribe(const std::string& topic);
 	virtual void Receive(const IEventData* message, const std::string& topic) = 0;
 };

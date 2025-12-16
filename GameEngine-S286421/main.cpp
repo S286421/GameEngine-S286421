@@ -15,6 +15,8 @@
 #include "imgui.h"
 #include "ImGui/backends/imgui_impl_sdl3.h"
 #include "ImGui/backends/imgui_impl_sdlrenderer3.h"
+#include "EditorGui.h"
+#include "AssetWindow.h"
 #include <iostream>
 #include <random>
 
@@ -46,7 +48,7 @@ int main(int argc, char* argv[])
 	std::shared_ptr<SDL_Renderer> rendere = std::shared_ptr<SDL_Renderer>(SDL_CreateRenderer(win,NULL), sdl_deleter());
 
 	Player player(rendere, "./../Assets/monstertrans.bmp", 100, 200, true);
-	Monster platform(rendere, "./../Assets/platform-test.bmp", 100, 600, true);
+	Pawn platform(rendere, "./../Assets/platform-test.bmp", 100, 600, true);
 	Monster enemy(rendere, "./../Assets/monstertrans.bmp", 400, 486, true);
 
 	enemy.Subscribe("MouseButtonUpdate");
@@ -115,11 +117,11 @@ int main(int argc, char* argv[])
 
 	//ImGui//
 
-
-
 	std::vector<Pawn*> Colliders;
 	Colliders.push_back(&platform);
 	Colliders.push_back(&enemy);
+
+	AssetWindow window(rendere);
 
 	bool IsRunning = true;
 
@@ -150,11 +152,19 @@ int main(int argc, char* argv[])
 		
 		Input::INSTANCE().UpdateKeyBoard();
 
+		player.Update();
+
 		int oldY = player.Position.y;
+
 
 		if (player.IsOverlapping(Colliders, player.DeltaMove))
 		{
-			//player.Grounded = true;
+			auto it = std::find(player.currentCollisions.begin(), player.currentCollisions.end(), &enemy);
+			if (it != player.currentCollisions.end())
+			{
+				IsRunning = false;
+			}
+
 		}
 
 
@@ -168,18 +178,12 @@ int main(int argc, char* argv[])
 		ImGui_ImplSDLRenderer3_NewFrame();
 		ImGui_ImplSDL3_NewFrame();
 		ImGui::NewFrame();
-		EditorGUI::INSTANCE().DrawWindows();
+		EditorGui::INSTANCE().DrawWindows();
+		window.DrawWindow();
 		ImGui::ShowDemoWindow();
-		std::ostringstream playerPosition;
-		playerPosition << "X: " << player.GetX() << " Y: " << player.GetY();
-		std::string positionString = playerPosition.str();
-		const char* charPosition = positionString.c_str();
 		ImGui::Begin("Sir Windowsworth the First");
 		if (ImGui::Button("Press me"))
 			std::cout << "Button Pressed" << std::endl;
-		static float test[2];
-		ImGui::InputFloat2("Test Input float", test);
-		ImGui::Text(charPosition);
 		ImGui::End();
 
 		/*RootTransform.UpdateTransform(Transform{});

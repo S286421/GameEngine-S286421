@@ -72,13 +72,13 @@ void Input::UpdateMouse(const SDL_Event& event)
 	case SDL_EVENT_MOUSE_WHEEL:
 		mouseWheel = event.wheel;
 		mouseEventData = new MouseEventData(*this, mouseButton, mousePosition, mouseWheel);
-		Broker::INSTANCE().Publish("MousePositionUpdate", mouseEventData);
+		Broker::INSTANCE().Publish("MouseWheelUpdate", mouseEventData);
 		break;
 	case SDL_EVENT_MOUSE_BUTTON_DOWN:
 	case SDL_EVENT_MOUSE_BUTTON_UP:
 		mouseButton = event.button;
 		mouseEventData = new MouseEventData(*this, mouseButton, mousePosition, mouseWheel);
-		Broker::INSTANCE().Publish("MousePositionUpdate", mouseEventData);
+		Broker::INSTANCE().Publish("MouseButtonUpdate", mouseEventData);
 		break;
 	default:
 		break;

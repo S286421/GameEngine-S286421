@@ -1,5 +1,6 @@
 #include "Pawn.h"
 #include "imgui.h"
+#include "EditorGui.h"
 
 int Pawn::GetX()
 {
@@ -41,7 +42,7 @@ Pawn::Pawn(std::shared_ptr<SDL_Renderer> renderer, const std::string path, int x
 void Pawn::Draw()
 {
 	Sprite->Draw(Position.x, Position.y);
-	this->DrawCollider(this->GetCollisionBounds());
+	//this->DrawCollider(this->GetCollisionBounds());
 }
 
 void Pawn::Update()
@@ -86,7 +87,7 @@ void Pawn::Receive(const IEventData* EventData, const std::string& topic)
 		SDL_Point mousePosition{ mouseEventData->mousePosition.x, mouseEventData->mousePosition.y };
 		SDL_Rect ImageBounds = Sprite.get()->GetImageBounds();
 
-		if (mouseEventData->mouseButton.button == SDL_BUTTON_LEFT && mouseEventData->mouseButton.clicks == 1 && SDL_PointInRect(&mousePosition, &ImageBounds))
+		if (mouseEventData->mouseButton.button == SDL_BUTTON_LEFT && mouseEventData->mouseButton.clicks == 1 && SDL_PointInRect(&mousePosition, &ImageBounds) && mouseEventData->mouseButton.type == SDL_EVENT_MOUSE_BUTTON_DOWN)
 		{
 			std::cout << "clicked on image" << std::endl;
 			EditorGui::INSTANCE().AttachChildWindow(this);
@@ -98,17 +99,15 @@ void Pawn::Receive(const IEventData* EventData, const std::string& topic)
 bool Pawn::IsOverlapping(const std::vector<Pawn*>& ListOfOtherpawns, const SDL_Point& Delta)
 {
 	bool isColliding = false;
+	currentCollisions = {};
 
 	SDL_Rect a = Sprite->GetImageBounds();
 	a.x = Position.x;
 	a.y = Position.y;
 	a.x += Delta.x;
 	
-
 	for (int i = 0; i < ListOfOtherpawns.size(); i++)
 	{
-
-		//std::cout << "player pos " << Position.x << " " << Position.y << std::endl;
 		SDL_Rect b = ListOfOtherpawns[i]->Sprite->GetImageBounds();
 		b.x = ListOfOtherpawns[i]->Position.x;
 		b.y = ListOfOtherpawns[i]->Position.y;
@@ -120,16 +119,15 @@ bool Pawn::IsOverlapping(const std::vector<Pawn*>& ListOfOtherpawns, const SDL_P
 				a.x = b.x - a.w; // right
 			else if (Delta.x < 0)
 				a.x = b.x + b.w; //left
+			isColliding = true;
+			currentCollisions.push_back(ListOfOtherpawns[i]);
 		}
 		
 	}
 
-
 	a.y += Delta.y;
 	for (int i = 0; i < ListOfOtherpawns.size(); i++)
 	{
-
-		//std::cout << "player pos " << Position.x << " " << Position.y << std::endl;
 		SDL_Rect b = ListOfOtherpawns[i]->Sprite->GetImageBounds();
 		b.x = ListOfOtherpawns[i]->Position.x;
 		b.y = ListOfOtherpawns[i]->Position.y;
@@ -138,24 +136,12 @@ bool Pawn::IsOverlapping(const std::vector<Pawn*>& ListOfOtherpawns, const SDL_P
 		{
 			if (Delta.y > 0) a.y = b.y - a.h;
 			else if (Delta.y < 0) a.y = b.y + b.h;
-			//	isColliding = true;
+			isColliding = true;
+			currentCollisions.push_back(ListOfOtherpawns[i]);
 
 		}
 	}
 			
-		
-
-			
-		
-		//if ()
-		//{
-		//	a.y -= DeltaMove.y;
-		//	/*if (Delta.y > 0) a.y = b.y - a.h;
-		//	else if (Delta.y < 0) a.y = b.y + b.h;*/
-		//	isColliding = true;
-		//}
-
-
 	Position.x = a.x;
 	Position.y = a.y;
 

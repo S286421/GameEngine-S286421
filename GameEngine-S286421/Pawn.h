@@ -41,6 +41,7 @@ public:
 
 	void SetDeltaMove(int x, int y);
 	bool IsOverlapping(const std::vector<Pawn*>& ListOfOtherpawns, const SDL_Point& Delta);
+	std::vector<Pawn*> currentCollisions;
 
 	void Receive(const IEventData* message, const std::string& topic) override;
 

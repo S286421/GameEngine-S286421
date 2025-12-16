@@ -37,3 +37,8 @@ std::shared_ptr<SDL_Renderer> Bitmap::GetRenderer()
 {
 	return _renderer;
 }
+
+std::shared_ptr<SDL_Texture> Bitmap::GetTextureRef()
+{
+	return _texture;
+}

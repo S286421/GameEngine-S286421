@@ -129,12 +129,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AssetWindow.cpp" />
     <ClCompile Include="Bitmap.cpp" />
     <ClCompile Include="BitmapComponent.cpp" />
     <ClCompile Include="Broker.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="ECS.cpp" />
+    <ClCompile Include="EditorGui.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Hierarchy.cpp" />
+    <ClCompile Include="IDirectoryItem.cpp" />
+    <ClCompile Include="IGuiWindow.cpp" />
     <ClCompile Include="ImGui\backends\imgui_impl_sdl3.cpp" />
     <ClCompile Include="ImGui\backends\imgui_impl_sdlrenderer3.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />
@@ -161,13 +166,18 @@
     <ClCompile Include="Subscriber.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AssetWindow.h" />
     <ClInclude Include="Bitmap.h" />
     <ClInclude Include="BitmapComponent.h" />
     <ClInclude Include="Broker.h" />
     <ClInclude Include="Components.hpp" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="ECS.h" />
+    <ClInclude Include="EditorGui.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Hierarchy.h" />
+    <ClInclude Include="IDirectoryItem.h" />
+    <ClInclude Include="IGuiWindow.h" />
     <ClInclude Include="ImGui\backends\imgui_impl_sdl3.h" />
     <ClInclude Include="ImGui\backends\imgui_impl_sdlrenderer3.h" />
     <ClInclude Include="ImGui\imconfig.h" />
