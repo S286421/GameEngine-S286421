@@ -47,6 +47,8 @@ int main(int argc, char* argv[])
 
 	std::shared_ptr<SDL_Renderer> rendere = std::shared_ptr<SDL_Renderer>(SDL_CreateRenderer(win,NULL), sdl_deleter());
 
+	Hierarchy::INSTANCE().Init(rendere);
+
 	Player player(rendere, "./../Assets/monstertrans.bmp", 100, 200, true);
 	Pawn platform(rendere, "./../Assets/platform-test.bmp", 100, 600, true);
 	Monster enemy(rendere, "./../Assets/monstertrans.bmp", 400, 486, true);
@@ -192,6 +194,7 @@ int main(int argc, char* argv[])
 		monster.Subscribe("Test");*/
 
 		SDL_RenderTexture(rendere.get(), backgroundTexture, NULL, NULL);
+		Hierarchy::INSTANCE().DrawHierarchyItems();
 		player.Draw();
 		platform.Draw();
 		enemy.Draw();

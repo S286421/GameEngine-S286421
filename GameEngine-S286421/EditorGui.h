@@ -1,9 +1,12 @@
 #pragma once
 #include <vector>
 #include <memory>
+#include <iostream>
 #include "IGuiWindow.h"
 #include "IDirectoryItem.h"
 #include "Subscriber.h"
+#include "MouseEventData.h"
+#include "Hierarchy.h"
 
 class EditorGui : public IGuiWindow, public Subscriber
 {
