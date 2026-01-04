@@ -24,8 +24,11 @@ void Player::Update()
 
 	if (Input::INSTANCE().IsKeyDown(SDL_SCANCODE_SPACE) && Grounded)
 	{
-		DeltaMove.y = -15;
-		Grounded = false;
+		while (DeltaMove.y != -50)
+		{
+			DeltaMove.y -= gravity;
+			Grounded = false;
+		}
 	}
 
 	DeltaMove.y += gravity;
