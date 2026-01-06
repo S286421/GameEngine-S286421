@@ -82,6 +82,24 @@
     <Filter Include="Drag and Drop\Source Files">
       <UniqueIdentifier>{77c08403-306f-4cdd-9d64-04b57bcd6f5e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Save and Load">
+      <UniqueIdentifier>{79b66bde-b7c5-4ea6-bdba-54303243c8cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Save and Load\Header Files">
+      <UniqueIdentifier>{6f7f93a4-d97c-40c1-bcaa-b80d0f67e6e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Save and Load\Source FIles">
+      <UniqueIdentifier>{a494eb6a-3311-409f-95f2-c33c826a5baa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Profiling System">
+      <UniqueIdentifier>{0819e27e-545a-45cc-83bf-1870fb1c522d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Profiling System\Header Files">
+      <UniqueIdentifier>{8b03a487-451d-40b7-936e-781f9054ae07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Profiling System\Source Files">
+      <UniqueIdentifier>{755851c2-b2dd-4e54-812c-b1201eb129f0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -188,6 +206,15 @@
     </ClCompile>
     <ClCompile Include="Hierarchy.cpp">
       <Filter>Drag and Drop\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveLoadSystem.cpp">
+      <Filter>Save and Load\Source FIles</Filter>
+    </ClCompile>
+    <ClCompile Include="ISaveLoadable.cpp">
+      <Filter>Save and Load\Source FIles</Filter>
+    </ClCompile>
+    <ClCompile Include="ProfilerSystem.cpp">
+      <Filter>Profiling System\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -304,6 +331,18 @@
     </ClInclude>
     <ClInclude Include="Hierarchy.h">
       <Filter>Drag and Drop\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveLoadSystem.h">
+      <Filter>Save and Load\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ISaveLoadable.h">
+      <Filter>Save and Load\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProfilerSystem.h">
+      <Filter>Profiling System\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

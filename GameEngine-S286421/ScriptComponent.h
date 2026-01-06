@@ -24,5 +24,12 @@ private:
 	void reloadIfChanged();
 
 	void LoadScript();
+
+public:
+	nlohmann::json Save() const override;
+	void Load(nlohmann::json LoadData, std::shared_ptr<SDL_Renderer> renderer) override;
+	std::string Type() const override { return "ScriptComponent"; }
+
+	ScriptComponent(GameObject* ParentObject) : I_ComponentBase(ParentObject) {};
 };
 

@@ -27,5 +27,7 @@ public:
 	Pawn* AddGameObject(const std::string path, int x, int y, bool isTransparent);
 
 	void DrawHierarchyItems();
+
+	std::vector<Pawn*> GetHierarchyList() const { return HierarchyList; }
 };
 

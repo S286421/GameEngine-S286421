@@ -1,24 +1,182 @@
-#include "SDL3/SDL.h"
-#include "Bitmap.h"
-#include "Player.h"
-#include "Monster.h"
-#include "Input.h"
-#include "Debug.h"
-#include "GameObject.h"
-#include "BitmapComponent.h"
-#include "ECS.h"
-#include "RendererSystem.h"
-#include "MovementSystem.h"
-#include "StackArenaAllocator.h"
-#include "Sol/sol.hpp"
-#include "ScriptComponent.h"
-#include "imgui.h"
-#include "ImGui/backends/imgui_impl_sdl3.h"
-#include "ImGui/backends/imgui_impl_sdlrenderer3.h"
-#include "EditorGui.h"
-#include "AssetWindow.h"
-#include <iostream>
-#include <random>
+#include "include.h"
+
+void SavePlayerToJson(Pawn& player)
+{
+	nlohmann::json SaveData;
+	SaveData["Player"] = { {"X",player.GetX()}, {"Y",player.GetY()} };
+	
+	std::ofstream file("savegame.json");
+	file << SaveData.dump(4);
+	file.close();
+
+	std::cout << "Saved to savegame.json\n";
+}
+
+int LoadPlayerFromJson(Pawn& player)
+{
+	std::ifstream file("savegame.json");
+	if (!file.is_open())
+	{
+		std::cerr << "Could not open savegame.json\n";
+		return 1;
+	}
+
+	nlohmann::json LoadData;
+	file >> LoadData;
+	file.close();
+
+	if (LoadData.contains("Player"))
+	{
+		player.SetX(LoadData["Player"]["X"].get<int>());
+		player.SetY(LoadData["Player"]["Y"].get<int>());
+		std::cout << "Loaded from savegame.json\n";
+		return 0;
+	}
+	else
+	{
+		std::cerr << "Invalid save data\n";
+		return 1;
+	}
+}
+
+void DrawProfileData(ImGuiIO& io)
+{
+	ImGui::Begin("Profiler");
+
+	static int selectedFrame = -1;
+	static FrameMap* Snapshot;
+	static std::vector<float>* FrameTimes;
+
+	if (ImGui::Button("take snapshot"))
+	{
+		Snapshot = &(ProfilerSystem::Instance().GetFrameData());
+		FrameTimes = &(ProfilerSystem::Instance().GetFrameTimes());
+	}
+
+	ImGui::SameLine();
+	static bool LiveFlameGraph = true;
+	ImGui::Checkbox("Live Flame Graph", &LiveFlameGraph);
+	if (LiveFlameGraph) { selectedFrame = -1; }
+
+	static int range[2] = { 0, 100 };
+	if (FrameTimes && FrameTimes->size() > 100)
+	{
+		ImGui::SliderInt2("Frame Range", range, 0, FrameTimes->size());
+		if (range[0] >= range[1]) { range[0] = range[1] - 1; }
+		std::vector<float> subData(FrameTimes->cbegin() + range[0], FrameTimes->cbegin() + range[1]);
+
+		int tempHistSelection = ImGui::MyPlotHistogram("Frame data", subData.data(), subData.size());
+		if (tempHistSelection != -1)
+		{
+			LiveFlameGraph = false;
+			selectedFrame = tempHistSelection;
+		}
+	}
+
+	FrameMap& previousFrame = ProfilerSystem::Instance().GetLastFrameData();
+	if (!LiveFlameGraph && selectedFrame != -1)
+	{
+		previousFrame.clear();
+		for (auto const [SampleName, samples] : *Snapshot) { previousFrame[SampleName].push_back(samples[range[0] + selectedFrame]); }
+	}
+	else { LiveFlameGraph = false; }
+
+	ImGui::LabelText("Frame Data Count", std::to_string(previousFrame.size()).c_str());
+
+	ImDrawList* drawlist = ImGui::GetCurrentWindow()->DrawList;
+	ImVec2 canvas_p0 = ImGui::GetCursorScreenPos();
+	ImVec2 canvas_sz = ImGui::GetContentRegionAvail();
+	if (canvas_sz.x < 50.0f) canvas_sz.x = 50.0f;
+	if (canvas_sz.y < 50.0f) canvas_sz.y = 50.0f;
+	ImVec2 canvas_p1 = ImVec2(canvas_p0.x + canvas_sz.x, canvas_p0.y + canvas_sz.y);
+	drawlist->PushClipRect(canvas_p0, canvas_p1, true);
+
+	uint64_t totalframeTime = 0;
+	std::vector<uint64_t> SampleTimes;
+	std::vector<float> SampleWidths;
+	std::vector<std::string> SampleNames;
+	for (auto const& [SampleName, samples] : previousFrame)
+	{
+		totalframeTime += samples[0]->frameTime + 1;
+		SampleTimes.push_back(samples[0]->frameTime + 1);
+		SampleNames.push_back(SampleName);
+	}
+
+	float MinBlockWidth = canvas_sz.x / totalframeTime;
+	for (int i = 0; i < SampleTimes.size(); i++) { SampleWidths.push_back(SampleTimes[i] * MinBlockWidth); }
+
+	ImGui::LabelText("Total Frame Time", std::to_string(totalframeTime).c_str());
+	ImGui::LabelText("Window Width / Total Frame Time", std::to_string(MinBlockWidth).c_str());
+
+	float TotalBlockWidthSoFar = 0;
+	int SampleCount = previousFrame.size();
+	const ImU32 col_outline_base = ImGui::GetColorU32(ImGuiCol_PlotHistogram) & 0x7FFFFFFF;
+	const ImU32 col_base = ImGui::GetColorU32(ImGuiCol_PlotHistogram) & 0x77FFFFFF;
+
+	for (int i = 0; i < SampleCount; i++)
+	{
+		float ThisBlockWidth = SampleWidths[i];
+
+		const ImVec2 minPos = ImVec2(canvas_p0.x + TotalBlockWidthSoFar, canvas_p0.y + 100);
+		const ImVec2 maxPos = ImVec2(canvas_p0.x + TotalBlockWidthSoFar + ThisBlockWidth, canvas_p0.y + 200);
+		drawlist->AddRectFilled(minPos, maxPos, col_base, GImGui->Style.FrameRounding);
+		drawlist->AddRect(minPos, maxPos, col_outline_base);
+
+		ImGui::RenderText(ImVec2(minPos.x + 10, minPos.y + 10), SampleNames[i].c_str());
+		ImGui::RenderText(ImVec2(minPos.x + 10, minPos.y + 20), std::to_string(SampleTimes[i] - 1).c_str());
+
+		TotalBlockWidthSoFar += ThisBlockWidth;
+	}
+
+	drawlist->PopClipRect();
+
+	ImGui::End();
+}
+
+void DrawHierarchy()
+{
+	ImGui::Begin("Hierarchy");
+
+	const std::vector<Pawn*>& Hierarchy = Hierarchy::INSTANCE().GetHierarchyList();
+	ImGuiTreeNodeFlags nodeFlags = ImGuiTreeNodeFlags_FramePadding | ImGuiTreeNodeFlags_DefaultOpen;
+
+	for (Pawn* pawn : Hierarchy)
+	{
+		bool isNodeOpen = ImGui::TreeNodeEx(std::to_string(pawn->ID).c_str(), nodeFlags, std::to_string(pawn->ID).c_str());
+
+		if (ImGui::IsItemClicked()) { std::cout << "Selected object is " << std::to_string(pawn->ID).c_str() << std::endl; }
+
+		if (ImGui::BeginDragDropSource())
+		{
+			ImGui::SetDragDropPayload("_TREENODE", pawn, sizeof(Pawn));
+			ImGui::Text("This is a drap and drop source");
+			ImGui::EndDragDropSource;
+		}
+
+		if (ImGui::BeginDragDropTarget())
+		{
+			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("_TREENODE"))
+			{
+				IM_ASSERT(payload->DataSize == sizeof(Pawn));
+				Pawn* PayloadAsPawn = static_cast<Pawn*>(payload->Data);
+				std::cout << PayloadAsPawn->ID << " on top of root" << std::endl;
+			}
+			ImGui::EndDragDropSource();
+		}
+
+		if (isNodeOpen)
+		{
+			for (int i = 0; i < 5; i++)
+			{
+				std::string itemName = "Child " + std::to_string(i);
+				if (ImGui::TreeNodeEx(itemName.c_str(), nodeFlags, itemName.c_str())) {ImGui::TreePop(); }
+			}
+			ImGui::TreePop();
+		}
+	}
+
+	ImGui::End();
+}
 
 int main(int argc, char* argv[])
 
@@ -96,8 +254,8 @@ int main(int argc, char* argv[])
 		MovementSystem::AddVelocityComponentToEntity(i, ecs, 10*RandomX, RandomY, RandomGrav);
 	}
 	
-	/*std::shared_ptr<ScriptComponent> scriptTest = std::make_shared<ScriptComponent>("./../luaSrc/ComponentTest.lua", &gameObject);
-	gameObject.AddComponent(scriptTest);*/
+	std::shared_ptr<ScriptComponent> scriptTest = std::make_shared<ScriptComponent>("./../luaSrc/ComponentTest.lua", &gameObject);
+	//gameObject.AddComponent(scriptTest);
 
 	//ImGui//
 
@@ -119,6 +277,19 @@ int main(int argc, char* argv[])
 
 	//ImGui//
 
+	irrklang::ISoundEngine* soundEngine = irrklang::createIrrKlangDevice();
+	if (!soundEngine)
+	{
+		DebugPrintF("Could not start up sound engine\n");
+		std::cerr << "Could not start up sound engine\n" << std::endl;
+	}
+	else
+	{
+		DebugPrintF("Sound engine started\n");
+		std::cout << "Sound engine started\n" << std::endl;
+	}
+	soundEngine->play2D("./../Libraries/irrKlang/media/getout.ogg", true);
+
 	std::vector<Pawn*> Colliders;
 	Colliders.push_back(&platform);
 	Colliders.push_back(&enemy);
@@ -129,6 +300,8 @@ int main(int argc, char* argv[])
 
 	while (IsRunning)
 	{
+		ProfilerSystem::Instance().StartFrame();
+
 		SDL_Event e;
 		while (SDL_PollEvent(&e))
 		{
@@ -136,6 +309,16 @@ int main(int argc, char* argv[])
 			ImGui_ImplSDL3_ProcessEvent(&e);
 			switch (e.type) {
 			case SDL_EVENT_KEY_DOWN:
+				if (e.key.scancode == SDL_SCANCODE_O)
+				{
+					SaveLoadSystem::INSTANCE().SaveGame("SavegameGO.json", gameObject);
+					std::cout << "Saved to SavegameGO.json\n";
+				}
+				if (e.key.scancode == SDL_SCANCODE_P)
+				{
+					SaveLoadSystem::INSTANCE().LoadGame("SavegameGO.json", gameObject, rendere);
+					std::cout << "Loaded from SavegameGO.json\n";
+				}
 				switch (e.key.key) {
 				case SDLK_ESCAPE:
 					IsRunning = false;
@@ -188,18 +371,22 @@ int main(int argc, char* argv[])
 			std::cout << "Button Pressed" << std::endl;
 		ImGui::End();
 
-		/*RootTransform.UpdateTransform(Transform{});
+		RootTransform.UpdateTransform(Transform{});
 		gameObject.Update();
 		gameObject2.Update();
-		monster.Subscribe("Test");*/
+		enemy.Subscribe("Test");
 
 		SDL_RenderTexture(rendere.get(), backgroundTexture, NULL, NULL);
 		Hierarchy::INSTANCE().DrawHierarchyItems();
+		PROFILE("PlayerRender");
 		player.Draw();
 		platform.Draw();
 		enemy.Draw();
 		//RendererSystem::Render(ecs, rendere);
 		MovementSystem::UpdatePositions(ecs);
+
+		DrawProfileData(io);
+		DrawHierarchy();
 
 		ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 		ImGui::Render();
@@ -212,10 +399,14 @@ int main(int argc, char* argv[])
 		Input::INSTANCE().LateUpdate();
 
 		SDL_Delay(16);
+
+		ProfilerSystem::Instance().EndFrame();
 	}
+	ProfilerSystem::Instance().WriteDataToCSV();
 
 	SDL_DestroyWindow(win);
 	SDL_Quit();
+	soundEngine->drop();
 	return 0;
 }
 

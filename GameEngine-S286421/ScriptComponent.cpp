@@ -54,3 +54,18 @@ void ScriptComponent::reloadIfChanged()
 		LoadScript();
 	}
 }
+
+nlohmann::json ScriptComponent::Save() const
+{
+	nlohmann::json BitmapSaveData;
+
+	BitmapSaveData[Type()] = { {"scriptPath", ScriptPath}, {"type", Type()} };
+
+	return BitmapSaveData;
+}
+
+void ScriptComponent::Load(nlohmann::json LoadData, std::shared_ptr<SDL_Renderer> renderer)
+{
+	ScriptPath = LoadData["scriptPath"].get<std::string>();
+	LoadScript();
+}

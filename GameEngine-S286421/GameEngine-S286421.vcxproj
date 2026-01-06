@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>$(SolutionDir)\LIbraries\lua;$(SolutionDir)\Libraries\SDL3_image-3.2.4\lib\x64;$(SolutionDir)\Libraries\SDL3-3.2.26\lib\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)\Libraries\SDL3-3.2.26\lib\x64;$(SolutionDir)\Libraries\SDL3_image-3.2.4\lib\x64;$(SolutionDir)\Libraries\lua;$(SolutionDir)\Libraries\irrKlang\lib\Winx64-visualStudio;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -105,13 +105,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\GameEngine-S286421\ImGui;$(SolutionDir)\Libraries;$(SolutionDir)\Libraries\lua\include;$(SolutionDir)\Libraries\SDL3-3.2.26\include;$(SolutionDir)\Libraries\SDL3_image-3.2.4\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\GameEngine-S286421\ImGui;$(SolutionDir)\Libraries;$(SolutionDir)\Libraries\lua\include;$(SolutionDir)\Libraries\SDL3-3.2.26\include;$(SolutionDir)\Libraries\JSON\single_include\nlohmann;$(SolutionDir)\Libraries\irrKlang\include;$(SolutionDir)\Libraries\SDL3_image-3.2.4\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies);SDL3_image.lib;liblua54.a</AdditionalDependencies>
+      <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies);SDL3_image.lib;liblua54.a;irrKlang.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -148,6 +148,7 @@
     <ClCompile Include="ImGui\imgui_tables.cpp" />
     <ClCompile Include="ImGui\imgui_widgets.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="ISaveLoadable.cpp" />
     <ClCompile Include="I_ComponentBase.cpp" />
     <ClCompile Include="Logging.cpp" />
     <ClCompile Include="main.cpp" />
@@ -158,9 +159,11 @@
     <ClCompile Include="MovementSystem.cpp" />
     <ClCompile Include="Pawn.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="ProfilerSystem.cpp" />
     <ClCompile Include="Publisher.cpp" />
     <ClCompile Include="RendererSystem.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="SaveLoadSystem.cpp" />
     <ClCompile Include="ScriptComponent.cpp" />
     <ClCompile Include="StackArenaAllocator.cpp" />
     <ClCompile Include="Subscriber.cpp" />
@@ -186,7 +189,9 @@
     <ClInclude Include="ImGui\imstb_rectpack.h" />
     <ClInclude Include="ImGui\imstb_textedit.h" />
     <ClInclude Include="ImGui\imstb_truetype.h" />
+    <ClInclude Include="include.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="ISaveLoadable.h" />
     <ClInclude Include="I_ComponentBase.h" />
     <ClInclude Include="Logging.h" />
     <ClInclude Include="IEventData.h" />
@@ -196,9 +201,11 @@
     <ClInclude Include="MovementSystem.h" />
     <ClInclude Include="Pawn.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="ProfilerSystem.h" />
     <ClInclude Include="Publisher.h" />
     <ClInclude Include="RendererSystem.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="SaveLoadSystem.h" />
     <ClInclude Include="ScriptComponent.h" />
     <ClInclude Include="SDL_Deleter.h" />
     <ClInclude Include="StackArenaAllocator.h" />

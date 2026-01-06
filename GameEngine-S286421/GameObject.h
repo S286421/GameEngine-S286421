@@ -3,11 +3,13 @@
 #include <vector>
 #include "I_ComponentBase.h"
 #include <memory>
+#include "BitmapComponent.h"
+#include "ScriptComponent.h"
 
 template<typename T>
 concept componentType = std::is_same_v< T, I_ComponentBase >;
 
-class GameObject
+class GameObject : public ISaveLoadable
 {
 public:
 	Transform transform;
@@ -33,5 +35,8 @@ public:
 
 		return nullptr;
 	}
+
+	nlohmann::json Save() const override;
+	void Load(nlohmann::json LoadData, std::shared_ptr<SDL_Renderer> renderer) override;
 };
 
