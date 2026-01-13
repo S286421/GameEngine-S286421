@@ -15,16 +15,26 @@ void Player::Update()
 	if (Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_DOWN))
 		UpdatePosition(0, speed);
 	if (Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_LEFT))
+	{
 		UpdatePosition(-speed, 0);
+		isMovingLeft = true;
+	}
 	if (Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_RIGHT))
+	{
 		UpdatePosition(speed, 0);
+		isMovingRight = true;
+	}
+	if (Input::INSTANCE().IsKeyUp(SDL_SCANCODE_RIGHT))
+		isMovingRight = false;
+	if (Input::INSTANCE().IsKeyUp(SDL_SCANCODE_LEFT))
+		isMovingLeft = false;
 
 	if (Input::INSTANCE().IsKeyDown(SDL_SCANCODE_Z))
 		Broker::INSTANCE().Publish("Test", new Message(*this, "<Test message>"));
 
 	if (Input::INSTANCE().IsKeyDown(SDL_SCANCODE_SPACE) && Grounded)
 	{
-		while (DeltaMove.y != -75)
+		while (DeltaMove.y != -15)
 		{
 			DeltaMove.y -= gravity;
 			Grounded = false;

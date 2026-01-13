@@ -53,12 +53,6 @@ void AssetWindow::DrawWindow()
 			}
 		}
 
-		if (ImGui::BeginDragDropSource())
-		{
-			ImGui::Image((ImTextureID)content[i]->GetTextureRef().get(), { 100,100 });
-			ImGui::EndDragDropSource();
-		}
-
 		ImGui::PopID();
 		ImGui::SameLine();
 	}

@@ -178,6 +178,7 @@ void DrawHierarchy()
 	ImGui::End();
 }
 
+
 int main(int argc, char* argv[])
 
 {
@@ -207,9 +208,38 @@ int main(int argc, char* argv[])
 
 	Hierarchy::INSTANCE().Init(rendere);
 
-	Player player(rendere, "./../Assets/monstertrans.bmp", 100, 200, true);
+	Player player(rendere, "./../Assets/Sprites/mario-idle.bmp", 100, 200, true);
 	Pawn platform(rendere, "./../Assets/platform-test.bmp", 100, 600, true);
-	Monster enemy(rendere, "./../Assets/monstertrans.bmp", 400, 486, true);
+	Monster enemy(rendere, "./../Assets/Sprites/monstertrans.bmp", 400, 486, true);
+
+	SDL_Surface* sprite1 = SDL_LoadBMP("./../Assets/Sprites/mario-1.bmp");
+	SDL_Surface* sprite2 = SDL_LoadBMP("./../Assets/Sprites/mario-2.bmp");
+	SDL_Surface* sprite3 = SDL_LoadBMP("./../Assets/Sprites/mario-3.bmp");
+	SDL_Surface* sprite4 = SDL_LoadBMP("./../Assets/Sprites/mario-4.bmp");
+	SDL_Surface* sprite5 = SDL_LoadBMP("./../Assets/Sprites/mario-5.bmp");
+	SDL_Surface* sprite6 = SDL_LoadBMP("./../Assets/Sprites/mario-6.bmp");
+	SDL_Surface* jumpSprite = SDL_LoadBMP("./../Assets/Sprites/mario-jump.bmp");
+
+	std::vector<SDL_Surface*> colourKeySprites = { sprite1, sprite2, sprite3, sprite4, sprite5, sprite6 };
+
+	for (int i = 0; i < colourKeySprites.size(); i++)
+	{
+		Uint32 colourKey = SDL_MapSurfaceRGBA(colourKeySprites[i], 255, 0, 255, 0);
+		SDL_SetSurfaceColorKey(colourKeySprites[i], true, colourKey);
+	}
+
+	Uint32 colourKey = SDL_MapSurfaceRGBA(jumpSprite, 255, 0, 255, 0);
+	SDL_SetSurfaceColorKey(jumpSprite, true, colourKey);
+
+	SDL_Texture* texture1 = SDL_CreateTextureFromSurface(rendere.get(), sprite1);
+	SDL_Texture* texture2 = SDL_CreateTextureFromSurface(rendere.get(), sprite2);
+	SDL_Texture* texture3 = SDL_CreateTextureFromSurface(rendere.get(), sprite3);
+	SDL_Texture* texture4 = SDL_CreateTextureFromSurface(rendere.get(), sprite4);
+	SDL_Texture* texture5 = SDL_CreateTextureFromSurface(rendere.get(), sprite5);
+	SDL_Texture* texture6 = SDL_CreateTextureFromSurface(rendere.get(), sprite6);
+	SDL_Texture* jumpTexture = SDL_CreateTextureFromSurface(rendere.get(), jumpSprite);
+	std::vector<SDL_Texture*> moveSprites = { texture1, texture2, texture3, texture4, texture5, texture6 };
+	std::vector<SDL_Texture*> otherSprites = { jumpTexture };
 
 	enemy.Subscribe("MouseButtonUpdate");
 	enemy.Subscribe("MousePositionUpdate");
@@ -225,14 +255,14 @@ int main(int argc, char* argv[])
 	Transform RootTransform;
 
 	GameObject gameObject;
-	std::shared_ptr<BitmapComponent> temp = std::make_shared<BitmapComponent>(rendere, "./../Assets/monster.bmp", 300, 200, false, &gameObject);
+	std::shared_ptr<BitmapComponent> temp = std::make_shared<BitmapComponent>(rendere, "./../Assets/Sprites/monster.bmp", 300, 200, false, &gameObject);
 	gameObject.AddComponent(temp);
 	gameObject.transform.Location.x = 500;
 	gameObject.transform.Location.y = 200;
 	RootTransform.AddChild(&gameObject.transform);
 
 	GameObject gameObject2;
-	std::shared_ptr<BitmapComponent> temp2 = std::make_shared<BitmapComponent>(rendere, "./../Assets/monstertrans.bmp", 300, 200, false, &gameObject2);
+	std::shared_ptr<BitmapComponent> temp2 = std::make_shared<BitmapComponent>(rendere, "./../Assets/Sprites/monstertrans.bmp", 300, 200, false, &gameObject2);
 	gameObject2.AddComponent(temp2);
 	gameObject2.transform.Location.x = 10;
 	gameObject2.transform.Location.y = 20;
@@ -298,9 +328,15 @@ int main(int argc, char* argv[])
 
 	bool IsRunning = true;
 
+	SavePlayerToJson(player);
+	SaveLoadSystem::INSTANCE().SaveGame("SavegameGO.json", gameObject);
+
+	int FrameNumber = 0;
+
 	while (IsRunning)
 	{
 		ProfilerSystem::Instance().StartFrame();
+
 
 		SDL_Event e;
 		while (SDL_PollEvent(&e))
@@ -309,6 +345,10 @@ int main(int argc, char* argv[])
 			ImGui_ImplSDL3_ProcessEvent(&e);
 			switch (e.type) {
 			case SDL_EVENT_KEY_DOWN:
+				if (e.key.scancode == SDL_SCANCODE_1)
+					SavePlayerToJson(player);
+				if (e.key.scancode == SDL_SCANCODE_2)
+					LoadPlayerFromJson(player);
 				if (e.key.scancode == SDL_SCANCODE_O)
 				{
 					SaveLoadSystem::INSTANCE().SaveGame("SavegameGO.json", gameObject);
@@ -341,17 +381,17 @@ int main(int argc, char* argv[])
 
 		int oldY = player.Position.y;
 
-
 		if (player.IsOverlapping(Colliders, player.DeltaMove))
 		{
 			auto it = std::find(player.currentCollisions.begin(), player.currentCollisions.end(), &enemy);
 			if (it != player.currentCollisions.end())
 			{
-				IsRunning = false;
+				LoadPlayerFromJson(player);
+				SaveLoadSystem::INSTANCE().LoadGame("SavegameGO.json", gameObject, rendere);
+
 			}
 
 		}
-
 
 		if (player.Position.y == oldY + player.DeltaMove.y && player.DeltaMove.y > 0)
 			player.Grounded = false;
@@ -379,7 +419,11 @@ int main(int argc, char* argv[])
 		SDL_RenderTexture(rendere.get(), backgroundTexture, NULL, NULL);
 		Hierarchy::INSTANCE().DrawHierarchyItems();
 		PROFILE("PlayerRender");
-		player.Draw();
+		//player.Draw();
+		if ((player.isMovingRight == true || player.isMovingLeft == true) && player.Grounded) { player.DrawAnimation(moveSprites, FrameNumber, player.GetX(), player.GetY()); }
+		else if (!player.Grounded)
+			player.DrawAnimation(otherSprites, FrameNumber, player.GetX(), player.GetY());
+		else { player.Draw(); }
 		platform.Draw();
 		enemy.Draw();
 		//RendererSystem::Render(ecs, rendere);
@@ -401,6 +445,7 @@ int main(int argc, char* argv[])
 		SDL_Delay(16);
 
 		ProfilerSystem::Instance().EndFrame();
+		FrameNumber++;
 	}
 	ProfilerSystem::Instance().WriteDataToCSV();
 

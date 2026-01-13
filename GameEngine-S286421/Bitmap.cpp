@@ -1,4 +1,5 @@
 #include "Bitmap.h"
+#include <vector>
 
 Bitmap::Bitmap(std::shared_ptr<SDL_Renderer> renderer, const std::string path, int x, int y,bool isTransparent)
 {
@@ -26,6 +27,16 @@ void Bitmap::Draw(int x, int y)
 
 	SDL_FRect dstRect = { x, y, _width, _height };
 	SDL_RenderTexture(_renderer.get(), _texture.get(), NULL, &dstRect);
+}
+
+void Bitmap::DrawAnimation(const std::vector<SDL_Texture*> &moveSprites, int Frame, int x, int y)
+{
+	Frame /= 5;
+	Frame %= moveSprites.size();
+	//SDL_FRect dstRect = { _xPosition, _yPosition, _width, _height };
+	SDL_FRect dstRect = {x, y, _width, _height};
+	SDL_RenderTexture(_renderer.get(), moveSprites[Frame], NULL, &dstRect);
+
 }
 
 SDL_Rect Bitmap::GetImageBounds() const

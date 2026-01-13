@@ -25,9 +25,15 @@ bool IDirectoryItem::DrawIconButton()
 	ImGui::BeginChild(Entry.path().filename().string().c_str(), { 200,200 }, false);
 	isClicked = ImGui::ImageButton("button", (ImTextureID)IconTexture.get(), { 100,100 });
 
+	if (ImGui::BeginDragDropSource())
+	{
+		ImGui::Image((ImTextureID)this->GetTextureRef().get(), { 100,100 });
+		EditorGui::INSTANCE().AssetMouseDrag = this;
+		ImGui::EndDragDropSource();
+	}
+
 	ImGui::Text(Entry.path().filename().string().c_str());
 	ImGui::EndChild();
-	EditorGui::INSTANCE().AssetMouseDrag = this;
 
 	return isClicked;
 }

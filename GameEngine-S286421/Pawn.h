@@ -46,5 +46,7 @@ public:
 	void Receive(const IEventData* message, const std::string& topic) override;
 
 	void DrawWindow() override;
+
+	void DrawAnimation(const std::vector< SDL_Texture*> &moveSprites, int Frame, int x, int y);
 };
 

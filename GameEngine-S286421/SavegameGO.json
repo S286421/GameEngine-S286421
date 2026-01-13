@@ -4,22 +4,16 @@
             "BitmapComponent": {
                 "height": 114,
                 "isTransparent": true,
-                "path": "./../Assets/monster.bmp",
+                "path": "./../Assets/Sprites/monster.bmp",
                 "type": "BitmapComponent",
                 "width": 81,
-                "x": 450,
+                "x": 300,
                 "y": 200
-            }
-        },
-        {
-            "ScriptComponent": {
-                "scriptPath": "./../luaSrc/ComponentTest.lua",
-                "type": "ScriptComponent"
             }
         }
     ],
     "Transform": {
-        "LocationX": 450,
+        "LocationX": 500,
         "LocationY": 200
     }
 }

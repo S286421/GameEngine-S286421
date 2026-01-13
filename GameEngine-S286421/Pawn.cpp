@@ -169,4 +169,8 @@ void Pawn::DrawWindow()
 	ImGui::End();
 }
 
+void Pawn::DrawAnimation(const std::vector< SDL_Texture*> &moveSprites, int Frame, int x, int y)
+{
+	Sprite->DrawAnimation(moveSprites, Frame, x, y);
+}
 

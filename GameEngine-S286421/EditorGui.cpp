@@ -13,7 +13,7 @@ void EditorGui::Receive(const IEventData * message, const std::string & topic)
 		SDL_Point mousePosition = { mouseEventData->mousePosition.x, mouseEventData->mousePosition.y };
 		std::cout << "Mouse Button Update at position: (" << mousePosition.x << ", " << mousePosition.y << ")\n";
 
-		//Hierarchy::INSTANCE().AddGameObject(AssetMouseDrag->GetDirectoryEntry().path().string(), mousePosition.x, mousePosition.y, true);
+		Hierarchy::INSTANCE().AddGameObject(AssetMouseDrag->GetDirectoryEntry().path().string(), mousePosition.x, mousePosition.y, true);
 
 		AssetMouseDrag = nullptr;
 	}
