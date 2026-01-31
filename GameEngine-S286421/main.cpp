@@ -212,34 +212,61 @@ int main(int argc, char* argv[])
 	Pawn platform(rendere, "./../Assets/platform-test.bmp", 100, 600, true);
 	Monster enemy(rendere, "./../Assets/Sprites/monstertrans.bmp", 400, 486, true);
 
-	SDL_Surface* sprite1 = SDL_LoadBMP("./../Assets/Sprites/mario-1.bmp");
-	SDL_Surface* sprite2 = SDL_LoadBMP("./../Assets/Sprites/mario-2.bmp");
-	SDL_Surface* sprite3 = SDL_LoadBMP("./../Assets/Sprites/mario-3.bmp");
-	SDL_Surface* sprite4 = SDL_LoadBMP("./../Assets/Sprites/mario-4.bmp");
-	SDL_Surface* sprite5 = SDL_LoadBMP("./../Assets/Sprites/mario-5.bmp");
-	SDL_Surface* sprite6 = SDL_LoadBMP("./../Assets/Sprites/mario-6.bmp");
-	SDL_Surface* jumpSprite = SDL_LoadBMP("./../Assets/Sprites/mario-jump.bmp");
+	SDL_Surface* sprite1L = SDL_LoadBMP("./../Assets/Sprites/mario-1l.bmp");
+	SDL_Surface* sprite2L = SDL_LoadBMP("./../Assets/Sprites/mario-2l.bmp");
+	SDL_Surface* sprite3L = SDL_LoadBMP("./../Assets/Sprites/mario-3l.bmp");
+	SDL_Surface* sprite4L = SDL_LoadBMP("./../Assets/Sprites/mario-4l.bmp");
+	SDL_Surface* sprite5L = SDL_LoadBMP("./../Assets/Sprites/mario-5l.bmp");
+	SDL_Surface* sprite6L = SDL_LoadBMP("./../Assets/Sprites/mario-6l.bmp");
+	SDL_Surface* jumpSpriteL = SDL_LoadBMP("./../Assets/Sprites/mario-jumpl.bmp");
 
-	std::vector<SDL_Surface*> colourKeySprites = { sprite1, sprite2, sprite3, sprite4, sprite5, sprite6 };
+	SDL_Surface* sprite1R = SDL_LoadBMP("./../Assets/Sprites/mario-1r.bmp");
+	SDL_Surface* sprite2R = SDL_LoadBMP("./../Assets/Sprites/mario-2r.bmp");
+	SDL_Surface* sprite3R = SDL_LoadBMP("./../Assets/Sprites/mario-3r.bmp");
+	SDL_Surface* sprite4R = SDL_LoadBMP("./../Assets/Sprites/mario-4r.bmp");
+	SDL_Surface* sprite5R = SDL_LoadBMP("./../Assets/Sprites/mario-5r.bmp");
+	SDL_Surface* sprite6R = SDL_LoadBMP("./../Assets/Sprites/mario-6r.bmp");
+	SDL_Surface* jumpSpriteR = SDL_LoadBMP("./../Assets/Sprites/mario-1r.bmp");
 
-	for (int i = 0; i < colourKeySprites.size(); i++)
+	std::vector<SDL_Surface*> colourKeySpritesL = { sprite1L, sprite2L, sprite3L, sprite4L, sprite5L, sprite6L };
+
+	for (int i = 0; i < colourKeySpritesL.size(); i++)
 	{
-		Uint32 colourKey = SDL_MapSurfaceRGBA(colourKeySprites[i], 255, 0, 255, 0);
-		SDL_SetSurfaceColorKey(colourKeySprites[i], true, colourKey);
+		Uint32 colourKey = SDL_MapSurfaceRGBA(colourKeySpritesL[i], 255, 0, 255, 0);
+		SDL_SetSurfaceColorKey(colourKeySpritesL[i], true, colourKey);
 	}
 
-	Uint32 colourKey = SDL_MapSurfaceRGBA(jumpSprite, 255, 0, 255, 0);
-	SDL_SetSurfaceColorKey(jumpSprite, true, colourKey);
+	std::vector<SDL_Surface*> colourKeySpritesR = { sprite1R, sprite2R, sprite3R, sprite3R, sprite5R, sprite6R };
 
-	SDL_Texture* texture1 = SDL_CreateTextureFromSurface(rendere.get(), sprite1);
-	SDL_Texture* texture2 = SDL_CreateTextureFromSurface(rendere.get(), sprite2);
-	SDL_Texture* texture3 = SDL_CreateTextureFromSurface(rendere.get(), sprite3);
-	SDL_Texture* texture4 = SDL_CreateTextureFromSurface(rendere.get(), sprite4);
-	SDL_Texture* texture5 = SDL_CreateTextureFromSurface(rendere.get(), sprite5);
-	SDL_Texture* texture6 = SDL_CreateTextureFromSurface(rendere.get(), sprite6);
-	SDL_Texture* jumpTexture = SDL_CreateTextureFromSurface(rendere.get(), jumpSprite);
-	std::vector<SDL_Texture*> moveSprites = { texture1, texture2, texture3, texture4, texture5, texture6 };
-	std::vector<SDL_Texture*> otherSprites = { jumpTexture };
+	for (int i = 0; i < colourKeySpritesR.size(); i++)
+	{
+		Uint32 colourKey = SDL_MapSurfaceRGBA(colourKeySpritesR[i], 255, 0, 255, 0);
+		SDL_SetSurfaceColorKey(colourKeySpritesR[i], true, colourKey);
+	}
+
+	Uint32 colourKey = SDL_MapSurfaceRGBA(jumpSpriteL, 255, 0, 255, 0);
+	SDL_SetSurfaceColorKey(jumpSpriteL, true, colourKey);
+	SDL_SetSurfaceColorKey(jumpSpriteR, true, colourKey);
+
+	SDL_Texture* texture1L = SDL_CreateTextureFromSurface(rendere.get(), sprite1L);
+	SDL_Texture* texture2L = SDL_CreateTextureFromSurface(rendere.get(), sprite2L);
+	SDL_Texture* texture3L = SDL_CreateTextureFromSurface(rendere.get(), sprite3L);
+	SDL_Texture* texture4L = SDL_CreateTextureFromSurface(rendere.get(), sprite4L);
+	SDL_Texture* texture5L = SDL_CreateTextureFromSurface(rendere.get(), sprite5L);
+	SDL_Texture* texture6L = SDL_CreateTextureFromSurface(rendere.get(), sprite6L);
+	SDL_Texture* jumpTextureL = SDL_CreateTextureFromSurface(rendere.get(), jumpSpriteL);
+	std::vector<SDL_Texture*> moveSpritesL = { texture1L, texture2L, texture3L, texture4L, texture5L, texture6L };
+	std::vector<SDL_Texture*> otherSpritesL = { jumpTextureL };
+
+	SDL_Texture* texture1R = SDL_CreateTextureFromSurface(rendere.get(), sprite1R);
+	SDL_Texture* texture2R = SDL_CreateTextureFromSurface(rendere.get(), sprite2R);
+	SDL_Texture* texture3R = SDL_CreateTextureFromSurface(rendere.get(), sprite3R);
+	SDL_Texture* texture4R = SDL_CreateTextureFromSurface(rendere.get(), sprite4R);
+	SDL_Texture* texture5R = SDL_CreateTextureFromSurface(rendere.get(), sprite5R);
+	SDL_Texture* texture6R = SDL_CreateTextureFromSurface(rendere.get(), sprite6R);
+	SDL_Texture* jumpTextureR = SDL_CreateTextureFromSurface(rendere.get(), jumpSpriteR);
+	std::vector<SDL_Texture*> moveSpritesR = { texture1R, texture2R, texture3R, texture4R, texture5R, texture6R };
+	std::vector<SDL_Texture*> otherSpritesR = { jumpTextureR };
 
 	enemy.Subscribe("MouseButtonUpdate");
 	enemy.Subscribe("MousePositionUpdate");
@@ -420,9 +447,14 @@ int main(int argc, char* argv[])
 		Hierarchy::INSTANCE().DrawHierarchyItems();
 		PROFILE("PlayerRender");
 		//player.Draw();
-		if ((player.isMovingRight == true || player.isMovingLeft == true) && player.Grounded) { player.DrawAnimation(moveSprites, FrameNumber, player.GetX(), player.GetY()); }
-		else if (!player.Grounded)
-			player.DrawAnimation(otherSprites, FrameNumber, player.GetX(), player.GetY());
+		if (player.isMovingRight && player.Grounded)
+			player.DrawAnimation(moveSpritesR, FrameNumber, player.GetX(), player.GetY());
+		else if (player.isMovingLeft && player.Grounded)
+			player.DrawAnimation(moveSpritesL, FrameNumber, player.GetX(), player.GetY());
+		else if (!player.Grounded && player.isMovingLeft)
+			player.DrawAnimation(otherSpritesL, FrameNumber, player.GetX(), player.GetY());
+		else if (!player.Grounded && player.isMovingRight)
+			player.DrawAnimation(otherSpritesR, FrameNumber, player.GetX(), player.GetY());
 		else { player.Draw(); }
 		platform.Draw();
 		enemy.Draw();
