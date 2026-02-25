@@ -149,7 +149,7 @@ void DrawHierarchy()
 		if (ImGui::BeginDragDropSource())
 		{
 			ImGui::SetDragDropPayload("_TREENODE", pawn, sizeof(Pawn));
-			ImGui::Text("This is a drap and drop source");
+			ImGui::Text("This is a drag and drop source");
 			ImGui::EndDragDropSource;
 		}
 
@@ -211,6 +211,7 @@ int main(int argc, char* argv[])
 	Player player(rendere, "./../Assets/Sprites/mario-idle.bmp", 100, 200, true);
 	Pawn platform(rendere, "./../Assets/platform-test.bmp", 100, 600, true);
 	Monster enemy(rendere, "./../Assets/Sprites/monstertrans.bmp", 400, 486, true);
+	Pawn key(rendere, "./../Assets/Sprites/key.bmp", 200, 550, true);
 
 	SDL_Surface* sprite1L = SDL_LoadBMP("./../Assets/Sprites/mario-1l.bmp");
 	SDL_Surface* sprite2L = SDL_LoadBMP("./../Assets/Sprites/mario-2l.bmp");
@@ -226,7 +227,7 @@ int main(int argc, char* argv[])
 	SDL_Surface* sprite4R = SDL_LoadBMP("./../Assets/Sprites/mario-4r.bmp");
 	SDL_Surface* sprite5R = SDL_LoadBMP("./../Assets/Sprites/mario-5r.bmp");
 	SDL_Surface* sprite6R = SDL_LoadBMP("./../Assets/Sprites/mario-6r.bmp");
-	SDL_Surface* jumpSpriteR = SDL_LoadBMP("./../Assets/Sprites/mario-1r.bmp");
+	SDL_Surface* jumpSpriteR = SDL_LoadBMP("./../Assets/Sprites/mario-jumpr.bmp");
 
 	std::vector<SDL_Surface*> colourKeySpritesL = { sprite1L, sprite2L, sprite3L, sprite4L, sprite5L, sprite6L };
 
@@ -236,7 +237,7 @@ int main(int argc, char* argv[])
 		SDL_SetSurfaceColorKey(colourKeySpritesL[i], true, colourKey);
 	}
 
-	std::vector<SDL_Surface*> colourKeySpritesR = { sprite1R, sprite2R, sprite3R, sprite3R, sprite5R, sprite6R };
+	std::vector<SDL_Surface*> colourKeySpritesR = { sprite1R, sprite2R, sprite3R, sprite4R, sprite5R, sprite6R };
 
 	for (int i = 0; i < colourKeySpritesR.size(); i++)
 	{
@@ -255,8 +256,8 @@ int main(int argc, char* argv[])
 	SDL_Texture* texture5L = SDL_CreateTextureFromSurface(rendere.get(), sprite5L);
 	SDL_Texture* texture6L = SDL_CreateTextureFromSurface(rendere.get(), sprite6L);
 	SDL_Texture* jumpTextureL = SDL_CreateTextureFromSurface(rendere.get(), jumpSpriteL);
-	std::vector<SDL_Texture*> moveSpritesL = { texture1L, texture2L, texture3L, texture4L, texture5L, texture6L };
-	std::vector<SDL_Texture*> otherSpritesL = { jumpTextureL };
+	std::vector<SDL_Texture*> moveSpritesR = { texture1L, texture2L, texture3L, texture4L, texture5L, texture6L };
+	std::vector<SDL_Texture*> otherSpritesR = { jumpTextureL };
 
 	SDL_Texture* texture1R = SDL_CreateTextureFromSurface(rendere.get(), sprite1R);
 	SDL_Texture* texture2R = SDL_CreateTextureFromSurface(rendere.get(), sprite2R);
@@ -265,8 +266,8 @@ int main(int argc, char* argv[])
 	SDL_Texture* texture5R = SDL_CreateTextureFromSurface(rendere.get(), sprite5R);
 	SDL_Texture* texture6R = SDL_CreateTextureFromSurface(rendere.get(), sprite6R);
 	SDL_Texture* jumpTextureR = SDL_CreateTextureFromSurface(rendere.get(), jumpSpriteR);
-	std::vector<SDL_Texture*> moveSpritesR = { texture1R, texture2R, texture3R, texture4R, texture5R, texture6R };
-	std::vector<SDL_Texture*> otherSpritesR = { jumpTextureR };
+	std::vector<SDL_Texture*> moveSpritesL = { texture1R, texture2R, texture3R, texture4R, texture5R, texture6R };
+	std::vector<SDL_Texture*> otherSpritesL = { jumpTextureR };
 
 	enemy.Subscribe("MouseButtonUpdate");
 	enemy.Subscribe("MousePositionUpdate");
@@ -350,6 +351,7 @@ int main(int argc, char* argv[])
 	std::vector<Pawn*> Colliders;
 	Colliders.push_back(&platform);
 	Colliders.push_back(&enemy);
+	Colliders.push_back(&key);
 
 	AssetWindow window(rendere);
 
@@ -359,6 +361,7 @@ int main(int argc, char* argv[])
 	SaveLoadSystem::INSTANCE().SaveGame("SavegameGO.json", gameObject);
 
 	int FrameNumber = 0;
+	bool hasKey = false;
 
 	while (IsRunning)
 	{
@@ -418,6 +421,15 @@ int main(int argc, char* argv[])
 
 			}
 
+			it = std::find(player.currentCollisions.begin(), player.currentCollisions.end(), &key);
+			if (it != player.currentCollisions.end())
+			{
+				Colliders.erase(it);
+				key = Pawn(rendere, "", 0, 0, true);
+				hasKey = true;
+				std::cout << "Key collected" << std::endl;
+			}
+
 		}
 
 		if (player.Position.y == oldY + player.DeltaMove.y && player.DeltaMove.y > 0)
@@ -453,11 +465,12 @@ int main(int argc, char* argv[])
 			player.DrawAnimation(moveSpritesL, FrameNumber, player.GetX(), player.GetY());
 		else if (!player.Grounded && player.isMovingLeft)
 			player.DrawAnimation(otherSpritesL, FrameNumber, player.GetX(), player.GetY());
-		else if (!player.Grounded && player.isMovingRight)
+		else if ((!player.Grounded && player.isMovingRight) || !player.Grounded)
 			player.DrawAnimation(otherSpritesR, FrameNumber, player.GetX(), player.GetY());
 		else { player.Draw(); }
 		platform.Draw();
 		enemy.Draw();
+		key.Draw();
 		//RendererSystem::Render(ecs, rendere);
 		MovementSystem::UpdatePositions(ecs);
 
