@@ -2,6 +2,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include <imgui.h>
 #include "Pawn.h"
 
 class SDL_Renderer;
@@ -24,10 +25,13 @@ public:
 
 	std::vector<Pawn*> HierarchyList;
 
-	Pawn* AddGameObject(const std::string path, int x, int y, bool isTransparent);
+	void AddGameObject(Pawn* pawn);
+	Pawn* AddGameObject(std::string path, int x, int y, bool isTransparent);
 
 	void DrawHierarchyItems();
 
 	std::vector<Pawn*> GetHierarchyList() const { return HierarchyList; }
+
+	void DrawHierarchy();
 };
 

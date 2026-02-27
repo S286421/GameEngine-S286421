@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(std::shared_ptr<SDL_Renderer> renderer, const std::string path, int x, int y, bool isTransparent) : Pawn(renderer, path, x, y, isTransparent)
+Player::Player(std::shared_ptr<SDL_Renderer> renderer, const std::string path, int x, int y, bool isTransparent, std::string pawnName) : Pawn(renderer, path, x, y, isTransparent, pawnName)
 {
 }
 
@@ -12,35 +12,35 @@ void Player::Update()
 	Input::INSTANCE().UpdateKeyBoard();
 	/*if (Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_UP))
 		UpdatePosition(0, -speed);*/
-	if (Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_DOWN))
+	if (Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_DOWN) || Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_S))
 		UpdatePosition(0, speed);
-	if (Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_LEFT))
+	if (Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_LEFT) || Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_A))
 	{
 		UpdatePosition(-speed, 0);
 		isMovingLeft = true;
 	}
-	if (Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_RIGHT))
+	if (Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_RIGHT) || Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_D))
 	{
 		UpdatePosition(speed, 0);
 		isMovingRight = true;
 	}
-	if (Input::INSTANCE().IsKeyUp(SDL_SCANCODE_RIGHT))
+	if (Input::INSTANCE().IsKeyUp(SDL_SCANCODE_RIGHT) || Input::INSTANCE().IsKeyUp(SDL_SCANCODE_D))
 		isMovingRight = false;
-	if (Input::INSTANCE().IsKeyUp(SDL_SCANCODE_LEFT))
+	if (Input::INSTANCE().IsKeyUp(SDL_SCANCODE_LEFT) || Input::INSTANCE().IsKeyUp(SDL_SCANCODE_A))
 		isMovingLeft = false;
 
 	if (Input::INSTANCE().IsKeyDown(SDL_SCANCODE_Z))
 		Broker::INSTANCE().Publish("Test", new Message(*this, "<Test message>"));
 
-	if (Input::INSTANCE().IsKeyDown(SDL_SCANCODE_SPACE) && Grounded)
+	if ((Input::INSTANCE().IsKeyDown(SDL_SCANCODE_SPACE) && Grounded) || (Input::INSTANCE().IsKeyDown(SDL_SCANCODE_W) && Grounded) || (Input::INSTANCE().IsKeyDown(SDL_SCANCODE_UP) && Grounded))
 	{
-		while (DeltaMove.y != -15)
-		{
-			DeltaMove.y -= gravity;
-			Grounded = false;
-		}
+		yVelocity = -25;
+		Grounded = false;
 	}
 
-	DeltaMove.y += gravity;
+	if (Grounded) { yVelocity = 0; }
+
+	yVelocity += gravity;
+	DeltaMove.y += yVelocity;
 	DeltaMove.y = std::min(DeltaMove.y, maxFallSpeed);
 }

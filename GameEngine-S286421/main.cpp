@@ -1,23 +1,23 @@
 #include "include.h"
 
-void SavePlayerToJson(Pawn& player)
+void SavePlayerToJson(Pawn& player, std::string savefile)
 {
 	nlohmann::json SaveData;
 	SaveData["Player"] = { {"X",player.GetX()}, {"Y",player.GetY()} };
 	
-	std::ofstream file("savegame.json");
+	std::ofstream file(savefile);
 	file << SaveData.dump(4);
 	file.close();
 
-	std::cout << "Saved to savegame.json\n";
+	std::cout << "Saved to " + savefile + "\n";
 }
 
-int LoadPlayerFromJson(Pawn& player)
+int LoadPlayerFromJson(Pawn& player, std::string savefile)
 {
-	std::ifstream file("savegame.json");
+	std::ifstream file(savefile);
 	if (!file.is_open())
 	{
-		std::cerr << "Could not open savegame.json\n";
+		std::cerr << "Could not open " + savefile + "\n";
 		return 1;
 	}
 
@@ -29,7 +29,7 @@ int LoadPlayerFromJson(Pawn& player)
 	{
 		player.SetX(LoadData["Player"]["X"].get<int>());
 		player.SetY(LoadData["Player"]["Y"].get<int>());
-		std::cout << "Loaded from savegame.json\n";
+		std::cout << "Loaded from " + savefile + "\n";
 		return 0;
 	}
 	else
@@ -133,52 +133,6 @@ void DrawProfileData(ImGuiIO& io)
 	ImGui::End();
 }
 
-void DrawHierarchy()
-{
-	ImGui::Begin("Hierarchy");
-
-	const std::vector<Pawn*>& Hierarchy = Hierarchy::INSTANCE().GetHierarchyList();
-	ImGuiTreeNodeFlags nodeFlags = ImGuiTreeNodeFlags_FramePadding | ImGuiTreeNodeFlags_DefaultOpen;
-
-	for (Pawn* pawn : Hierarchy)
-	{
-		bool isNodeOpen = ImGui::TreeNodeEx(std::to_string(pawn->ID).c_str(), nodeFlags, std::to_string(pawn->ID).c_str());
-
-		if (ImGui::IsItemClicked()) { std::cout << "Selected object is " << std::to_string(pawn->ID).c_str() << std::endl; }
-
-		if (ImGui::BeginDragDropSource())
-		{
-			ImGui::SetDragDropPayload("_TREENODE", pawn, sizeof(Pawn));
-			ImGui::Text("This is a drag and drop source");
-			ImGui::EndDragDropSource;
-		}
-
-		if (ImGui::BeginDragDropTarget())
-		{
-			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("_TREENODE"))
-			{
-				IM_ASSERT(payload->DataSize == sizeof(Pawn));
-				Pawn* PayloadAsPawn = static_cast<Pawn*>(payload->Data);
-				std::cout << PayloadAsPawn->ID << " on top of root" << std::endl;
-			}
-			ImGui::EndDragDropSource();
-		}
-
-		if (isNodeOpen)
-		{
-			for (int i = 0; i < 5; i++)
-			{
-				std::string itemName = "Child " + std::to_string(i);
-				if (ImGui::TreeNodeEx(itemName.c_str(), nodeFlags, itemName.c_str())) {ImGui::TreePop(); }
-			}
-			ImGui::TreePop();
-		}
-	}
-
-	ImGui::End();
-}
-
-
 int main(int argc, char* argv[])
 
 {
@@ -208,10 +162,22 @@ int main(int argc, char* argv[])
 
 	Hierarchy::INSTANCE().Init(rendere);
 
-	Player player(rendere, "./../Assets/Sprites/mario-idle.bmp", 100, 200, true);
-	Pawn platform(rendere, "./../Assets/platform-test.bmp", 100, 600, true);
-	Monster enemy(rendere, "./../Assets/Sprites/monstertrans.bmp", 400, 486, true);
-	Pawn key(rendere, "./../Assets/Sprites/key.bmp", 200, 550, true);
+	
+	Player player(rendere, "./../Assets/Sprites/mario-idle.bmp", 100, 200, true, "player");
+	Hierarchy::INSTANCE().AddGameObject(&player);
+
+	Pawn platform(rendere, "./../Assets/platform-test.bmp", 100, 600, true, "platform");
+	Hierarchy::INSTANCE().AddGameObject(&platform);
+
+	Monster enemy(rendere, "./../Assets/Sprites/monstertrans.bmp", 400, 486, true, "enemy");
+	Hierarchy::INSTANCE().AddGameObject(&enemy);
+
+	Pawn key(rendere, "./../Assets/Sprites/key.bmp", 200, 550, true, "key");
+	Hierarchy::INSTANCE().AddGameObject(&key);
+
+	Pawn door(rendere, "./../Assets/Sprites/door.bmp", 500, 486, true, "door");
+	Hierarchy::INSTANCE().AddGameObject(&door);
+
 
 	SDL_Surface* sprite1L = SDL_LoadBMP("./../Assets/Sprites/mario-1l.bmp");
 	SDL_Surface* sprite2L = SDL_LoadBMP("./../Assets/Sprites/mario-2l.bmp");
@@ -350,14 +316,16 @@ int main(int argc, char* argv[])
 
 	std::vector<Pawn*> Colliders;
 	Colliders.push_back(&platform);
-	Colliders.push_back(&enemy);
+	//Colliders.push_back(&enemy);
 	Colliders.push_back(&key);
+	Colliders.push_back(&door);
 
 	AssetWindow window(rendere);
 
 	bool IsRunning = true;
 
-	SavePlayerToJson(player);
+	SavePlayerToJson(player, "savegame.json");
+	SavePlayerToJson(player, "bootsave.json");
 	SaveLoadSystem::INSTANCE().SaveGame("SavegameGO.json", gameObject);
 
 	int FrameNumber = 0;
@@ -376,9 +344,9 @@ int main(int argc, char* argv[])
 			switch (e.type) {
 			case SDL_EVENT_KEY_DOWN:
 				if (e.key.scancode == SDL_SCANCODE_1)
-					SavePlayerToJson(player);
+					SavePlayerToJson(player, "savegame.json");
 				if (e.key.scancode == SDL_SCANCODE_2)
-					LoadPlayerFromJson(player);
+					LoadPlayerFromJson(player, "savegame.json");
 				if (e.key.scancode == SDL_SCANCODE_O)
 				{
 					SaveLoadSystem::INSTANCE().SaveGame("SavegameGO.json", gameObject);
@@ -408,6 +376,7 @@ int main(int argc, char* argv[])
 		Input::INSTANCE().UpdateKeyBoard();
 
 		player.Update();
+		enemy.Update();
 
 		int oldY = player.Position.y;
 
@@ -416,7 +385,7 @@ int main(int argc, char* argv[])
 			auto it = std::find(player.currentCollisions.begin(), player.currentCollisions.end(), &enemy);
 			if (it != player.currentCollisions.end())
 			{
-				LoadPlayerFromJson(player);
+				LoadPlayerFromJson(player, "savegame.json");
 				SaveLoadSystem::INSTANCE().LoadGame("SavegameGO.json", gameObject, rendere);
 
 			}
@@ -424,10 +393,22 @@ int main(int argc, char* argv[])
 			it = std::find(player.currentCollisions.begin(), player.currentCollisions.end(), &key);
 			if (it != player.currentCollisions.end())
 			{
-				Colliders.erase(it);
-				key = Pawn(rendere, "", 0, 0, true);
+				key = Pawn(rendere, "", 0, 0, true, "");
 				hasKey = true;
 				std::cout << "Key collected" << std::endl;
+			}
+
+			it = std::find(player.currentCollisions.begin(), player.currentCollisions.end(), &door);
+			if (it != player.currentCollisions.end())
+			{
+				if (hasKey == true)
+				{
+					std::cout << "Level completed" << std::endl;
+					LoadPlayerFromJson(player, "bootsave.json");
+					key = Pawn(rendere, "./../Assets/Sprites/key.bmp", 200, 550, true, "key");
+					hasKey = false;
+				}
+				else { std::cout << "collect key first :(\n"; }
 			}
 
 		}
@@ -456,9 +437,7 @@ int main(int argc, char* argv[])
 		enemy.Subscribe("Test");
 
 		SDL_RenderTexture(rendere.get(), backgroundTexture, NULL, NULL);
-		Hierarchy::INSTANCE().DrawHierarchyItems();
 		PROFILE("PlayerRender");
-		//player.Draw();
 		if (player.isMovingRight && player.Grounded)
 			player.DrawAnimation(moveSpritesR, FrameNumber, player.GetX(), player.GetY());
 		else if (player.isMovingLeft && player.Grounded)
@@ -471,11 +450,12 @@ int main(int argc, char* argv[])
 		platform.Draw();
 		enemy.Draw();
 		key.Draw();
+		door.Draw();
 		//RendererSystem::Render(ecs, rendere);
 		MovementSystem::UpdatePositions(ecs);
 
 		DrawProfileData(io);
-		DrawHierarchy();
+		Hierarchy::INSTANCE().DrawHierarchy();
 
 		ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 		ImGui::Render();

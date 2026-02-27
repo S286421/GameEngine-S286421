@@ -1,6 +1,7 @@
 #include "Monster.h"
+#include <math.h>
 
-Monster::Monster(std::shared_ptr<SDL_Renderer> renderer, const std::string path, int x, int y, bool isTransparent) : Pawn(renderer, path, x, y, isTransparent)
+Monster::Monster(std::shared_ptr<SDL_Renderer> renderer, const std::string path, int x, int y, bool isTransparent, std::string pawnName) : Pawn(renderer, path, x, y, isTransparent, pawnName)
 {
 }
 
@@ -11,4 +12,11 @@ void Monster::Receive(const IEventData* EventData, const std::string& topic)
 	{
 		std::cout << "Received message: " << static_cast<const Message*>(EventData)->getMessage() << ", from topic: " << topic << std::endl;
 	}
+}
+
+void Monster::Update()
+{
+
+	int i = sin(SDL_GetTicks() / 500) * 2;
+	Position.x += i;
 }

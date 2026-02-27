@@ -30,13 +30,14 @@ void Pawn::UpdatePosition(int x, int y)
 
 int Pawn::CurrentID = 0;
 
-Pawn::Pawn(std::shared_ptr<SDL_Renderer> renderer, const std::string path, int x, int y, bool isTransparent)
+Pawn::Pawn(std::shared_ptr<SDL_Renderer> renderer, const std::string path, int x, int y, bool isTransparent, std::string pawnName)
 {
 	Sprite = std::unique_ptr<Bitmap>(new Bitmap(renderer, path, x, y, isTransparent));
 	this->Position.x = x;
 	this->Position.y = y;
 
 	ID = CurrentID++;
+	PawnName = pawnName;
 }
 
 void Pawn::Draw()
@@ -165,6 +166,8 @@ void Pawn::DrawWindow()
 	ImGui::InputInt("Speed", &speed);
 	ImGui::InputInt("Gravity", &gravity);
 	ImGui::InputInt("Max Fall Speed", &maxFallSpeed);
+	ImGui::InputFloat("X Velocity", &xVelocity);
+	ImGui::InputFloat("Y Velocity", &yVelocity);
 
 	ImGui::End();
 }

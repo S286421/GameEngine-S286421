@@ -5,7 +5,7 @@
 class Player : public Pawn
 {
 public:
-	Player(std::shared_ptr<SDL_Renderer> renderer, const std::string path, int x, int y, bool isTransparent);
+	Player(std::shared_ptr<SDL_Renderer> renderer, const std::string path, int x, int y, bool isTransparent, std::string pawnName);
 
 	void Update() override;
 

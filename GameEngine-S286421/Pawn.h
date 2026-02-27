@@ -13,15 +13,18 @@ protected:
 	std::unique_ptr<Bitmap> Sprite;
 
 public:
-	Pawn(std::shared_ptr<SDL_Renderer> renderer, const std::string path, int x, int y, bool isTransparent);
+	Pawn(std::shared_ptr<SDL_Renderer> renderer, const std::string path, int x, int y, bool isTransparent, std::string pawnName);
 
 	int speed = 1;
 	int gravity = 1;
-	int maxFallSpeed = 10;
+	int maxFallSpeed = 5;
 	bool Grounded = false;
+	float yVelocity = 0;
 
 	int ID = 0;
 	static int CurrentID;
+
+	std::string PawnName;
 
 	SDL_Point Position;
 	SDL_Point DeltaMove;
