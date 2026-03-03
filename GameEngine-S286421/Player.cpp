@@ -38,6 +38,9 @@ void Player::Update()
 		Grounded = false;
 	}
 
+	if (Input::INSTANCE().IsKeyHeld(SDL_SCANCODE_LSHIFT)) { speed = 4; }
+	else { speed = 1; }
+
 	if (Grounded) { yVelocity = 0; }
 
 	yVelocity += gravity;

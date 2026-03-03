@@ -166,7 +166,6 @@ void Pawn::DrawWindow()
 	ImGui::InputInt("Speed", &speed);
 	ImGui::InputInt("Gravity", &gravity);
 	ImGui::InputInt("Max Fall Speed", &maxFallSpeed);
-	ImGui::InputFloat("X Velocity", &xVelocity);
 	ImGui::InputFloat("Y Velocity", &yVelocity);
 
 	ImGui::End();

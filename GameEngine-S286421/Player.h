@@ -11,5 +11,7 @@ public:
 
 	bool isMovingRight = false;
 	bool isMovingLeft = false;
+
+	bool canDoubleJump = true;
 };
 

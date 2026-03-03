@@ -1,0 +1,19 @@
+{
+    "Components": [
+        {
+            "BitmapComponent": {
+                "height": 114,
+                "isTransparent": true,
+                "path": "./../Assets/Sprites/monster.bmp",
+                "type": "BitmapComponent",
+                "width": 81,
+                "x": 300,
+                "y": 200
+            }
+        }
+    ],
+    "Transform": {
+        "LocationX": 500,
+        "LocationY": 200
+    }
+}

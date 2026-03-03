@@ -163,19 +163,28 @@ int main(int argc, char* argv[])
 	Hierarchy::INSTANCE().Init(rendere);
 
 	
-	Player player(rendere, "./../Assets/Sprites/mario-idle.bmp", 100, 200, true, "player");
+	Player player(rendere, "./../Assets/Sprites/mario-idle.bmp", 215, 184, true, "player");
 	Hierarchy::INSTANCE().AddGameObject(&player);
 
-	Pawn platform(rendere, "./../Assets/platform-test.bmp", 100, 600, true, "platform");
+	Pawn platform(rendere, "./../Assets/Sprites/platform-test.bmp", 215, 300, true, "platform");
 	Hierarchy::INSTANCE().AddGameObject(&platform);
 
-	Monster enemy(rendere, "./../Assets/Sprites/monstertrans.bmp", 400, 486, true, "enemy");
+	Pawn platform2(rendere, "./../Assets/Sprites/platform-test.bmp", 250, 600, true, "platform2");
+	Hierarchy::INSTANCE().AddGameObject(&platform2);
+
+	Pawn platform3(rendere, "./../Assets/Sprites/other-platform.bmp", 125, 700, true, "platform3");
+	Hierarchy::INSTANCE().AddGameObject(&platform3);
+
+	Pawn platform4(rendere, "./../Assets/Sprites/other-platform.bmp", 900, 430, true, "platform4");
+	Hierarchy::INSTANCE().AddGameObject(&platform4);
+
+	Monster enemy(rendere, "./../Assets/Sprites/monstertrans.bmp", 400, 186, true, "enemy");
 	Hierarchy::INSTANCE().AddGameObject(&enemy);
 
-	Pawn key(rendere, "./../Assets/Sprites/key.bmp", 200, 550, true, "key");
+	Pawn key(rendere, "./../Assets/Sprites/key.bmp", 465, 550, true, "key");
 	Hierarchy::INSTANCE().AddGameObject(&key);
 
-	Pawn door(rendere, "./../Assets/Sprites/door.bmp", 500, 486, true, "door");
+	Pawn door(rendere, "./../Assets/Sprites/door.bmp", 700, 184, true, "door");
 	Hierarchy::INSTANCE().AddGameObject(&door);
 
 
@@ -315,10 +324,7 @@ int main(int argc, char* argv[])
 	soundEngine->play2D("./../Libraries/irrKlang/media/getout.ogg", true);
 
 	std::vector<Pawn*> Colliders;
-	Colliders.push_back(&platform);
-	//Colliders.push_back(&enemy);
-	Colliders.push_back(&key);
-	Colliders.push_back(&door);
+	for (auto pawnCollider = std::next(Hierarchy::INSTANCE().HierarchyList.begin()); pawnCollider != Hierarchy::INSTANCE().HierarchyList.end(); ++pawnCollider) { Colliders.push_back(*pawnCollider); }
 
 	AssetWindow window(rendere);
 
@@ -327,14 +333,15 @@ int main(int argc, char* argv[])
 	SavePlayerToJson(player, "savegame.json");
 	SavePlayerToJson(player, "bootsave.json");
 	SaveLoadSystem::INSTANCE().SaveGame("SavegameGO.json", gameObject);
+	SaveLoadSystem::INSTANCE().SaveGame("bootsaveGO.json", gameObject);
 
 	int FrameNumber = 0;
 	bool hasKey = false;
+	bool hasKeyOnSave = false;
 
 	while (IsRunning)
 	{
 		ProfilerSystem::Instance().StartFrame();
-
 
 		SDL_Event e;
 		while (SDL_PollEvent(&e))
@@ -343,10 +350,21 @@ int main(int argc, char* argv[])
 			ImGui_ImplSDL3_ProcessEvent(&e);
 			switch (e.type) {
 			case SDL_EVENT_KEY_DOWN:
-				if (e.key.scancode == SDL_SCANCODE_1)
+				if (e.key.scancode == SDL_SCANCODE_F1)
+				{
+					if (hasKey == false) { hasKeyOnSave = false; }
+					else { hasKeyOnSave = true; }
 					SavePlayerToJson(player, "savegame.json");
-				if (e.key.scancode == SDL_SCANCODE_2)
+				}
+				if (e.key.scancode == SDL_SCANCODE_F2)
+				{
+					if (hasKeyOnSave == false)
+					{
+						key = Pawn(rendere, "./../Assets/Sprites/key.bmp", 465, 550, true, "key");
+						hasKey = false;
+					}
 					LoadPlayerFromJson(player, "savegame.json");
+				}
 				if (e.key.scancode == SDL_SCANCODE_O)
 				{
 					SaveLoadSystem::INSTANCE().SaveGame("SavegameGO.json", gameObject);
@@ -356,6 +374,14 @@ int main(int argc, char* argv[])
 				{
 					SaveLoadSystem::INSTANCE().LoadGame("SavegameGO.json", gameObject, rendere);
 					std::cout << "Loaded from SavegameGO.json\n";
+				}
+				if (e.key.scancode == SDL_SCANCODE_LCTRL)
+				{
+					LoadPlayerFromJson(player, "bootsave.json");
+					SaveLoadSystem::INSTANCE().LoadGame("bootsaveGO.json", gameObject, rendere);
+					key = Pawn(rendere, "./../Assets/Sprites/key.bmp", 465, 550, true, "key");
+					hasKey = false;
+					hasKeyOnSave = false;
 				}
 				switch (e.key.key) {
 				case SDLK_ESCAPE:
@@ -387,7 +413,11 @@ int main(int argc, char* argv[])
 			{
 				LoadPlayerFromJson(player, "savegame.json");
 				SaveLoadSystem::INSTANCE().LoadGame("SavegameGO.json", gameObject, rendere);
-
+				if (hasKeyOnSave == false)
+				{
+					key = Pawn(rendere, "./../Assets/Sprites/key.bmp", 465, 550, true, "key");
+					hasKey = false;
+				}
 			}
 
 			it = std::find(player.currentCollisions.begin(), player.currentCollisions.end(), &key);
@@ -405,7 +435,7 @@ int main(int argc, char* argv[])
 				{
 					std::cout << "Level completed" << std::endl;
 					LoadPlayerFromJson(player, "bootsave.json");
-					key = Pawn(rendere, "./../Assets/Sprites/key.bmp", 200, 550, true, "key");
+					key = Pawn(rendere, "./../Assets/Sprites/key.bmp", 465, 550, true, "key");
 					hasKey = false;
 				}
 				else { std::cout << "collect key first :(\n"; }
@@ -437,6 +467,9 @@ int main(int argc, char* argv[])
 		enemy.Subscribe("Test");
 
 		SDL_RenderTexture(rendere.get(), backgroundTexture, NULL, NULL);
+
+		Hierarchy::INSTANCE().DrawHierarchyItems();
+
 		PROFILE("PlayerRender");
 		if (player.isMovingRight && player.Grounded)
 			player.DrawAnimation(moveSpritesR, FrameNumber, player.GetX(), player.GetY());
@@ -448,6 +481,9 @@ int main(int argc, char* argv[])
 			player.DrawAnimation(otherSpritesR, FrameNumber, player.GetX(), player.GetY());
 		else { player.Draw(); }
 		platform.Draw();
+		platform2.Draw();
+		platform3.Draw();
+		platform4.Draw();
 		enemy.Draw();
 		key.Draw();
 		door.Draw();
