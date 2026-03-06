@@ -162,32 +162,6 @@ int main(int argc, char* argv[])
 
 	Hierarchy::INSTANCE().Init(rendere);
 
-	
-	Player player(rendere, "./../Assets/Sprites/mario-idle.bmp", 215, 184, true, "player");
-	Hierarchy::INSTANCE().AddGameObject(&player);
-
-	Pawn platform(rendere, "./../Assets/Sprites/platform-test.bmp", 215, 300, true, "platform");
-	Hierarchy::INSTANCE().AddGameObject(&platform);
-
-	Pawn platform2(rendere, "./../Assets/Sprites/platform-test.bmp", 250, 600, true, "platform2");
-	Hierarchy::INSTANCE().AddGameObject(&platform2);
-
-	Pawn platform3(rendere, "./../Assets/Sprites/other-platform.bmp", 125, 700, true, "platform3");
-	Hierarchy::INSTANCE().AddGameObject(&platform3);
-
-	Pawn platform4(rendere, "./../Assets/Sprites/other-platform.bmp", 900, 430, true, "platform4");
-	Hierarchy::INSTANCE().AddGameObject(&platform4);
-
-	Monster enemy(rendere, "./../Assets/Sprites/monstertrans.bmp", 400, 186, true, "enemy");
-	Hierarchy::INSTANCE().AddGameObject(&enemy);
-
-	Pawn key(rendere, "./../Assets/Sprites/key.bmp", 465, 550, true, "key");
-	Hierarchy::INSTANCE().AddGameObject(&key);
-
-	Pawn door(rendere, "./../Assets/Sprites/door.bmp", 700, 184, true, "door");
-	Hierarchy::INSTANCE().AddGameObject(&door);
-
-
 	SDL_Surface* sprite1L = SDL_LoadBMP("./../Assets/Sprites/mario-1l.bmp");
 	SDL_Surface* sprite2L = SDL_LoadBMP("./../Assets/Sprites/mario-2l.bmp");
 	SDL_Surface* sprite3L = SDL_LoadBMP("./../Assets/Sprites/mario-3l.bmp");
@@ -244,6 +218,32 @@ int main(int argc, char* argv[])
 	std::vector<SDL_Texture*> moveSpritesL = { texture1R, texture2R, texture3R, texture4R, texture5R, texture6R };
 	std::vector<SDL_Texture*> otherSpritesL = { jumpTextureR };
 
+
+	Player player(rendere, "./../Assets/Sprites/mario-idle.bmp", 215, 184, true, "player", moveSpritesR, moveSpritesL, otherSpritesR, otherSpritesL);
+	Hierarchy::INSTANCE().AddGameObject(&player);
+
+	Pawn platform(rendere, "./../Assets/Sprites/platform-test.bmp", 215, 300, true, "platform");
+	Hierarchy::INSTANCE().AddGameObject(&platform);
+
+	Pawn platform2(rendere, "./../Assets/Sprites/platform-test.bmp", 250, 600, true, "platform2");
+	Hierarchy::INSTANCE().AddGameObject(&platform2);
+
+	Pawn platform3(rendere, "./../Assets/Sprites/other-platform.bmp", 125, 700, true, "platform3");
+	Hierarchy::INSTANCE().AddGameObject(&platform3);
+
+	Pawn platform4(rendere, "./../Assets/Sprites/other-platform.bmp", 900, 430, true, "platform4");
+	Hierarchy::INSTANCE().AddGameObject(&platform4);
+
+	Monster enemy(rendere, "./../Assets/Sprites/monstertrans.bmp", 400, 186, true, "enemy");
+	Hierarchy::INSTANCE().AddGameObject(&enemy);
+
+	Pawn key(rendere, "./../Assets/Sprites/key.bmp", 465, 550, true, "key");
+	Hierarchy::INSTANCE().AddGameObject(&key);
+
+	Pawn door(rendere, "./../Assets/Sprites/door.bmp", 700, 184, true, "door");
+	Hierarchy::INSTANCE().AddGameObject(&door);
+
+
 	enemy.Subscribe("MouseButtonUpdate");
 	enemy.Subscribe("MousePositionUpdate");
 	enemy.Subscribe("MouseWheelUpdate");
@@ -258,18 +258,11 @@ int main(int argc, char* argv[])
 	Transform RootTransform;
 
 	GameObject gameObject;
-	std::shared_ptr<BitmapComponent> temp = std::make_shared<BitmapComponent>(rendere, "./../Assets/Sprites/monster.bmp", 300, 200, false, &gameObject);
+	std::shared_ptr<BitmapComponent> temp = std::make_shared<BitmapComponent>(rendere, "./../Assets/Sprites/sun.bmp", 300, 200, false, &gameObject);
 	gameObject.AddComponent(temp);
 	gameObject.transform.Location.x = 500;
 	gameObject.transform.Location.y = 200;
 	RootTransform.AddChild(&gameObject.transform);
-
-	GameObject gameObject2;
-	std::shared_ptr<BitmapComponent> temp2 = std::make_shared<BitmapComponent>(rendere, "./../Assets/Sprites/monstertrans.bmp", 300, 200, false, &gameObject2);
-	gameObject2.AddComponent(temp2);
-	gameObject2.transform.Location.x = 10;
-	gameObject2.transform.Location.y = 20;
-	gameObject.transform.AddChild(&gameObject2.transform);
 
 	ECS ecs;
 
@@ -288,7 +281,7 @@ int main(int argc, char* argv[])
 	}
 	
 	std::shared_ptr<ScriptComponent> scriptTest = std::make_shared<ScriptComponent>("./../luaSrc/ComponentTest.lua", &gameObject);
-	//gameObject.AddComponent(scriptTest);
+	gameObject.AddComponent(scriptTest);
 
 	//ImGui//
 
@@ -335,7 +328,8 @@ int main(int argc, char* argv[])
 	SaveLoadSystem::INSTANCE().SaveGame("SavegameGO.json", gameObject);
 	SaveLoadSystem::INSTANCE().SaveGame("bootsaveGO.json", gameObject);
 
-	int FrameNumber = 0;
+	enemy.Subscribe("Test");
+	
 	bool hasKey = false;
 	bool hasKeyOnSave = false;
 
@@ -400,9 +394,7 @@ int main(int argc, char* argv[])
 		}
 		
 		Input::INSTANCE().UpdateKeyBoard();
-
-		player.Update();
-		enemy.Update();
+		Hierarchy::INSTANCE().UpdateHierarchyItems();
 
 		int oldY = player.Position.y;
 
@@ -462,32 +454,12 @@ int main(int argc, char* argv[])
 		ImGui::End();
 
 		RootTransform.UpdateTransform(Transform{});
-		gameObject.Update();
-		gameObject2.Update();
-		enemy.Subscribe("Test");
 
 		SDL_RenderTexture(rendere.get(), backgroundTexture, NULL, NULL);
 
 		Hierarchy::INSTANCE().DrawHierarchyItems();
-
-		PROFILE("PlayerRender");
-		if (player.isMovingRight && player.Grounded)
-			player.DrawAnimation(moveSpritesR, FrameNumber, player.GetX(), player.GetY());
-		else if (player.isMovingLeft && player.Grounded)
-			player.DrawAnimation(moveSpritesL, FrameNumber, player.GetX(), player.GetY());
-		else if (!player.Grounded && player.isMovingLeft)
-			player.DrawAnimation(otherSpritesL, FrameNumber, player.GetX(), player.GetY());
-		else if ((!player.Grounded && player.isMovingRight) || !player.Grounded)
-			player.DrawAnimation(otherSpritesR, FrameNumber, player.GetX(), player.GetY());
-		else { player.Draw(); }
-		platform.Draw();
-		platform2.Draw();
-		platform3.Draw();
-		platform4.Draw();
-		enemy.Draw();
-		key.Draw();
-		door.Draw();
-		//RendererSystem::Render(ecs, rendere);
+		gameObject.Update();
+		RendererSystem::Render(ecs, rendere);
 		MovementSystem::UpdatePositions(ecs);
 
 		DrawProfileData(io);
@@ -506,7 +478,6 @@ int main(int argc, char* argv[])
 		SDL_Delay(16);
 
 		ProfilerSystem::Instance().EndFrame();
-		FrameNumber++;
 	}
 	ProfilerSystem::Instance().WriteDataToCSV();
 
@@ -515,4 +486,3 @@ int main(int argc, char* argv[])
 	soundEngine->drop();
 	return 0;
 }
-

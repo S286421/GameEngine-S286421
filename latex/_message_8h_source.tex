@@ -1,0 +1,16 @@
+\doxysection{Message.\+h}
+\hypertarget{_message_8h_source}{}\label{_message_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}IEventData.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{keyword}{class\ }Message\ :\ \textcolor{keyword}{public}\ IEventData}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ std::string\ message;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00008\ \ \ \ \ Message(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_publisher}{Publisher}}\&\ sender,\ std::string\ message)\ :\ IEventData(sender),\ message(message)\ \{\}}
+\DoxyCodeLine{00009\ \ \ \ \ std::string\ getMessage()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ message;\ \}}
+\DoxyCodeLine{00010\ \};}
+\DoxyCodeLine{00011\ }
+
+\end{DoxyCode}

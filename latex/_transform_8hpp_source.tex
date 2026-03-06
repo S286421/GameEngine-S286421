@@ -1,0 +1,44 @@
+\doxysection{Transform.\+hpp}
+\hypertarget{_transform_8hpp_source}{}\label{_transform_8hpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SDL3/SDL.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_transform}{Transform}}}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00006\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ \ \ \ \ std::vector<Transform*>\ Children;}
+\DoxyCodeLine{00008\ \ \ \ \ SDL\_Point\ Location\ =\ \{0,0\};}
+\DoxyCodeLine{00009\ \ \ \ \ SDL\_Point\ WorldLocation;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{void}\ AddChild(\doxymbox{\hyperlink{struct_transform}{Transform}}*\ child)}
+\DoxyCodeLine{00012\ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ Children.push\_back(child);}
+\DoxyCodeLine{00014\ \ \ \ \ \}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ removeChild(\doxymbox{\hyperlink{struct_transform}{Transform}}*\ child)}
+\DoxyCodeLine{00017\ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::remove(Children.begin(),\ Children.end(),\ child);}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ Children.end())}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ Children.erase(it,\ Children.end());}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateTransform(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_transform}{Transform}}\&\ parentTransform)}
+\DoxyCodeLine{00024\ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ WorldLocation.x\ =\ Location.x\ +\ parentTransform.Location.x;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ WorldLocation.y\ =\ Location.y\ +\ parentTransform.Location.y;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\doxymbox{\hyperlink{struct_transform}{Transform}}*\ child\ :\ Children)}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ child-\/>UpdateTransform(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ GetX()}
+\DoxyCodeLine{00036\ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Location.x;}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \};}
+
+\end{DoxyCode}

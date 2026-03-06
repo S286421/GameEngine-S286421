@@ -1,0 +1,23 @@
+\doxysection{Broker.\+h}
+\hypertarget{_broker_8h_source}{}\label{_broker_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_subscriber}{Subscriber}};}
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_i_event_data}{IEventData}};}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_broker}{Broker}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ std::unordered\_map<std::string,\ std::queue<IEventData*>>\ topics;}
+\DoxyCodeLine{00012\ \ \ \ \ std::unordered\_map<std::string,\ std::vector<Subscriber*>>\ subscribers;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ Subscribe(\textcolor{keyword}{const}\ std::string\&\ topic,\ \doxymbox{\hyperlink{class_subscriber}{Subscriber}}*\ sub);}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ Publish(\textcolor{keyword}{const}\ std::string\&\ topic,\ \doxymbox{\hyperlink{class_i_event_data}{IEventData}}*\ message);}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_broker}{Broker}}*\ \_instance;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_broker}{Broker}}\&\ \textcolor{keyword}{const}\ INSTANCE();}
+\DoxyCodeLine{00018\ \};}
+
+\end{DoxyCode}

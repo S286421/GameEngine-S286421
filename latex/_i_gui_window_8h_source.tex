@@ -1,0 +1,21 @@
+\doxysection{IGui\+Window.\+h}
+\hypertarget{_i_gui_window_8h_source}{}\label{_i_gui_window_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_i_gui_window}{IGuiWindow}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00008\ \ \ \ \ std::vector<IGuiWindow*>\ Windows;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{void}\ DrawWindows();}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ DrawWindow()\ =\ 0;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{void}\ AttachChildWindow(\doxymbox{\hyperlink{class_i_gui_window}{IGuiWindow}}*\ Window);}
+\DoxyCodeLine{00013\ \ \ \ \ \doxymbox{\hyperlink{class_i_gui_window}{IGuiWindow}}*\ GetChildWindow(uint16\_t\ Index);}
+\DoxyCodeLine{00014\ \ \ \ \ \doxymbox{\hyperlink{class_i_gui_window}{IGuiWindow}}*\ RemoveChildWindow(uint16\_t\ Index);}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveChildWindow(\doxymbox{\hyperlink{class_i_gui_window}{IGuiWindow}}*\ window);}
+\DoxyCodeLine{00016\ \};}
+
+\end{DoxyCode}

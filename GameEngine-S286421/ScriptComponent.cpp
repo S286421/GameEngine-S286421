@@ -31,7 +31,12 @@ void ScriptComponent::Update()
 
 	lua.new_usertype<GameObject>("parentObject", "Transform", &GameObject::transform);
 
+	//
+	int i = (sin(SDL_GetTicks() / 500) * 2);
+	//lua.new_usertype<int>("Movement", "ToMove", &i);
+
 	lua["parentObject"] = ParentObject;
+	lua["move"] = i;
 
 	try
 	{

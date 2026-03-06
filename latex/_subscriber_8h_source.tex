@@ -1,0 +1,17 @@
+\doxysection{Subscriber.\+h}
+\hypertarget{_subscriber_8h_source}{}\label{_subscriber_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Broker.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Message.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }Subscriber}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ Subscriber();}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{void}\ Subscribe(\textcolor{keyword}{const}\ std::string\&\ topic);}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Receive(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_i_event_data}{IEventData}}*\ message,\ \textcolor{keyword}{const}\ std::string\&\ topic)\ =\ 0;}
+\DoxyCodeLine{00012\ \};}
+
+\end{DoxyCode}

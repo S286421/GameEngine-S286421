@@ -2,13 +2,19 @@
     "Components": [
         {
             "BitmapComponent": {
-                "height": 114,
+                "height": 107,
                 "isTransparent": true,
-                "path": "./../Assets/Sprites/monster.bmp",
+                "path": "./../Assets/Sprites/sun.bmp",
                 "type": "BitmapComponent",
-                "width": 81,
+                "width": 93,
                 "x": 300,
                 "y": 200
+            }
+        },
+        {
+            "ScriptComponent": {
+                "scriptPath": "./../luaSrc/ComponentTest.lua",
+                "type": "ScriptComponent"
             }
         }
     ],

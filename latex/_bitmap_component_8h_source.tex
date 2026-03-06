@@ -1,0 +1,27 @@
+\doxysection{Bitmap\+Component.\+h}
+\hypertarget{_bitmap_component_8h_source}{}\label{_bitmap_component_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include"{}I\_ComponentBase.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Bitmap.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }BitmapComponent\ :\ \textcolor{keyword}{public}\ I\_ComponentBase}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ std::shared\_ptr<Bitmap>\ \_bitmap;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ BitmapComponent(std::shared\_ptr<SDL\_Renderer>\ renderer,\ \textcolor{keyword}{const}\ std::string\ path,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{bool}\ isTransparent,\ \doxymbox{\hyperlink{class_game_object}{GameObject}}*\ parentObject):\ I\_ComponentBase(parentObject)}
+\DoxyCodeLine{00010\ \ \ \ \ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \_bitmap\ =\ std::make\_shared<Bitmap>(renderer,\ path,\ x,\ y,\ isTransparent);}
+\DoxyCodeLine{00012\ \ \ \ \ \}}
+\DoxyCodeLine{00013\ \ \ \ \ \string~BitmapComponent()\textcolor{keyword}{\ override\ }\{\};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ Update()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ nlohmann::json\ Save()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ Load(nlohmann::json\ LoadData,\ std::shared\_ptr<SDL\_Renderer>\ renderer)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00018\ \ \ \ \ std::string\ Type()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}BitmapComponent"{}};\ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ BitmapComponent(\doxymbox{\hyperlink{class_game_object}{GameObject}}*\ parentObject)\ :\ I\_ComponentBase(parentObject)\ \{\};}
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+
+\end{DoxyCode}

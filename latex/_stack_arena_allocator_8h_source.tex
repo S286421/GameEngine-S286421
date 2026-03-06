@@ -1,0 +1,30 @@
+\doxysection{Stack\+Arena\+Allocator.\+h}
+\hypertarget{_stack_arena_allocator_8h_source}{}\label{_stack_arena_allocator_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <new>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <memory\_resource>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }StackArenaAllocator\ :\ \textcolor{keyword}{public}\ std::pmr::memory\_resource}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00013\ \ \ \ \ std::byte*\ buffer;}
+\DoxyCodeLine{00014\ \ \ \ \ std::size\_t\ capacity;}
+\DoxyCodeLine{00015\ \ \ \ \ std::size\_t\ offset;}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ StackArenaAllocator(std::size\_t\ capacity);}
+\DoxyCodeLine{00018\ \ \ \ \ \string~StackArenaAllocator()\textcolor{keyword}{\ override\ }\{\ \textcolor{keyword}{delete}[]\ buffer;\ \}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ reset()\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00020\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}*\ do\_allocate(std::size\_t\ bytes,\ std::size\_t\ alignment)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ do\_deallocate(\textcolor{keywordtype}{void}*\ ptr,\ \textcolor{keywordtype}{size\_t}\ bytes,\ \textcolor{keywordtype}{size\_t}\ align)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ do\_is\_equal(\textcolor{keyword}{const}\ memory\_resource\&\ that)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+
+\end{DoxyCode}

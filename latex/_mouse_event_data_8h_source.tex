@@ -1,0 +1,24 @@
+\doxysection{Mouse\+Event\+Data.\+h}
+\hypertarget{_mouse_event_data_8h_source}{}\label{_mouse_event_data_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}IEventData.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}SDL3/SDL.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{keyword}{class\ }MouseEventData\ :\ \textcolor{keyword}{public}\ IEventData}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00006\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \ \ \ \ MouseEventData(\doxymbox{\hyperlink{class_publisher}{Publisher}}\&\ sender,\ SDL\_MouseButtonEvent\ MouseButton,}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ SDL\_MouseMotionEvent\ MousePosition,}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ SDL\_MouseWheelEvent\ MouseWheel)\ :\ IEventData(sender),}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ mouseButton(MouseButton),}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ mousePosition(MousePosition),}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ mouseWheel(MouseWheel)\ \{\};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ SDL\_MouseButtonEvent\ mouseButton;}
+\DoxyCodeLine{00016\ \ \ \ \ SDL\_MouseMotionEvent\ mousePosition;}
+\DoxyCodeLine{00017\ \ \ \ \ SDL\_MouseWheelEvent\ mouseWheel;}
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+
+\end{DoxyCode}

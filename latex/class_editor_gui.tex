@@ -1,0 +1,82 @@
+\doxysection{Editor\+Gui Class Reference}
+\hypertarget{class_editor_gui}{}\label{class_editor_gui}\index{EditorGui@{EditorGui}}
+Inheritance diagram for Editor\+Gui:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_editor_gui}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_editor_gui_aa20850b2d63e4b049f8be84dd971b4b8}{Draw\+Window}} () override
+\item 
+void \doxymbox{\hyperlink{class_editor_gui_aa3e2a92ed56a7ce6b140e030693225af}{Receive}} (const \doxymbox{\hyperlink{class_i_event_data}{IEvent\+Data}} \texorpdfstring{$\ast$}{*}message, const std::\+string \&topic) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Draw\+Windows} ()
+\item 
+void {\bfseries Attach\+Child\+Window} (\doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}} \texorpdfstring{$\ast$}{*}Window)
+\item 
+\doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Child\+Window} (uint16\+\_\+t Index)
+\item 
+\doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}} \texorpdfstring{$\ast$}{*} {\bfseries Remove\+Child\+Window} (uint16\+\_\+t Index)
+\item 
+void {\bfseries Remove\+Child\+Window} (\doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}} \texorpdfstring{$\ast$}{*}window)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_subscriber}{Subscriber}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Subscribe} (const std::\+string \&topic)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_editor_gui_a270713a6b5a864a927743712d8efb256}\label{class_editor_gui_a270713a6b5a864a927743712d8efb256} 
+static \doxymbox{\hyperlink{class_editor_gui}{Editor\+Gui}} \&const {\bfseries INSTANCE} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_editor_gui_a9413d5ae6d62a41a8e2f1197bea73b95}\label{class_editor_gui_a9413d5ae6d62a41a8e2f1197bea73b95} 
+\doxymbox{\hyperlink{class_i_directory_item}{IDirectory\+Item}} \texorpdfstring{$\ast$}{*} {\bfseries Asset\+Mouse\+Drag} = nullptr
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_editor_gui_adf8ed3146e24213031bae27fb8dc33ed}\label{class_editor_gui_adf8ed3146e24213031bae27fb8dc33ed} 
+static \doxymbox{\hyperlink{class_editor_gui}{Editor\+Gui}} \texorpdfstring{$\ast$}{*} {\bfseries \+\_\+instance} = nullptr
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_editor_gui_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_editor_gui_aa20850b2d63e4b049f8be84dd971b4b8}\index{EditorGui@{EditorGui}!DrawWindow@{DrawWindow}}
+\index{DrawWindow@{DrawWindow}!EditorGui@{EditorGui}}
+\doxysubsubsection{\texorpdfstring{DrawWindow()}{DrawWindow()}}
+{\footnotesize\ttfamily \label{class_editor_gui_aa20850b2d63e4b049f8be84dd971b4b8} 
+void Editor\+Gui::\+\+Draw\+Window (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}}.
+
+\Hypertarget{class_editor_gui_aa3e2a92ed56a7ce6b140e030693225af}\index{EditorGui@{EditorGui}!Receive@{Receive}}
+\index{Receive@{Receive}!EditorGui@{EditorGui}}
+\doxysubsubsection{\texorpdfstring{Receive()}{Receive()}}
+{\footnotesize\ttfamily \label{class_editor_gui_aa3e2a92ed56a7ce6b140e030693225af} 
+void Editor\+Gui::\+\+Receive (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_i_event_data}{IEvent\+Data}} \texorpdfstring{$\ast$}{*}}]{message}{, }\item[{const std::\+string \&}]{topic}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{class_subscriber}{Subscriber}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Editor\+Gui.\+h\item 
+Editor\+Gui.\+cpp\end{DoxyCompactItemize}

@@ -1,11 +1,17 @@
 #include "Player.h"
 
-Player::Player(std::shared_ptr<SDL_Renderer> renderer, const std::string path, int x, int y, bool isTransparent, std::string pawnName) : Pawn(renderer, path, x, y, isTransparent, pawnName)
+Player::Player(std::shared_ptr<SDL_Renderer> renderer, const std::string path, int x, int y, bool isTransparent, std::string pawnName, std::vector<SDL_Texture*> rightMovement, std::vector<SDL_Texture*> leftMovement, std::vector<SDL_Texture*> rightOther, std::vector<SDL_Texture*> leftOther) : Pawn(renderer, path, x, y, isTransparent, pawnName)
 {
+	_rightMovement = rightMovement;
+	_leftMovement = leftMovement;
+	_rightOther = rightOther;
+	_leftOther = leftOther;
 }
 
 void Player::Update()
 {
+	FrameNumber++;
+
 	DeltaMove.x = 0;
 	DeltaMove.y = 0;
 
@@ -46,4 +52,18 @@ void Player::Update()
 	yVelocity += gravity;
 	DeltaMove.y += yVelocity;
 	DeltaMove.y = std::min(DeltaMove.y, maxFallSpeed);
+}
+
+void Player::Draw()
+{
+	if (isMovingRight && Grounded)
+		DrawAnimation(_rightMovement, FrameNumber, GetX(), GetY());
+	else if (isMovingLeft && Grounded)
+		DrawAnimation(_leftMovement, FrameNumber, GetX(), GetY());
+	else if (!Grounded && isMovingLeft)
+		DrawAnimation(_leftOther, FrameNumber, GetX(), GetY());
+	else if ((!Grounded && isMovingRight) || !Grounded)
+		DrawAnimation(_rightOther, FrameNumber, GetX(), GetY());
+	else
+		Pawn::Draw();
 }

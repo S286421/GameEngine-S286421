@@ -1,0 +1,35 @@
+\doxysection{Stack\+Arena\+Allocator Class Reference}
+\hypertarget{class_stack_arena_allocator}{}\label{class_stack_arena_allocator}\index{StackArenaAllocator@{StackArenaAllocator}}
+Inheritance diagram for Stack\+Arena\+Allocator:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_stack_arena_allocator}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_stack_arena_allocator_ae70720993940361453965220cf2d05b3}\label{class_stack_arena_allocator_ae70720993940361453965220cf2d05b3} 
+{\bfseries Stack\+Arena\+Allocator} (std::\+size\+\_\+t capacity)
+\item 
+\Hypertarget{class_stack_arena_allocator_aa04e2debef8d86f9058d39e6ec5a2bff}\label{class_stack_arena_allocator_aa04e2debef8d86f9058d39e6ec5a2bff} 
+void {\bfseries reset} () noexcept
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_stack_arena_allocator_ae3253a0eec8e99e1b03043cefb37447a}\label{class_stack_arena_allocator_ae3253a0eec8e99e1b03043cefb37447a} 
+void \texorpdfstring{$\ast$}{*} {\bfseries do\+\_\+allocate} (std::\+size\+\_\+t bytes, std::\+size\+\_\+t alignment) override
+\item 
+\Hypertarget{class_stack_arena_allocator_a8b71763a1056196a591356b0f75fecac}\label{class_stack_arena_allocator_a8b71763a1056196a591356b0f75fecac} 
+void {\bfseries do\+\_\+deallocate} (void \texorpdfstring{$\ast$}{*}ptr, size\+\_\+t bytes, size\+\_\+t align) override
+\item 
+\Hypertarget{class_stack_arena_allocator_a3fa91bc853fec71bfcd0af4ac3b97b43}\label{class_stack_arena_allocator_a3fa91bc853fec71bfcd0af4ac3b97b43} 
+bool {\bfseries do\+\_\+is\+\_\+equal} (const memory\+\_\+resource \&that) const noexcept override
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Stack\+Arena\+Allocator.\+h\item 
+Stack\+Arena\+Allocator.\+cpp\end{DoxyCompactItemize}

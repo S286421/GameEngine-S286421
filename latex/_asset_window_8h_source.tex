@@ -1,0 +1,33 @@
+\doxysection{Asset\+Window.\+h}
+\hypertarget{_asset_window_8h_source}{}\label{_asset_window_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}IGuiWindow.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Bitmap.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}ImGui/imgui.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}IDirectoryItem.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stack>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{struct\ }SDL\_Renderer;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_bitmap}{Bitmap}};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }AssetWindow\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_i_gui_window}{IGuiWindow}}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ AssetWindow(\textcolor{keyword}{const}\ std::shared\_ptr<SDL\_Renderer>\&\ pRenderer);}
+\DoxyCodeLine{00018\ \ \ \ \ \string~AssetWindow();}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ DrawWindow()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00020\ \ \ \ \ std::stack<std::filesystem::path>\ dirStack;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ GetItemsInDirectory();}
+\DoxyCodeLine{00022\ \ \ \ \ std::shared\_ptr<SDL\_Texture>\ BackButtonTexture;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00025\ \ \ \ \ std::vector<IDirectoryItem*>\ content;}
+\DoxyCodeLine{00026\ \ \ \ \ std::shared\_ptr<SDL\_Renderer>\ p\_renderer;}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+
+\end{DoxyCode}

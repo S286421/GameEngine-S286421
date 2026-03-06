@@ -2,26 +2,48 @@
 #include "imgui.h"
 #include "EditorGui.h"
 
+
+/// <summary>
+/// Returns the pawn's x position
+/// </summary>
+/// <returns></returns>
 int Pawn::GetX()
 {
 	return Position.x;
 }
 
+/// <summary>
+/// Sets the pawn's x position to the specified x value
+/// </summary>
+/// <param name="x"></param>
 void Pawn::SetX(int x)
 {
 	Position.x = x;
 }
 
+/// <summary>
+/// Returns the pawn's y position
+/// </summary>
+/// <returns></returns>
 int Pawn::GetY()
 {
 	return Position.y;
 }
 
+/// <summary>
+/// Sets the pawn's y position to the specified y value
+/// </summary>
+/// <param name="y"></param>
 void Pawn::SetY(int y)
 {
 	Position.y = y;
 }
 
+/// <summary>
+/// Sets the pawn's position to the specified x and y values
+/// </summary>
+/// <param name="x"></param>
+/// <param name="y"></param>
 void Pawn::UpdatePosition(int x, int y)
 {
 	DeltaMove.x += x;
@@ -30,6 +52,15 @@ void Pawn::UpdatePosition(int x, int y)
 
 int Pawn::CurrentID = 0;
 
+/// <summary>
+/// Initialises the pawn; creates a bitmap from the given values
+/// </summary>
+/// <param name="renderer"></param>
+/// <param name="path"></param>
+/// <param name="x"></param>
+/// <param name="y"></param>
+/// <param name="isTransparent"></param>
+/// <param name="pawnName"></param>
 Pawn::Pawn(std::shared_ptr<SDL_Renderer> renderer, const std::string path, int x, int y, bool isTransparent, std::string pawnName)
 {
 	Sprite = std::unique_ptr<Bitmap>(new Bitmap(renderer, path, x, y, isTransparent));
@@ -40,6 +71,9 @@ Pawn::Pawn(std::shared_ptr<SDL_Renderer> renderer, const std::string path, int x
 	PawnName = pawnName;
 }
 
+/// <summary>
+/// Calls the Bitmap::Draw(int x, int y) function for the pawn
+/// </summary>
 void Pawn::Draw()
 {
 	Sprite->Draw(Position.x, Position.y);
@@ -50,11 +84,19 @@ void Pawn::Update()
 {
 }
 
+/// <summary>
+/// Return the collision bounds of the pawn as a SDL_Rect
+/// </summary>
+/// <returns></returns>
 SDL_Rect Pawn::GetCollisionBounds() const
 {
 	return Sprite->GetImageBounds();
 }
 
+/// <summary>
+/// Draws the collider of the pawn; used in debugging collisions
+/// </summary>
+/// <param name="Collider"></param>
 void Pawn::DrawCollider(SDL_Rect Collider) const
 {
 	uint8_t R;
@@ -70,12 +112,22 @@ void Pawn::DrawCollider(SDL_Rect Collider) const
 	SDL_SetRenderDrawColor(Sprite->GetRenderer().get(), R, G, B, A);
 }
 
+/// <summary>
+/// Sets the Delta Move of the pawn to the specified x and y values
+/// </summary>
+/// <param name="x"></param>
+/// <param name="y"></param>
 void Pawn::SetDeltaMove(int x, int y)
 {
 	DeltaMove.x = x;
 	DeltaMove.y = y;
 }
 
+/// <summary>
+/// Receives input data from the mouse; used to open debug windows for pawn entities
+/// </summary>
+/// <param name="EventData"></param>
+/// <param name="topic"></param>
 void Pawn::Receive(const IEventData* EventData, const std::string& topic)
 {
 	const MouseEventData* mouseEventData = static_cast<const MouseEventData*>(EventData);
@@ -97,6 +149,13 @@ void Pawn::Receive(const IEventData* EventData, const std::string& topic)
 
 }
 
+
+/// <summary>
+/// Detects if the pawn entity is interacting with any other entities
+/// </summary>
+/// <param name="ListOfOtherpawns"></param>
+/// <param name="Delta"></param>
+/// <returns></returns>
 bool Pawn::IsOverlapping(const std::vector<Pawn*>& ListOfOtherpawns, const SDL_Point& Delta)
 {
 	bool isColliding = false;
@@ -149,6 +208,10 @@ bool Pawn::IsOverlapping(const std::vector<Pawn*>& ListOfOtherpawns, const SDL_P
 	return isColliding;
 }
 
+
+/// <summary>
+/// Draws an ImGui window for the pawn; used for debugging values
+/// </summary>
 void Pawn::DrawWindow()
 {
 	ImGui::Begin((std::string("Pawn Window") + std::to_string(ID)).c_str());
@@ -171,6 +234,13 @@ void Pawn::DrawWindow()
 	ImGui::End();
 }
 
+/// <summary>
+/// Calls the Bitmap::DrawAnimation() function for the pawn
+/// </summary>
+/// <param name="moveSprites"></param>
+/// <param name="Frame"></param>
+/// <param name="x"></param>
+/// <param name="y"></param>
 void Pawn::DrawAnimation(const std::vector< SDL_Texture*> &moveSprites, int Frame, int x, int y)
 {
 	Sprite->DrawAnimation(moveSprites, Frame, x, y);

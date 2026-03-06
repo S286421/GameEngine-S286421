@@ -1,0 +1,29 @@
+\doxysection{ECS.\+h}
+\hypertarget{_e_c_s_8h_source}{}\label{_e_c_s_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Components.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ uint32\_t\ \textcolor{keyword}{constexpr}\ MAX\_ENTITIES\ =\ 100;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }ECS}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ ECS()}
+\DoxyCodeLine{00012\ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ entityIDs.resize(MAX\_ENTITIES);}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ positions.resize(MAX\_ENTITIES);}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ velocities.resize(MAX\_ENTITIES);}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ bitmaps.resize(MAX\_ENTITIES);}
+\DoxyCodeLine{00017\ \ \ \ \ \}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ std::vector<uint64\_t>\ entityIDs\{\ 0\ \};}
+\DoxyCodeLine{00020\ \ \ \ \ std::vector<PositionECS>\ positions;}
+\DoxyCodeLine{00021\ \ \ \ \ std::vector<VelocityECS>\ velocities;}
+\DoxyCodeLine{00022\ \ \ \ \ std::vector<BitmapECS>\ bitmaps;}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+
+\end{DoxyCode}

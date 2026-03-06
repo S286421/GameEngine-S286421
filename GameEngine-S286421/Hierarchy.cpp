@@ -29,6 +29,14 @@ void Hierarchy::DrawHierarchyItems()
 	}
 }
 
+void Hierarchy::UpdateHierarchyItems()
+{
+	for (int i = 0; i < HierarchyList.size(); i++)
+	{
+		HierarchyList[i]->Update();
+	}
+}
+
 void Hierarchy::DrawHierarchy()
 {
 	ImGui::Begin("Hierarchy");

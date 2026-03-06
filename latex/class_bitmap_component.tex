@@ -1,0 +1,87 @@
+\doxysection{Bitmap\+Component Class Reference}
+\hypertarget{class_bitmap_component}{}\label{class_bitmap_component}\index{BitmapComponent@{BitmapComponent}}
+Inheritance diagram for Bitmap\+Component:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_bitmap_component}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_bitmap_component_a20a5d6a9329e967533ae873dd1b4ea22}\label{class_bitmap_component_a20a5d6a9329e967533ae873dd1b4ea22} 
+{\bfseries Bitmap\+Component} (std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$ renderer, const std::\+string path, int x, int y, bool is\+Transparent, \doxymbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}parent\+Object)
+\item 
+void \doxymbox{\hyperlink{class_bitmap_component_a275b16185f32491affec8c308e9958a7}{Update}} () override
+\item 
+nlohmann::\+json \doxymbox{\hyperlink{class_bitmap_component_acc0591f367fc0606530fe1cca90b6b51}{Save}} () const override
+\item 
+void \doxymbox{\hyperlink{class_bitmap_component_af9da60d04dcc21f4bbb0cc08e2016566}{Load}} (nlohmann::\+json Load\+Data, std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$ renderer) override
+\item 
+std::\+string \doxymbox{\hyperlink{class_bitmap_component_aca7daf25335df1891052bdab4738b430}{Type}} () const override
+\item 
+\Hypertarget{class_bitmap_component_aa9ef4cc58e2d1b6acd8714f52928a7ba}\label{class_bitmap_component_aa9ef4cc58e2d1b6acd8714f52928a7ba} 
+{\bfseries Bitmap\+Component} (\doxymbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}parent\+Object)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_i___component_base}{I\+\_\+\+Component\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries I\+\_\+\+Component\+Base} (\doxymbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Parent)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \doxymbox{\hyperlink{class_i___component_base}{I\+\_\+\+Component\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} {\bfseries Parent\+Object}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_bitmap_component_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_bitmap_component_af9da60d04dcc21f4bbb0cc08e2016566}\index{BitmapComponent@{BitmapComponent}!Load@{Load}}
+\index{Load@{Load}!BitmapComponent@{BitmapComponent}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily \label{class_bitmap_component_af9da60d04dcc21f4bbb0cc08e2016566} 
+void Bitmap\+Component::\+\+Load (\begin{DoxyParamCaption}\item[{nlohmann::\+json}]{Load\+Data}{, }\item[{std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$}]{renderer}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{class_i___component_base}{I\+\_\+\+Component\+Base}}.
+
+\Hypertarget{class_bitmap_component_acc0591f367fc0606530fe1cca90b6b51}\index{BitmapComponent@{BitmapComponent}!Save@{Save}}
+\index{Save@{Save}!BitmapComponent@{BitmapComponent}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily \label{class_bitmap_component_acc0591f367fc0606530fe1cca90b6b51} 
+nlohmann::\+json Bitmap\+Component::\+\+Save (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{class_i___component_base}{I\+\_\+\+Component\+Base}}.
+
+\Hypertarget{class_bitmap_component_aca7daf25335df1891052bdab4738b430}\index{BitmapComponent@{BitmapComponent}!Type@{Type}}
+\index{Type@{Type}!BitmapComponent@{BitmapComponent}}
+\doxysubsubsection{\texorpdfstring{Type()}{Type()}}
+{\footnotesize\ttfamily \label{class_bitmap_component_aca7daf25335df1891052bdab4738b430} 
+std::\+string Bitmap\+Component::\+\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{class_i___component_base}{I\+\_\+\+Component\+Base}}.
+
+\Hypertarget{class_bitmap_component_a275b16185f32491affec8c308e9958a7}\index{BitmapComponent@{BitmapComponent}!Update@{Update}}
+\index{Update@{Update}!BitmapComponent@{BitmapComponent}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_bitmap_component_a275b16185f32491affec8c308e9958a7} 
+void Bitmap\+Component::\+\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{class_i___component_base}{I\+\_\+\+Component\+Base}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Bitmap\+Component.\+h\item 
+Bitmap\+Component.\+cpp\end{DoxyCompactItemize}

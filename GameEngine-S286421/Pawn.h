@@ -35,7 +35,7 @@ public:
 	void SetY(int y);
 	void UpdatePosition(int x, int y);
 
-	void Draw();
+	virtual void Draw();
 
 	virtual void Update();
 

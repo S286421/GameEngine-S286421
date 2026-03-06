@@ -1,0 +1,28 @@
+\doxysection{Debug.\+h}
+\hypertarget{_debug_8h_source}{}\label{_debug_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <stdarg.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cstdio>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <windows.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <debugapi.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Logging.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ VDebugPrintF(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ format,\ va\_list\ argList);}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ DebugPrintF(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ format,\ ...);}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ g\_verbosity;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ VerboseDebugPrintF(\textcolor{keywordtype}{int}\ verbosity,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ format,\ ...);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{enum}\ Verbosity}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ None,}
+\DoxyCodeLine{00019\ \ \ \ \ Error,}
+\DoxyCodeLine{00020\ \ \ \ \ Warning,}
+\DoxyCodeLine{00021\ \ \ \ \ Info,}
+\DoxyCodeLine{00022\ \ \ \ \ All}
+\DoxyCodeLine{00023\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,47 @@
+\doxysection{Game\+Object.\+h}
+\hypertarget{_game_object_8h_source}{}\label{_game_object_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Transform.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}I\_ComponentBase.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}BitmapComponent.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}ScriptComponent.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00010\ \textcolor{keyword}{concept\ }\doxymbox{\hyperlink{conceptcomponent_type}{componentType}}\ =\ std::is\_same\_v<\ T,\ I\_ComponentBase\ >;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_game_object}{GameObject}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_i_save_loadable}{ISaveLoadable}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \doxymbox{\hyperlink{struct_transform}{Transform}}\ transform;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ std::vector<std::shared\_ptr<I\_ComponentBase>>\ Components;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ AddComponent(std::shared\_ptr<I\_ComponentBase>\ component);}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveComponent(std::shared\_ptr<I\_ComponentBase>\ component);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ Update();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ componentType>}
+\DoxyCodeLine{00025\ \ \ \ \ \doxymbox{\hyperlink{conceptcomponent_type}{componentType}}*\ GetComponentByType()}
+\DoxyCodeLine{00026\ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::find\_if(Components.begin(),\ Components.end(),\ [](\textcolor{keyword}{const}\ std::shared\_ptr<I\_ComponentBase>\&\ obj)}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ dynamic\_cast<componentType*>(obj.get())\ !=\ nullptr;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ Components.end())}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{dynamic\_cast<}\doxymbox{\hyperlink{conceptcomponent_type}{componentType}}*\textcolor{keyword}{>}\ ((*it).get());}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ nlohmann::json\ Save()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ Load(nlohmann::json\ LoadData,\ std::shared\_ptr<SDL\_Renderer>\ renderer)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+
+\end{DoxyCode}

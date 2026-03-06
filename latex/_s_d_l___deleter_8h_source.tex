@@ -1,0 +1,14 @@
+\doxysection{SDL\+\_\+\+Deleter.\+h}
+\hypertarget{_s_d_l___deleter_8h_source}{}\label{_s_d_l___deleter_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}SDL3/SDL.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structsdl__deleter}{sdl\_deleter}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{void}\ operator()(SDL\_Texture*\ p)\textcolor{keyword}{\ const\ }\{\ SDL\_DestroyTexture(p);\ \}}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{void}\ operator()(SDL\_Renderer*\ p)\textcolor{keyword}{\ const\ }\{\ SDL\_DestroyRenderer(p);\ \}}
+\DoxyCodeLine{00009\ \};}
+
+\end{DoxyCode}

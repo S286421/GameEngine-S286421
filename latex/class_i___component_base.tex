@@ -1,0 +1,61 @@
+\doxysection{I\+\_\+\+Component\+Base Class Reference}
+\hypertarget{class_i___component_base}{}\label{class_i___component_base}\index{I\_ComponentBase@{I\_ComponentBase}}
+Inheritance diagram for I\+\_\+\+Component\+Base:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_i___component_base}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_i___component_base_ab0e301813397b5f1bc626008a0a1539b}\label{class_i___component_base_ab0e301813397b5f1bc626008a0a1539b} 
+virtual void {\bfseries Update} ()=0
+\item 
+\Hypertarget{class_i___component_base_a1eb81b481625c1c3e3ee7700f01b5d74}\label{class_i___component_base_a1eb81b481625c1c3e3ee7700f01b5d74} 
+{\bfseries I\+\_\+\+Component\+Base} (\doxymbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Parent)
+\item 
+virtual nlohmann::\+json \doxymbox{\hyperlink{class_i___component_base_a6c8d4058ecc64379b5939203980803a2}{Save}} () const =0
+\item 
+virtual void \doxymbox{\hyperlink{class_i___component_base_aabd5b119595e60a339d8da3f7ef8921f}{Load}} (nlohmann::\+json Load\+Data, std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$ renderer)=0
+\item 
+\Hypertarget{class_i___component_base_a074cabebf36e8637d002e569e21a0d41}\label{class_i___component_base_a074cabebf36e8637d002e569e21a0d41} 
+virtual std::\+string {\bfseries Type} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_i___component_base_a40a15c7a2e59a9eee91ff69c4164ce49}\label{class_i___component_base_a40a15c7a2e59a9eee91ff69c4164ce49} 
+\doxymbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} {\bfseries Parent\+Object}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_i___component_base_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i___component_base_aabd5b119595e60a339d8da3f7ef8921f}\index{I\_ComponentBase@{I\_ComponentBase}!Load@{Load}}
+\index{Load@{Load}!I\_ComponentBase@{I\_ComponentBase}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily \label{class_i___component_base_aabd5b119595e60a339d8da3f7ef8921f} 
+virtual void I\+\_\+\+Component\+Base::\+\+Load (\begin{DoxyParamCaption}\item[{nlohmann::\+json}]{Load\+Data}{, }\item[{std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$}]{renderer}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{class_i_save_loadable}{ISave\+Loadable}}.
+
+\Hypertarget{class_i___component_base_a6c8d4058ecc64379b5939203980803a2}\index{I\_ComponentBase@{I\_ComponentBase}!Save@{Save}}
+\index{Save@{Save}!I\_ComponentBase@{I\_ComponentBase}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily \label{class_i___component_base_a6c8d4058ecc64379b5939203980803a2} 
+virtual nlohmann::\+json I\+\_\+\+Component\+Base::\+\+Save (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{class_i_save_loadable}{ISave\+Loadable}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+I\+\_\+\+Component\+Base.\+h\item 
+I\+\_\+\+Component\+Base.\+cpp\end{DoxyCompactItemize}
