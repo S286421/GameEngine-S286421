@@ -28,6 +28,11 @@ private:
 public:
 	nlohmann::json Save() const override;
 	void Load(nlohmann::json LoadData, std::shared_ptr<SDL_Renderer> renderer) override;
+
+	/// <summary>
+	/// Identical to BitmapComponent::Type()
+	/// </summary>
+	/// <returns></returns>
 	std::string Type() const override { return "ScriptComponent"; }
 
 	ScriptComponent(GameObject* ParentObject) : I_ComponentBase(ParentObject) {};

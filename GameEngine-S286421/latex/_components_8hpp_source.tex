@@ -1,0 +1,38 @@
+\doxysection{Components.\+hpp}
+\hypertarget{_components_8hpp_source}{}\label{_components_8hpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SDL3/SDL\_render.h>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ uint64\_t\ \textcolor{keyword}{constexpr}\ VelocityKey\ =\ 1\ <<\ 0;}
+\DoxyCodeLine{00006\ uint64\_t\ \textcolor{keyword}{constexpr}\ PositionKey\ =\ 1\ <<\ 1;}
+\DoxyCodeLine{00007\ uint64\_t\ \textcolor{keyword}{constexpr}\ BitmapKey\ =\ 1\ <<\ 2;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_velocity_e_c_s}{VelocityECS}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{float}\ dx,\ dy;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{float}\ gravity\ =\ 1.0f;}
+\DoxyCodeLine{00013\ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_position_e_c_s}{PositionECS}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{float}\ X,\ Y;}
+\DoxyCodeLine{00018\ \ \ \ \ \doxymbox{\hyperlink{struct_position_e_c_s}{PositionECS}}\ operator+(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_velocity_e_c_s}{VelocityECS}}\&\ other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00019\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\ X\ +\ other.dx\ ,\ other.dy\ \};}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ \ \ \ \ \doxymbox{\hyperlink{struct_position_e_c_s}{PositionECS}}\&\ operator+=(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_velocity_e_c_s}{VelocityECS}}\&\ other)}
+\DoxyCodeLine{00023\ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ X\ +=\ other.dx;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ Y\ +=\ other.dy;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_bitmap_e_c_s}{BitmapECS}}}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ std::shared\_ptr<SDL\_Texture>\ texture;}
+\DoxyCodeLine{00033\ \};}
+
+\end{DoxyCode}

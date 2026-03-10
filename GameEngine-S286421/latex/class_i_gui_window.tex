@@ -1,0 +1,111 @@
+\doxysection{IGui\+Window Class Reference}
+\hypertarget{class_i_gui_window}{}\label{class_i_gui_window}\index{IGuiWindow@{IGuiWindow}}
+Inheritance diagram for IGui\+Window:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_i_gui_window}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_i_gui_window_a87226defe15bf634e5c2fcf485e854e0}\label{class_i_gui_window_a87226defe15bf634e5c2fcf485e854e0} 
+void {\bfseries Draw\+Windows} ()
+\begin{DoxyCompactList}\small\item\em Calls IGui\+Window::\+\+Draw\+Window() for every \doxylink{class_i_gui_window}{IGui\+Window} in the Windows vector, and calls itself to check for child windows attached to the items in the vector. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_i_gui_window_aa4a04b6337c3ab8219b1b8e39c37ec03}{Draw\+Window}} ()=0
+\item 
+void \doxymbox{\hyperlink{class_i_gui_window_a3929457ff21262e6be0c626911a32f66}{Attach\+Child\+Window}} (\doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}} \texorpdfstring{$\ast$}{*}Window)
+\begin{DoxyCompactList}\small\item\em Adds the given Window to the Windows vector. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_i_gui_window_ad8d2cd284c6f3c80d910b6c44c59fe76}{Get\+Child\+Window}} (uint16\+\_\+t Index)
+\begin{DoxyCompactList}\small\item\em Searches for a child window in the Windows vector at the given Index, and returns it if found. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_i_gui_window_a896b7d1642a74846392c2268951e1c8f}{Remove\+Child\+Window}} (uint16\+\_\+t Index)
+\begin{DoxyCompactList}\small\item\em Removes the child window in the Windows vector at the given Index, and returns a copy of the child window. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_i_gui_window_ab89631629a2b0f0dd2e747d00aa60e16}{Remove\+Child\+Window}} (\doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}} \texorpdfstring{$\ast$}{*}window)
+\begin{DoxyCompactList}\small\item\em Removes the given window from the Windows vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_i_gui_window_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i_gui_window_a3929457ff21262e6be0c626911a32f66}\index{IGuiWindow@{IGuiWindow}!AttachChildWindow@{AttachChildWindow}}
+\index{AttachChildWindow@{AttachChildWindow}!IGuiWindow@{IGuiWindow}}
+\doxysubsubsection{\texorpdfstring{AttachChildWindow()}{AttachChildWindow()}}
+{\footnotesize\ttfamily \label{class_i_gui_window_a3929457ff21262e6be0c626911a32f66} 
+void IGui\+Window::\+\+Attach\+Child\+Window (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}} \texorpdfstring{$\ast$}{*}}]{Window}{}\end{DoxyParamCaption})}
+
+
+
+Adds the given Window to the Windows vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Window} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_i_gui_window_aa4a04b6337c3ab8219b1b8e39c37ec03}\index{IGuiWindow@{IGuiWindow}!DrawWindow@{DrawWindow}}
+\index{DrawWindow@{DrawWindow}!IGuiWindow@{IGuiWindow}}
+\doxysubsubsection{\texorpdfstring{DrawWindow()}{DrawWindow()}}
+{\footnotesize\ttfamily \label{class_i_gui_window_aa4a04b6337c3ab8219b1b8e39c37ec03} 
+virtual void IGui\+Window::\+\+Draw\+Window (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \doxymbox{\hyperlink{class_asset_window_aa6ab83cffd1a47405ce2c0f4e6dd421a}{Asset\+Window}}, and \doxymbox{\hyperlink{class_pawn_a183ed266b817027468956d8ccf4d147c}{Pawn}}.
+
+\Hypertarget{class_i_gui_window_ad8d2cd284c6f3c80d910b6c44c59fe76}\index{IGuiWindow@{IGuiWindow}!GetChildWindow@{GetChildWindow}}
+\index{GetChildWindow@{GetChildWindow}!IGuiWindow@{IGuiWindow}}
+\doxysubsubsection{\texorpdfstring{GetChildWindow()}{GetChildWindow()}}
+{\footnotesize\ttfamily \label{class_i_gui_window_ad8d2cd284c6f3c80d910b6c44c59fe76} 
+\doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}} \texorpdfstring{$\ast$}{*} IGui\+Window::\+\+Get\+Child\+Window (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Index}{}\end{DoxyParamCaption})}
+
+
+
+Searches for a child window in the Windows vector at the given Index, and returns it if found. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_i_gui_window_ab89631629a2b0f0dd2e747d00aa60e16}\index{IGuiWindow@{IGuiWindow}!RemoveChildWindow@{RemoveChildWindow}}
+\index{RemoveChildWindow@{RemoveChildWindow}!IGuiWindow@{IGuiWindow}}
+\doxysubsubsection{\texorpdfstring{RemoveChildWindow()}{RemoveChildWindow()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_i_gui_window_ab89631629a2b0f0dd2e747d00aa60e16} 
+void IGui\+Window::\+\+Remove\+Child\+Window (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}} \texorpdfstring{$\ast$}{*}}]{window}{}\end{DoxyParamCaption})}
+
+
+
+Removes the given window from the Windows vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_i_gui_window_a896b7d1642a74846392c2268951e1c8f}\index{IGuiWindow@{IGuiWindow}!RemoveChildWindow@{RemoveChildWindow}}
+\index{RemoveChildWindow@{RemoveChildWindow}!IGuiWindow@{IGuiWindow}}
+\doxysubsubsection{\texorpdfstring{RemoveChildWindow()}{RemoveChildWindow()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_i_gui_window_a896b7d1642a74846392c2268951e1c8f} 
+\doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}} \texorpdfstring{$\ast$}{*} IGui\+Window::\+\+Remove\+Child\+Window (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Index}{}\end{DoxyParamCaption})}
+
+
+
+Removes the child window in the Windows vector at the given Index, and returns a copy of the child window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+IGui\+Window.\+h\item 
+IGui\+Window.\+cpp\end{DoxyCompactItemize}

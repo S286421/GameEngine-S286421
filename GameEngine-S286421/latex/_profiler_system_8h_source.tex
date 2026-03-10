@@ -1,0 +1,71 @@
+\doxysection{Profiler\+System.\+h}
+\hypertarget{_profiler_system_8h_source}{}\label{_profiler_system_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_sample_data}{SampleData}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ int64\_t\ frameTime;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ frameReference;}
+\DoxyCodeLine{00012\ \};}
+\DoxyCodeLine{00013\ \textcolor{keyword}{typedef}\ std::map<const\ char*,\ std::vector<SampleData*>>\ FrameMap;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }ProfilerSystem}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{static}\ ProfilerSystem\&\ Instance()}
+\DoxyCodeLine{00019\ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ ProfilerSystem\ INSTANCE;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ INSTANCE;}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ ProfilerSystem();}
+\DoxyCodeLine{00025\ \ \ \ \ \string~ProfilerSystem();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ StartFrame();}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ StoreSample(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ int64\_t\ elapsedTime);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ EndFrame();}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ WriteDataToCSV();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ FrameMap\&\ GetFrameData()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ GetCurrentFrame()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00034\ \ \ \ \ FrameMap\&\ GetLastFrameData()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00035\ \ \ \ \ std::vector<float>\&\ GetFrameTimes();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ currentFrame;}
+\DoxyCodeLine{00039\ \ \ \ \ FrameMap*\ frameData;}
+\DoxyCodeLine{00040\ \ \ \ \ std::vector<float>\ totalFrameTimes;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{float}\ thisFramesTotalTime\ =\ 0;}
+\DoxyCodeLine{00042\ \ \ \ \ FrameMap*\ thisFramesFrameData;}
+\DoxyCodeLine{00043\ \ \ \ \ FrameMap*\ lastFramesFrameData;}
+\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{struct\ }Profile}
+\DoxyCodeLine{00047\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ Profile(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name)}
+\DoxyCodeLine{00049\ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \_name\ =\ name;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ startTime\ =\ std::clock();}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \string~Profile()}
+\DoxyCodeLine{00055\ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ std::clock\_t\ endTime\ =\ std::clock();}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ std::clock\_t\ elapsedTime\ =\ endTime\ -\/\ startTime;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ ProfilerSystem::Instance().StoreSample(\_name,\ (1000\ *\ elapsedTime)\ /\ CLOCKS\_PER\_SEC);}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \_name;}
+\DoxyCodeLine{00063\ \ \ \ \ std::clock\_t\ startTime;}
+\DoxyCodeLine{00064\ \};}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ PROFILE(name)\ Profile\ p(name)}}
+\DoxyCodeLine{00066\ }
+
+\end{DoxyCode}

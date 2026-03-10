@@ -1,5 +1,12 @@
 #include "ResourceManager.h"
 
+/// <summary>
+/// Loads an image from a given FilePath, and converts it to a texture map (creating a transparent background if isTransparent is true)
+/// </summary>
+/// <param name="FilePath"></param>
+/// <param name="isTransparent"></param>
+/// <param name="renderer"></param>
+/// <returns></returns>
 std::shared_ptr<SDL_Texture> ResourceManager::LoadTexture(std::string FilePath, bool isTransparent, std::shared_ptr<SDL_Renderer> renderer)
 {
 	std::shared_ptr<SDL_Texture> texture;
@@ -35,6 +42,10 @@ std::shared_ptr<SDL_Texture> ResourceManager::LoadTexture(std::string FilePath, 
 	return texture;
 }
 
+/// <summary>
+/// Creates a resource manager instance and returns it; used to call the resource manager in other files
+/// </summary>
+/// <returns></returns>
 ResourceManager& const ResourceManager::INSTANCE()
 {
 	if (!ResourceManager::_instance) ResourceManager::_instance = new ResourceManager();

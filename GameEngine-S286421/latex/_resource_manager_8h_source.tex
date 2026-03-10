@@ -1,0 +1,24 @@
+\doxysection{Resource\+Manager.\+h}
+\hypertarget{_resource_manager_8h_source}{}\label{_resource_manager_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}SDL3/SDL.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}SDL3\_image/SDL\_image.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}SDL\_Deleter.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_resource_manager}{ResourceManager}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ std::shared\_ptr<SDL\_Texture>\ \doxymbox{\hyperlink{class_resource_manager_ab9f72524a3a96217cdccf91c96273d4c}{LoadTexture}}(std::string,\ \textcolor{keywordtype}{bool},\ std::shared\_ptr<SDL\_Renderer>);}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_resource_manager}{ResourceManager}}*\ \_instance;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_resource_manager}{ResourceManager}}\&\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_resource_manager_a0ac126565bbc5f9b649f4bc96a93e343}{INSTANCE}}();}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ std::map<std::string,\ std::shared\_ptr<SDL\_Texture>>\ TextureMap;}
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+
+\end{DoxyCode}

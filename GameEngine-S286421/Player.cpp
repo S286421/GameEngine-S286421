@@ -1,5 +1,18 @@
 #include "Player.h"
 
+/// <summary>
+/// Initialises the player; assigns given parameters to private variables
+/// </summary>
+/// <param name="renderer"></param>
+/// <param name="path"></param>
+/// <param name="x"></param>
+/// <param name="y"></param>
+/// <param name="isTransparent"></param>
+/// <param name="pawnName"></param>
+/// <param name="rightMovement"></param>
+/// <param name="leftMovement"></param>
+/// <param name="rightOther"></param>
+/// <param name="leftOther"></param>
 Player::Player(std::shared_ptr<SDL_Renderer> renderer, const std::string path, int x, int y, bool isTransparent, std::string pawnName, std::vector<SDL_Texture*> rightMovement, std::vector<SDL_Texture*> leftMovement, std::vector<SDL_Texture*> rightOther, std::vector<SDL_Texture*> leftOther) : Pawn(renderer, path, x, y, isTransparent, pawnName)
 {
 	_rightMovement = rightMovement;
@@ -8,6 +21,9 @@ Player::Player(std::shared_ptr<SDL_Renderer> renderer, const std::string path, i
 	_leftOther = leftOther;
 }
 
+/// <summary>
+/// Handles movement of the player during the game
+/// </summary>
 void Player::Update()
 {
 	FrameNumber++;
@@ -54,6 +70,9 @@ void Player::Update()
 	DeltaMove.y = std::min(DeltaMove.y, maxFallSpeed);
 }
 
+/// <summary>
+/// Calls specific vectors for the Pawn::DrawAnimation() function depending on which direction the player character is moving and if the player character is in the air (calls the standard Pawn::Draw() function if the player character is not moving)
+/// </summary>
 void Player::Draw()
 {
 	if (isMovingRight && Grounded)

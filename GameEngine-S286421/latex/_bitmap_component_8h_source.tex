@@ -1,0 +1,28 @@
+\doxysection{Bitmap\+Component.\+h}
+\hypertarget{_bitmap_component_8h_source}{}\label{_bitmap_component_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include"{}I\_ComponentBase.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Bitmap.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_bitmap_component_a20a5d6a9329e967533ae873dd1b4ea22}{BitmapComponent}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_i___component_base_a1eb81b481625c1c3e3ee7700f01b5d74}{I\_ComponentBase}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ std::shared\_ptr<Bitmap>\ \_bitmap;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00019\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_component_a20a5d6a9329e967533ae873dd1b4ea22}{BitmapComponent}}(std::shared\_ptr<SDL\_Renderer>\ renderer,\ \textcolor{keyword}{const}\ std::string\ path,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{bool}\ isTransparent,\ \doxymbox{\hyperlink{class_game_object}{GameObject}}*\ parentObject):\ \doxymbox{\hyperlink{class_i___component_base_a1eb81b481625c1c3e3ee7700f01b5d74}{I\_ComponentBase}}(parentObject)}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \_bitmap\ =\ std::make\_shared<Bitmap>(renderer,\ path,\ x,\ y,\ isTransparent);}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_component}{\string~BitmapComponent}}()\textcolor{keyword}{\ override\ }\{\};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_bitmap_component_a275b16185f32491affec8c308e9958a7}{Update}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ nlohmann::json\ \doxymbox{\hyperlink{class_bitmap_component_acc0591f367fc0606530fe1cca90b6b51}{Save}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_bitmap_component_af9da60d04dcc21f4bbb0cc08e2016566}{Load}}(nlohmann::json\ LoadData,\ std::shared\_ptr<SDL\_Renderer>\ renderer)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00032\ \ \ \ \ std::string\ \doxymbox{\hyperlink{class_bitmap_component_aca7daf25335df1891052bdab4738b430}{Type}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}BitmapComponent"{}};\ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_component_a20a5d6a9329e967533ae873dd1b4ea22}{BitmapComponent}}(\doxymbox{\hyperlink{class_game_object}{GameObject}}*\ parentObject)\ :\ \doxymbox{\hyperlink{class_i___component_base}{I\_ComponentBase}}(parentObject)\ \{\};}
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ }
+
+\end{DoxyCode}

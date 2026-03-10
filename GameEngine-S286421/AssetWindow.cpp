@@ -1,5 +1,9 @@
 #include "AssetWindow.h"
 
+/// <summary>
+/// Initialises the AssetWindow; assigns pRenderer as a private renderer, adds the path to the assets folder to the dirStack, and calls AssetWindow::GetItemsInDirectory()
+/// </summary>
+/// <param name="pRenderer"></param>
 AssetWindow::AssetWindow(const std::shared_ptr<SDL_Renderer>& pRenderer)
 {
 	p_renderer = pRenderer;
@@ -12,6 +16,9 @@ AssetWindow::AssetWindow(const std::shared_ptr<SDL_Renderer>& pRenderer)
 	GetItemsInDirectory();
 }
 
+/// <summary>
+/// Deconstructs the AssetWindow; deletes all content in the window
+/// </summary>
 AssetWindow::~AssetWindow()
 {
 	for (int i = 0; i < content.size(); i++)
@@ -20,6 +27,9 @@ AssetWindow::~AssetWindow()
 	}
 }
 
+/// <summary>
+/// Gets all assets using AssetWindow::GetItemsInDirectory(), then draws an asset window with all assets included
+/// </summary>
 void AssetWindow::DrawWindow()
 {
 	ImGui::Begin("Assets");
@@ -61,6 +71,9 @@ void AssetWindow::DrawWindow()
 	ImGui::End();
 }
 
+/// <summary>
+/// Searches the assets folder, and checks if each item is an image file, a folder, or another file type
+/// </summary>
 void AssetWindow::GetItemsInDirectory()
 {
 	content.clear();

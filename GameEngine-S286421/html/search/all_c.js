@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['sampledata_0',['SampleData',['../struct_sample_data.html',1,'']]],
+  ['save_1',['Save',['../class_bitmap_component.html#acc0591f367fc0606530fe1cca90b6b51',1,'BitmapComponent::Save()'],['../class_game_object.html#ab02e58574f2390bcffa3e02c708a41c1',1,'GameObject::Save()'],['../class_i___component_base.html#a6c8d4058ecc64379b5939203980803a2',1,'I_ComponentBase::Save()'],['../class_script_component.html#acea1a762716ed0ac35f62cb40ab5b1af',1,'ScriptComponent::Save()']]],
+  ['savegame_2',['SaveGame',['../class_save_load_system.html#aad0641960b2c6e146d7ccb7d38f6c556',1,'SaveLoadSystem']]],
+  ['saveloadsystem_3',['SaveLoadSystem',['../class_save_load_system.html',1,'']]],
+  ['scriptcomponent_4',['ScriptComponent',['../class_script_component.html',1,'ScriptComponent'],['../class_script_component.html#ac695ae564ae20a893faa49861c4b98bb',1,'ScriptComponent::ScriptComponent()']]],
+  ['sdl_5fdeleter_5',['sdl_deleter',['../structsdl__deleter.html',1,'']]],
+  ['setdeltamove_6',['SetDeltaMove',['../class_pawn.html#a31a8c5cc3c5c6ae6f882d12dfc7b13d0',1,'Pawn']]],
+  ['setframerate_7',['SetFrameRate',['../class_bitmap.html#a14a7f619668e5b270db60798351aac4c',1,'Bitmap']]],
+  ['setheight_8',['SetHeight',['../class_bitmap.html#aba297d2d1666adcf10c9129e9f72a1b9',1,'Bitmap']]],
+  ['setistransparent_9',['setIsTransparent',['../class_bitmap.html#a6f3913eac3b0db10afc7beca621fa504',1,'Bitmap']]],
+  ['setpath_10',['SetPath',['../class_bitmap.html#acef89aa6a6cd2f7166d96c591b0b031a',1,'Bitmap']]],
+  ['setwidth_11',['SetWidth',['../class_bitmap.html#af0e7d9f66b7217957927409b01e9749f',1,'Bitmap']]],
+  ['setx_12',['SetX',['../class_pawn.html#aaabf242d10883d30288f75a0591cd822',1,'Pawn']]],
+  ['sety_13',['SetY',['../class_pawn.html#a9c64bed81d7d587510d74e4f1f6d346c',1,'Pawn']]],
+  ['stackarenaallocator_14',['StackArenaAllocator',['../class_stack_arena_allocator.html',1,'']]],
+  ['subscribe_15',['Subscribe',['../class_broker.html#aa24607114c0e50ce7f350af1bebc572a',1,'Broker::Subscribe()'],['../class_subscriber.html#a67399a5f52fd66780f0150b1ed3177f8',1,'Subscriber::Subscribe()']]],
+  ['subscriber_16',['Subscriber',['../class_subscriber.html',1,'']]]
+];

@@ -1,0 +1,126 @@
+\doxysection{Game\+Object Class Reference}
+\hypertarget{class_game_object}{}\label{class_game_object}\index{GameObject@{GameObject}}
+Inheritance diagram for Game\+Object:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game_object}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_game_object_a691996daafc3022e875d0b07ca43b29c}{Add\+Component}} (std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_i___component_base}{I\+\_\+\+Component\+Base}} $>$ component)
+\begin{DoxyCompactList}\small\item\em Adds the given component to the Components vector. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_game_object_a899e1822ff8b01fe8936e05bf2bf31bb}{Remove\+Component}} (std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_i___component_base}{I\+\_\+\+Component\+Base}} $>$ component)
+\begin{DoxyCompactList}\small\item\em Removes the given component from the Components vector. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_object_a1bd14aa169f501f94f1721943d716535}\label{class_game_object_a1bd14aa169f501f94f1721943d716535} 
+void {\bfseries Update} ()
+\begin{DoxyCompactList}\small\item\em Call the I\+\_\+\+Component\+Base::\+\+Update() function for all components in the Components vector. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename \doxymbox{\hyperlink{conceptcomponent_type}{component\+Type}}$>$ }\\\doxymbox{\hyperlink{conceptcomponent_type}{component\+Type}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_game_object_a359e1a23ded2fed9c767f645c721b0b8}{Get\+Component\+By\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Returns a dynamic\+\_\+cast of \doxylink{conceptcomponent_type}{component\+Type} variables that match the \doxylink{conceptcomponent_type}{component\+Type} of obj; returns nullptr if none are found. \end{DoxyCompactList}\item 
+nlohmann::\+json \doxymbox{\hyperlink{class_game_object_ab02e58574f2390bcffa3e02c708a41c1}{Save}} () const override
+\begin{DoxyCompactList}\small\item\em Saves the x position, y position, and all attached components for a game object, and returns the Save\+Data. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_game_object_aa31186381003e4a2038990191abd2d1e}{Load}} (nlohmann::\+json Load\+Data, std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$ renderer) override
+\begin{DoxyCompactList}\small\item\em Loads the x position, y position, and all attached components for a game object from the given Load\+Data file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_game_object_ad2de7705e8d1d7b5d0014448dd13f99a}\label{class_game_object_ad2de7705e8d1d7b5d0014448dd13f99a} 
+\doxymbox{\hyperlink{struct_transform}{Transform}} {\bfseries transform}
+\item 
+\Hypertarget{class_game_object_a8396dddb93e92e230b9d14c5e3c32f3e}\label{class_game_object_a8396dddb93e92e230b9d14c5e3c32f3e} 
+std::\+vector$<$ std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_i___component_base}{I\+\_\+\+Component\+Base}} $>$ $>$ {\bfseries Components}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_game_object_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_object_a691996daafc3022e875d0b07ca43b29c}\index{GameObject@{GameObject}!AddComponent@{AddComponent}}
+\index{AddComponent@{AddComponent}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{AddComponent()}{AddComponent()}}
+{\footnotesize\ttfamily \label{class_game_object_a691996daafc3022e875d0b07ca43b29c} 
+void Game\+Object::\+\+Add\+Component (\begin{DoxyParamCaption}\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_i___component_base}{I\+\_\+\+Component\+Base}} $>$}]{component}{}\end{DoxyParamCaption})}
+
+
+
+Adds the given component to the Components vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em component} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_object_a359e1a23ded2fed9c767f645c721b0b8}\index{GameObject@{GameObject}!GetComponentByType@{GetComponentByType}}
+\index{GetComponentByType@{GetComponentByType}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{GetComponentByType()}{GetComponentByType()}}
+{\footnotesize\ttfamily \label{class_game_object_a359e1a23ded2fed9c767f645c721b0b8} 
+template$<$typename \doxymbox{\hyperlink{conceptcomponent_type}{component\+Type}}$>$ \\
+\doxymbox{\hyperlink{conceptcomponent_type}{component\+Type}} \texorpdfstring{$\ast$}{*} Game\+Object::\+\+Get\+Component\+By\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a dynamic\+\_\+cast of \doxylink{conceptcomponent_type}{component\+Type} variables that match the \doxylink{conceptcomponent_type}{component\+Type} of obj; returns nullptr if none are found. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_game_object_aa31186381003e4a2038990191abd2d1e}\index{GameObject@{GameObject}!Load@{Load}}
+\index{Load@{Load}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily \label{class_game_object_aa31186381003e4a2038990191abd2d1e} 
+void Game\+Object::\+\+Load (\begin{DoxyParamCaption}\item[{nlohmann::\+json}]{Load\+Data}{, }\item[{std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$}]{renderer}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Loads the x position, y position, and all attached components for a game object from the given Load\+Data file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Load\+Data} & \\
+\hline
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{class_i_save_loadable}{ISave\+Loadable}}.
+
+\Hypertarget{class_game_object_a899e1822ff8b01fe8936e05bf2bf31bb}\index{GameObject@{GameObject}!RemoveComponent@{RemoveComponent}}
+\index{RemoveComponent@{RemoveComponent}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{RemoveComponent()}{RemoveComponent()}}
+{\footnotesize\ttfamily \label{class_game_object_a899e1822ff8b01fe8936e05bf2bf31bb} 
+void Game\+Object::\+\+Remove\+Component (\begin{DoxyParamCaption}\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{class_i___component_base}{I\+\_\+\+Component\+Base}} $>$}]{component}{}\end{DoxyParamCaption})}
+
+
+
+Removes the given component from the Components vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em component} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_object_ab02e58574f2390bcffa3e02c708a41c1}\index{GameObject@{GameObject}!Save@{Save}}
+\index{Save@{Save}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily \label{class_game_object_ab02e58574f2390bcffa3e02c708a41c1} 
+nlohmann::\+json Game\+Object::\+\+Save (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Saves the x position, y position, and all attached components for a game object, and returns the Save\+Data. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{class_i_save_loadable}{ISave\+Loadable}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Game\+Object.\+h\item 
+Game\+Object.\+cpp\end{DoxyCompactItemize}

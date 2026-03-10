@@ -1,0 +1,43 @@
+\doxysection{Hierarchy.\+h}
+\hypertarget{_hierarchy_8h_source}{}\label{_hierarchy_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <imgui.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Pawn.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }SDL\_Renderer;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }Hierarchy}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ std::shared\_ptr<SDL\_Renderer>\ renderer;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_hierarchy_a4c0dd9ef984fbc98b97f5ec64d20a06e}{Init}}(\textcolor{keyword}{const}\ std::shared\_ptr<SDL\_Renderer>\&\ rendererPtr)}
+\DoxyCodeLine{00019\ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ renderer\ =\ rendererPtr;}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \doxymbox{\hyperlink{class_hierarchy}{Hierarchy}}()}
+\DoxyCodeLine{00024\ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{static}\ Hierarchy*\ \_instance;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{static}\ Hierarchy\&\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_hierarchy_ae49c9156a5c169f2122a87ce4747e126}{INSTANCE}}();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ std::vector<Pawn*>\ HierarchyList;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_hierarchy_afdb013ed7ed6f369fdfbe93812d545fa}{AddGameObject}}(Pawn*\ pawn);}
+\DoxyCodeLine{00033\ \ \ \ \ Pawn*\ \doxymbox{\hyperlink{class_hierarchy_afdb013ed7ed6f369fdfbe93812d545fa}{AddGameObject}}(std::string\ path,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{bool}\ isTransparent);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_hierarchy_abbaf497739b5f00240b09411fe59451e}{DrawHierarchyItems}}();}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_hierarchy_aaea682095920b63581fe2d5595b972e1}{UpdateHierarchyItems}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00042\ \ \ \ \ std::vector<Pawn*>\ \doxymbox{\hyperlink{class_hierarchy_a46ac2472287d820533eacaa202638aa9}{GetHierarchyList}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ HierarchyList;\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_hierarchy_a67c2e5a5fd44e07d91fff2d79cdd2f92}{DrawHierarchy}}();}
+\DoxyCodeLine{00045\ \};}
+\DoxyCodeLine{00046\ }
+
+\end{DoxyCode}

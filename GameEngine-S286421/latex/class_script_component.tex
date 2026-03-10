@@ -1,0 +1,137 @@
+\doxysection{Script\+Component Class Reference}
+\hypertarget{class_script_component}{}\label{class_script_component}\index{ScriptComponent@{ScriptComponent}}
+Inheritance diagram for Script\+Component:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_script_component}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_script_component_ac695ae564ae20a893faa49861c4b98bb}{Script\+Component}} (const std::\+string File\+Path, \doxymbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Parent\+Obj)
+\begin{DoxyCompactList}\small\item\em Initialises the \doxylink{class_script_component}{Script\+Component}; assigns Script\+Path to File\+Path, and calls Script\+Component::\+\+Load\+Script(). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_script_component_a513bf24b9929daab8b71e5a823c619f5}{Update}} () override
+\begin{DoxyCompactList}\small\item\em Updates the variables used by the lua file, and calls the update function in the lua file. \end{DoxyCompactList}\item 
+nlohmann::\+json \doxymbox{\hyperlink{class_script_component_acea1a762716ed0ac35f62cb40ab5b1af}{Save}} () const override
+\begin{DoxyCompactList}\small\item\em Saves the Script\+Path and \doxylink{class_script_component_ac2753b4c9ec18dbe370961a701da071a}{Type()} to Bitmap\+Save\+Data and returns it. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_script_component_a26c84636ab7f368f6b38c4e0ec5109b2}{Load}} (nlohmann::\+json Load\+Data, std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$ renderer) override
+\begin{DoxyCompactList}\small\item\em Loads data from Script\+Path, and calls Script\+Component::\+\+Load\+Script(). \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_script_component_ac2753b4c9ec18dbe370961a701da071a}{Type}} () const override
+\begin{DoxyCompactList}\small\item\em Identical to \doxylink{class_bitmap_component_aca7daf25335df1891052bdab4738b430}{Bitmap\+Component::\+\+Type()}. \end{DoxyCompactList}\item 
+\Hypertarget{class_script_component_adbfdda686e699ec24feec0daa392b3a8}\label{class_script_component_adbfdda686e699ec24feec0daa392b3a8} 
+{\bfseries Script\+Component} (\doxymbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Parent\+Object)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_i___component_base}{I\+\_\+\+Component\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_i___component_base_a1eb81b481625c1c3e3ee7700f01b5d74}{I\+\_\+\+Component\+Base}} (\doxymbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Parent)
+\begin{DoxyCompactList}\small\item\em Initialises the \doxylink{class_i___component_base}{I\+\_\+\+Component\+Base}; defines the Parent\+Object \doxylink{class_game_object}{Game\+Object} as the given variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \doxymbox{\hyperlink{class_i___component_base}{I\+\_\+\+Component\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} {\bfseries Parent\+Object}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_script_component_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_script_component_ac695ae564ae20a893faa49861c4b98bb}\index{ScriptComponent@{ScriptComponent}!ScriptComponent@{ScriptComponent}}
+\index{ScriptComponent@{ScriptComponent}!ScriptComponent@{ScriptComponent}}
+\doxysubsubsection{\texorpdfstring{ScriptComponent()}{ScriptComponent()}}
+{\footnotesize\ttfamily \label{class_script_component_ac695ae564ae20a893faa49861c4b98bb} 
+Script\+Component::\+\+Script\+Component (\begin{DoxyParamCaption}\item[{const std::\+string}]{File\+Path}{, }\item[{\doxymbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{Parent\+Obj}{}\end{DoxyParamCaption})}
+
+
+
+Initialises the \doxylink{class_script_component}{Script\+Component}; assigns Script\+Path to File\+Path, and calls Script\+Component::\+\+Load\+Script(). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em File\+Path} & \\
+\hline
+{\em Parent\+Obj} & \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_script_component_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_script_component_a26c84636ab7f368f6b38c4e0ec5109b2}\index{ScriptComponent@{ScriptComponent}!Load@{Load}}
+\index{Load@{Load}!ScriptComponent@{ScriptComponent}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily \label{class_script_component_a26c84636ab7f368f6b38c4e0ec5109b2} 
+void Script\+Component::\+\+Load (\begin{DoxyParamCaption}\item[{nlohmann::\+json}]{Load\+Data}{, }\item[{std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$}]{renderer}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Loads data from Script\+Path, and calls Script\+Component::\+\+Load\+Script(). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Load\+Data} & \\
+\hline
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{class_i___component_base_aabd5b119595e60a339d8da3f7ef8921f}{I\+\_\+\+Component\+Base}}.
+
+\Hypertarget{class_script_component_acea1a762716ed0ac35f62cb40ab5b1af}\index{ScriptComponent@{ScriptComponent}!Save@{Save}}
+\index{Save@{Save}!ScriptComponent@{ScriptComponent}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily \label{class_script_component_acea1a762716ed0ac35f62cb40ab5b1af} 
+nlohmann::\+json Script\+Component::\+\+Save (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Saves the Script\+Path and \doxylink{class_script_component_ac2753b4c9ec18dbe370961a701da071a}{Type()} to Bitmap\+Save\+Data and returns it. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{class_i___component_base_a6c8d4058ecc64379b5939203980803a2}{I\+\_\+\+Component\+Base}}.
+
+\Hypertarget{class_script_component_ac2753b4c9ec18dbe370961a701da071a}\index{ScriptComponent@{ScriptComponent}!Type@{Type}}
+\index{Type@{Type}!ScriptComponent@{ScriptComponent}}
+\doxysubsubsection{\texorpdfstring{Type()}{Type()}}
+{\footnotesize\ttfamily \label{class_script_component_ac2753b4c9ec18dbe370961a701da071a} 
+std::\+string Script\+Component::\+\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Identical to \doxylink{class_bitmap_component_aca7daf25335df1891052bdab4738b430}{Bitmap\+Component::\+\+Type()}. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{class_i___component_base_a074cabebf36e8637d002e569e21a0d41}{I\+\_\+\+Component\+Base}}.
+
+\Hypertarget{class_script_component_a513bf24b9929daab8b71e5a823c619f5}\index{ScriptComponent@{ScriptComponent}!Update@{Update}}
+\index{Update@{Update}!ScriptComponent@{ScriptComponent}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_script_component_a513bf24b9929daab8b71e5a823c619f5} 
+void Script\+Component::\+\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates the variables used by the lua file, and calls the update function in the lua file. 
+
+
+
+Implements \doxymbox{\hyperlink{class_i___component_base}{I\+\_\+\+Component\+Base}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Script\+Component.\+h\item 
+Script\+Component.\+cpp\end{DoxyCompactItemize}

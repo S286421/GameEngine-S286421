@@ -1,0 +1,25 @@
+\doxysection{Save\+Load\+System.\+h}
+\hypertarget{_save_load_system_8h_source}{}\label{_save_load_system_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}json.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}GameObject.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_game_object}{GameObject}};}
+\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }SDL\_Renderer;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_save_load_system}{SaveLoadSystem}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_save_load_system}{SaveLoadSystem}}*\ \_instance;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_save_load_system}{SaveLoadSystem}}\&\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_save_load_system_af6152387b1d411d077a395a4bbc39ec2}{INSTANCE}}();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_save_load_system_aad0641960b2c6e146d7ccb7d38f6c556}{SaveGame}}(\textcolor{keyword}{const}\ std::string\&\ filename,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_game_object}{GameObject}}\&\ ToSave);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_save_load_system_a37286e4f3d83159bb72f3dc838d65fed}{LoadGame}}(\textcolor{keyword}{const}\ std::string\&\ filename,\ \doxymbox{\hyperlink{class_game_object}{GameObject}}\&\ ToLoad,\ std::shared\_ptr<SDL\_Renderer>\ renderer);}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+
+\end{DoxyCode}

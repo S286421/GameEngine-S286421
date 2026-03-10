@@ -1,0 +1,78 @@
+\doxysection{Broker Class Reference}
+\hypertarget{class_broker}{}\label{class_broker}\index{Broker@{Broker}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_broker_aa24607114c0e50ce7f350af1bebc572a}{Subscribe}} (const std::\+string \&topic, \doxymbox{\hyperlink{class_subscriber}{Subscriber}} \texorpdfstring{$\ast$}{*}sub)
+\begin{DoxyCompactList}\small\item\em Links the topic and sub variables, and adds them to the subscribers unordered\+\_\+map. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_broker_a50b0c2e0420ccbe451ac4db8f5b41e4e}{Publish}} (const std::\+string \&topic, \doxymbox{\hyperlink{class_i_event_data}{IEvent\+Data}} \texorpdfstring{$\ast$}{*}message)
+\begin{DoxyCompactList}\small\item\em Pushes message to all items in subscribers that are linked to the given topic; calls Subscriber::\+\+Receive() to push the message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_broker}{Broker}} \&const \doxymbox{\hyperlink{class_broker_a9ebc532a5a23ac7b374a9e8f77bf8db0}{INSTANCE}} ()
+\begin{DoxyCompactList}\small\item\em Creates a broker instance and returns it; used to call the broker in other files. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_broker_a08cfb025d1e1d9256982b586689a4db2}\label{class_broker_a08cfb025d1e1d9256982b586689a4db2} 
+static \doxymbox{\hyperlink{class_broker}{Broker}} \texorpdfstring{$\ast$}{*} {\bfseries \+\_\+instance} = nullptr
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_broker_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_broker_a9ebc532a5a23ac7b374a9e8f77bf8db0}\index{Broker@{Broker}!INSTANCE@{INSTANCE}}
+\index{INSTANCE@{INSTANCE}!Broker@{Broker}}
+\doxysubsubsection{\texorpdfstring{INSTANCE()}{INSTANCE()}}
+{\footnotesize\ttfamily \label{class_broker_a9ebc532a5a23ac7b374a9e8f77bf8db0} 
+\doxymbox{\hyperlink{class_broker}{Broker}} \&const Broker::\+\+INSTANCE (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a broker instance and returns it; used to call the broker in other files. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_broker_a50b0c2e0420ccbe451ac4db8f5b41e4e}\index{Broker@{Broker}!Publish@{Publish}}
+\index{Publish@{Publish}!Broker@{Broker}}
+\doxysubsubsection{\texorpdfstring{Publish()}{Publish()}}
+{\footnotesize\ttfamily \label{class_broker_a50b0c2e0420ccbe451ac4db8f5b41e4e} 
+void Broker::\+\+Publish (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{topic}{, }\item[{\doxymbox{\hyperlink{class_i_event_data}{IEvent\+Data}} \texorpdfstring{$\ast$}{*}}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Pushes message to all items in subscribers that are linked to the given topic; calls Subscriber::\+\+Receive() to push the message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em topic} & \\
+\hline
+{\em message} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_broker_aa24607114c0e50ce7f350af1bebc572a}\index{Broker@{Broker}!Subscribe@{Subscribe}}
+\index{Subscribe@{Subscribe}!Broker@{Broker}}
+\doxysubsubsection{\texorpdfstring{Subscribe()}{Subscribe()}}
+{\footnotesize\ttfamily \label{class_broker_aa24607114c0e50ce7f350af1bebc572a} 
+void Broker::\+\+Subscribe (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{topic}{, }\item[{\doxymbox{\hyperlink{class_subscriber}{Subscriber}} \texorpdfstring{$\ast$}{*}}]{sub}{}\end{DoxyParamCaption})}
+
+
+
+Links the topic and sub variables, and adds them to the subscribers unordered\+\_\+map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em topic} & \\
+\hline
+{\em sub} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Broker.\+h\item 
+Broker.\+cpp\end{DoxyCompactItemize}

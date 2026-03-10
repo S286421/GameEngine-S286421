@@ -1,0 +1,18 @@
+\doxysection{Monster.\+h}
+\hypertarget{_monster_8h_source}{}\label{_monster_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Pawn.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Subscriber.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{keyword}{class\ }Monster\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_pawn_a69f251474853dff788dbef98d2d7f720}{Pawn}}}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00006\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ \ \ \ \ Monster(std::shared\_ptr<SDL\_Renderer>\ renderer,\ \textcolor{keyword}{const}\ std::string\ path,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{bool}\ isTransparent,\ std::string\ pawnName);}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_monster_a20709f18431315bf9f292327829ebe9b}{Receive}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_i_event_data}{IEventData}}*\ message,\ \textcolor{keyword}{const}\ std::string\&\ topic)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_monster_a30d75e60a6cf10223b00e2fb1d58d485}{Update}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00012\ \};}
+\DoxyCodeLine{00013\ }
+
+\end{DoxyCode}

@@ -1,0 +1,21 @@
+\doxysection{Publisher.\+h}
+\hypertarget{_publisher_8h_source}{}\label{_publisher_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Broker.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_i_event_data}{IEventData}};}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }Publisher}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \doxymbox{\hyperlink{class_broker}{Broker}}*\ broker;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ Publisher()\ \{\}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_publisher_aa40a9d39dde7d91ecf2bf781cb1d40c4}{Publish}}(\textcolor{keyword}{const}\ std::string\&\ topic,\ \doxymbox{\hyperlink{class_i_event_data}{IEventData}}*\ EventData)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00018\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_broker_a9ebc532a5a23ac7b374a9e8f77bf8db0}{Broker::INSTANCE}}().\doxymbox{\hyperlink{class_broker_a50b0c2e0420ccbe451ac4db8f5b41e4e}{Publish}}(topic,\ EventData);}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ \};}
+
+\end{DoxyCode}

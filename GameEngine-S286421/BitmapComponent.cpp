@@ -1,11 +1,19 @@
 #include "BitmapComponent.h"
 #include "GameObject.h"
+
+/// <summary>
+/// Calls the Bitmap::Draw(x, y) function for the ParentObject it is attached to
+/// </summary>
 void BitmapComponent::Update()
 {
 	if (_bitmap)
 		_bitmap->Draw(ParentObject->transform.WorldLocation.x, ParentObject->transform.WorldLocation.y);
 }
 
+/// <summary>
+/// Handles saving the data of a bitmap, and then returns it
+/// </summary>
+/// <returns></returns>
 nlohmann::json BitmapComponent::Save() const
 {
 	nlohmann::json BitmapSaveData;
@@ -15,6 +23,11 @@ nlohmann::json BitmapComponent::Save() const
 	return BitmapSaveData;
 }
 
+/// <summary>
+/// Creates a bitmap from the LoadData given
+/// </summary>
+/// <param name="LoadData"></param>
+/// <param name="renderer"></param>
 void BitmapComponent::Load(nlohmann::json LoadData, std::shared_ptr<SDL_Renderer> renderer)
 {
 	const std::string path = LoadData["path"].get<std::string>();

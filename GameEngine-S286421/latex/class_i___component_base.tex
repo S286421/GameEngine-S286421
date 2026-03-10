@@ -1,0 +1,131 @@
+\doxysection{I\+\_\+\+Component\+Base Class Reference}
+\hypertarget{class_i___component_base}{}\label{class_i___component_base}\index{I\_ComponentBase@{I\_ComponentBase}}
+Inheritance diagram for I\+\_\+\+Component\+Base:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_i___component_base}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \doxymbox{\hyperlink{class_i___component_base_ab0e301813397b5f1bc626008a0a1539b}{Update}} ()=0
+\item 
+\doxymbox{\hyperlink{class_i___component_base_a1eb81b481625c1c3e3ee7700f01b5d74}{I\+\_\+\+Component\+Base}} (\doxymbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Parent)
+\begin{DoxyCompactList}\small\item\em Initialises the \doxylink{class_i___component_base}{I\+\_\+\+Component\+Base}; defines the Parent\+Object \doxylink{class_game_object}{Game\+Object} as the given variable. \end{DoxyCompactList}\item 
+virtual nlohmann::\+json \doxymbox{\hyperlink{class_i___component_base_a6c8d4058ecc64379b5939203980803a2}{Save}} () const =0
+\begin{DoxyCompactList}\small\item\em defined in \doxylink{class_game_object}{Game\+Object} as \doxylink{class_game_object_ab02e58574f2390bcffa3e02c708a41c1}{Game\+Object::\+\+Save()} \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_i___component_base_aabd5b119595e60a339d8da3f7ef8921f}{Load}} (nlohmann::\+json Load\+Data, std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$ renderer)=0
+\begin{DoxyCompactList}\small\item\em defined in \doxylink{class_game_object}{Game\+Object} as \doxylink{class_game_object_aa31186381003e4a2038990191abd2d1e}{Game\+Object::\+\+Load()} \end{DoxyCompactList}\item 
+virtual std::\+string \doxymbox{\hyperlink{class_i___component_base_a074cabebf36e8637d002e569e21a0d41}{Type}} () const =0
+\begin{DoxyCompactList}\small\item\em defined in \doxylink{class_bitmap_component}{Bitmap\+Component} as \doxylink{class_bitmap_component_aca7daf25335df1891052bdab4738b430}{Bitmap\+Component::\+\+Type()} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_i___component_base_a40a15c7a2e59a9eee91ff69c4164ce49}\label{class_i___component_base_a40a15c7a2e59a9eee91ff69c4164ce49} 
+\doxymbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} {\bfseries Parent\+Object}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_i___component_base_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_i___component_base_a1eb81b481625c1c3e3ee7700f01b5d74}\index{I\_ComponentBase@{I\_ComponentBase}!I\_ComponentBase@{I\_ComponentBase}}
+\index{I\_ComponentBase@{I\_ComponentBase}!I\_ComponentBase@{I\_ComponentBase}}
+\doxysubsubsection{\texorpdfstring{I\_ComponentBase()}{I\_ComponentBase()}}
+{\footnotesize\ttfamily \label{class_i___component_base_a1eb81b481625c1c3e3ee7700f01b5d74} 
+I\+\_\+\+Component\+Base::\+\+I\+\_\+\+Component\+Base (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{Parent}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initialises the \doxylink{class_i___component_base}{I\+\_\+\+Component\+Base}; defines the Parent\+Object \doxylink{class_game_object}{Game\+Object} as the given variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Parent} & \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_i___component_base_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i___component_base_aabd5b119595e60a339d8da3f7ef8921f}\index{I\_ComponentBase@{I\_ComponentBase}!Load@{Load}}
+\index{Load@{Load}!I\_ComponentBase@{I\_ComponentBase}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily \label{class_i___component_base_aabd5b119595e60a339d8da3f7ef8921f} 
+virtual void I\+\_\+\+Component\+Base::\+\+Load (\begin{DoxyParamCaption}\item[{nlohmann::\+json}]{Load\+Data}{, }\item[{std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$}]{renderer}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+defined in \doxylink{class_game_object}{Game\+Object} as \doxylink{class_game_object_aa31186381003e4a2038990191abd2d1e}{Game\+Object::\+\+Load()} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Load\+Data} & \\
+\hline
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{class_i_save_loadable}{ISave\+Loadable}}.
+
+
+
+Implemented in \doxymbox{\hyperlink{class_bitmap_component_af9da60d04dcc21f4bbb0cc08e2016566}{Bitmap\+Component}}, and \doxymbox{\hyperlink{class_script_component_a26c84636ab7f368f6b38c4e0ec5109b2}{Script\+Component}}.
+
+\Hypertarget{class_i___component_base_a6c8d4058ecc64379b5939203980803a2}\index{I\_ComponentBase@{I\_ComponentBase}!Save@{Save}}
+\index{Save@{Save}!I\_ComponentBase@{I\_ComponentBase}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily \label{class_i___component_base_a6c8d4058ecc64379b5939203980803a2} 
+virtual nlohmann::\+json I\+\_\+\+Component\+Base::\+\+Save (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+defined in \doxylink{class_game_object}{Game\+Object} as \doxylink{class_game_object_ab02e58574f2390bcffa3e02c708a41c1}{Game\+Object::\+\+Save()} 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{class_i_save_loadable}{ISave\+Loadable}}.
+
+
+
+Implemented in \doxymbox{\hyperlink{class_bitmap_component_acc0591f367fc0606530fe1cca90b6b51}{Bitmap\+Component}}, and \doxymbox{\hyperlink{class_script_component_acea1a762716ed0ac35f62cb40ab5b1af}{Script\+Component}}.
+
+\Hypertarget{class_i___component_base_a074cabebf36e8637d002e569e21a0d41}\index{I\_ComponentBase@{I\_ComponentBase}!Type@{Type}}
+\index{Type@{Type}!I\_ComponentBase@{I\_ComponentBase}}
+\doxysubsubsection{\texorpdfstring{Type()}{Type()}}
+{\footnotesize\ttfamily \label{class_i___component_base_a074cabebf36e8637d002e569e21a0d41} 
+virtual std::\+string I\+\_\+\+Component\+Base::\+\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+defined in \doxylink{class_bitmap_component}{Bitmap\+Component} as \doxylink{class_bitmap_component_aca7daf25335df1891052bdab4738b430}{Bitmap\+Component::\+\+Type()} 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{class_bitmap_component_aca7daf25335df1891052bdab4738b430}{Bitmap\+Component}}, and \doxymbox{\hyperlink{class_script_component_ac2753b4c9ec18dbe370961a701da071a}{Script\+Component}}.
+
+\Hypertarget{class_i___component_base_ab0e301813397b5f1bc626008a0a1539b}\index{I\_ComponentBase@{I\_ComponentBase}!Update@{Update}}
+\index{Update@{Update}!I\_ComponentBase@{I\_ComponentBase}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_i___component_base_ab0e301813397b5f1bc626008a0a1539b} 
+virtual void I\+\_\+\+Component\+Base::\+\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \doxymbox{\hyperlink{class_bitmap_component_a275b16185f32491affec8c308e9958a7}{Bitmap\+Component}}, and \doxymbox{\hyperlink{class_script_component_a513bf24b9929daab8b71e5a823c619f5}{Script\+Component}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+I\+\_\+\+Component\+Base.\+h\item 
+I\+\_\+\+Component\+Base.\+cpp\end{DoxyCompactItemize}

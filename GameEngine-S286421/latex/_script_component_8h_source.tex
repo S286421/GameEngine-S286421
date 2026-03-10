@@ -1,0 +1,41 @@
+\doxysection{Script\+Component.\+h}
+\hypertarget{_script_component_8h_source}{}\label{_script_component_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}I\_ComponentBase.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Sol/sol.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}SDL3/SDL.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Transform.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}GameObject.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_script_component_ac695ae564ae20a893faa49861c4b98bb}{ScriptComponent}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_i___component_base_a1eb81b481625c1c3e3ee7700f01b5d74}{I\_ComponentBase}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \ \ \ \ sol::state\ lua;}
+\DoxyCodeLine{00013\ \ \ \ \ sol::table\ luaScriptComponent;}
+\DoxyCodeLine{00014\ \ \ \ \ std::string\ ScriptPath;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ std::filesystem::file\_time\_type\ LastUpdated;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \doxymbox{\hyperlink{class_script_component_ac695ae564ae20a893faa49861c4b98bb}{ScriptComponent}}(\textcolor{keyword}{const}\ std::string\ FilePath,\ \doxymbox{\hyperlink{class_game_object}{GameObject}}*\ ParentObj);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_script_component_a513bf24b9929daab8b71e5a823c619f5}{Update}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ reloadIfChanged();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ LoadScript();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ nlohmann::json\ \doxymbox{\hyperlink{class_script_component_acea1a762716ed0ac35f62cb40ab5b1af}{Save}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_script_component_a26c84636ab7f368f6b38c4e0ec5109b2}{Load}}(nlohmann::json\ LoadData,\ std::shared\_ptr<SDL\_Renderer>\ renderer)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00036\ \ \ \ \ std::string\ \doxymbox{\hyperlink{class_script_component_ac2753b4c9ec18dbe370961a701da071a}{Type}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}ScriptComponent"{}};\ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \doxymbox{\hyperlink{class_script_component_ac695ae564ae20a893faa49861c4b98bb}{ScriptComponent}}(\doxymbox{\hyperlink{class_game_object}{GameObject}}*\ ParentObject)\ :\ \doxymbox{\hyperlink{class_i___component_base}{I\_ComponentBase}}(ParentObject)\ \{\};}
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+
+\end{DoxyCode}

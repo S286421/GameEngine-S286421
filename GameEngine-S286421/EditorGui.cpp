@@ -4,6 +4,11 @@
 void EditorGui::DrawWindow()
 { }
 
+/// <summary>
+/// Handles clicking and drag and drop functionality using MouseEventData
+/// </summary>
+/// <param name="message"></param>
+/// <param name="topic"></param>
 void EditorGui::Receive(const IEventData * message, const std::string & topic)
 {
 	const MouseEventData* mouseEventData = static_cast<const MouseEventData*>(message);
@@ -19,6 +24,10 @@ void EditorGui::Receive(const IEventData * message, const std::string & topic)
 	}
 }
 
+/// <summary>
+/// Creates an EditorGui instance and returns it; used to call the EditorGui in other files
+/// </summary>
+/// <returns></returns>
 EditorGui& const EditorGui::INSTANCE()
 {
 	if (!EditorGui::_instance)
@@ -28,6 +37,9 @@ EditorGui& const EditorGui::INSTANCE()
 }
 EditorGui* EditorGui::_instance = nullptr;
 
+/// <summary>
+/// Initialises the EditorGui; subscribes to the "MouseButtonUpdate" message
+/// </summary>
 EditorGui::EditorGui()
 {
 	Broker::INSTANCE().Subscribe("MouseButtonUpdate", this);

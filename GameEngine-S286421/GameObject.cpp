@@ -1,21 +1,36 @@
 #include "GameObject.h"
 
+/// <summary>
+/// Adds the given component to the Components vector
+/// </summary>
+/// <param name="component"></param>
 void GameObject::AddComponent(std::shared_ptr<I_ComponentBase> component)
 {
 	Components.push_back(component);
 }
 
+/// <summary>
+/// Removes the given component from the Components vector
+/// </summary>
+/// <param name="component"></param>
 void GameObject::RemoveComponent(std::shared_ptr<I_ComponentBase> component)
 {
 	auto it = std::remove(Components.begin(), Components.end(), component);
 	if (it != Components.end()) Components.erase(it, Components.end());
 }
 
+/// <summary>
+/// Call the I_ComponentBase::Update() function for all components in the Components vector
+/// </summary>
 void GameObject::Update()
 {
 	for (const auto& component : Components) component->Update();
 }
 
+/// <summary>
+/// Saves the x position, y position, and all attached components for a game object, and returns the SaveData
+/// </summary>
+/// <returns></returns>
 nlohmann::json GameObject::Save() const
 {
 	nlohmann::json SaveData;
@@ -28,6 +43,11 @@ nlohmann::json GameObject::Save() const
 	return SaveData;
 }
 
+/// <summary>
+/// Loads the x position, y position, and all attached components for a game object from the given LoadData file
+/// </summary>
+/// <param name="LoadData"></param>
+/// <param name="renderer"></param>
 void GameObject::Load(nlohmann::json LoadData, std::shared_ptr<SDL_Renderer> renderer)
 {
 	Components.clear();

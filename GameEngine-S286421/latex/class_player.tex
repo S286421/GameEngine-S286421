@@ -1,0 +1,189 @@
+\doxysection{Player Class Reference}
+\hypertarget{class_player}{}\label{class_player}\index{Player@{Player}}
+Inheritance diagram for Player:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_player}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_player_a25d4be5d958ab6acbe2efa20e0cfea53}{Player}} (std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$ renderer, const std::\+string path, int x, int y, bool is\+Transparent, std::\+string pawn\+Name, std::\+vector$<$ SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} $>$ right\+Movement, std::\+vector$<$ SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} $>$ left\+Movement, std::\+vector$<$ SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} $>$ right\+Other, std::\+vector$<$ SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} $>$ left\+Other)
+\begin{DoxyCompactList}\small\item\em Initialises the player; assigns given parameters to private variables. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_player_a5e17be3418fa0ac0192c05efaf3dc8bd}{Update}} () override
+\begin{DoxyCompactList}\small\item\em Handles movement of the player during the game. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_player_a5b60ad157bb1e8debca89ed6903ca2a4}{Draw}} () override
+\begin{DoxyCompactList}\small\item\em Calls specific vectors for the \doxylink{class_pawn_a642faaa2929c8fe9958e75f0dae56384}{Pawn::\+\+Draw\+Animation()} function depending on which direction the player character is moving and if the player character is in the air (calls the standard \doxylink{class_pawn_ac74e538926218637e3b372b5a794a638}{Pawn::\+\+Draw()} function if the player character is not moving). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_pawn}{Pawn}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_pawn_a69f251474853dff788dbef98d2d7f720}{Pawn}} (std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$ renderer, const std::\+string path, int x, int y, bool is\+Transparent, std::\+string pawn\+Name)
+\begin{DoxyCompactList}\small\item\em Initialises the pawn; creates a bitmap from the given values. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_pawn_a25e3daa45ecaf1482f9c28051f125e89}{GetX}} ()
+\begin{DoxyCompactList}\small\item\em Returns the pawn\textquotesingle{}s x position. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_pawn_aaabf242d10883d30288f75a0591cd822}{SetX}} (int x)
+\begin{DoxyCompactList}\small\item\em Sets the pawn\textquotesingle{}s x position to the specified x value. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_pawn_a68b1d19bffb1517f94723bfc0eac0d43}{GetY}} ()
+\begin{DoxyCompactList}\small\item\em Returns the pawn\textquotesingle{}s y position. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_pawn_a9c64bed81d7d587510d74e4f1f6d346c}{SetY}} (int y)
+\begin{DoxyCompactList}\small\item\em Sets the pawn\textquotesingle{}s y position to the specified y value. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_pawn_a945ef035d2f77ce1994fc3581d3e53f7}{Update\+Position}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Sets the pawn\textquotesingle{}s position to the specified x and y values. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Rect \doxymbox{\hyperlink{class_pawn_a2f97ed02c514e6bd2bb2cdf30705cd8c}{Get\+Collision\+Bounds}} () const
+\begin{DoxyCompactList}\small\item\em Return the collision bounds of the pawn as a SDL\+\_\+\+Rect. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_pawn_ae3b6d2d283ead7b804f74231e9f3bc1b}{Draw\+Collider}} (SDL\+\_\+\+Rect Collider) const
+\begin{DoxyCompactList}\small\item\em Draws the collider of the pawn; used in debugging collisions. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_pawn_a31a8c5cc3c5c6ae6f882d12dfc7b13d0}{Set\+Delta\+Move}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Sets the Delta Move of the pawn to the specified x and y values. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_pawn_a63d0f19582ee00e3d4f8de578863104f}{Is\+Overlapping}} (const std::\+vector$<$ \doxymbox{\hyperlink{class_pawn}{Pawn}} \texorpdfstring{$\ast$}{*} $>$ \&List\+Of\+Otherpawns, const SDL\+\_\+\+Point \&Delta)
+\begin{DoxyCompactList}\small\item\em Detects if the pawn entity is interacting with any other entities. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_pawn_a3cb7893000282da4caac2f1faf51a6ea}{Receive}} (const \doxymbox{\hyperlink{class_i_event_data}{IEvent\+Data}} \texorpdfstring{$\ast$}{*}message, const std::\+string \&topic) override
+\begin{DoxyCompactList}\small\item\em Receives input data from the mouse; used to open debug windows for pawn entities. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_pawn_a183ed266b817027468956d8ccf4d147c}{Draw\+Window}} () override
+\begin{DoxyCompactList}\small\item\em Draws an Im\+Gui window for the pawn; used for debugging values. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_pawn_a642faaa2929c8fe9958e75f0dae56384}{Draw\+Animation}} (const std::\+vector$<$ SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} $>$ \&move\+Sprites, int Frame, int x, int y)
+\begin{DoxyCompactList}\small\item\em Calls the \doxylink{class_bitmap_ad204a21b411f7d8ea71aae8d5febb2a3}{Bitmap::\+\+Draw\+Animation()} function for the pawn. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_publisher}{Publisher}}}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_publisher_aa40a9d39dde7d91ecf2bf781cb1d40c4}{Publish}} (const std::\+string \&topic, \doxymbox{\hyperlink{class_i_event_data}{IEvent\+Data}} \texorpdfstring{$\ast$}{*}Event\+Data) const
+\begin{DoxyCompactList}\small\item\em Calls \doxylink{class_broker_a50b0c2e0420ccbe451ac4db8f5b41e4e}{Broker::\+\+Publish()} using the given topic and Event\+Data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_subscriber}{Subscriber}}}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_subscriber_a67399a5f52fd66780f0150b1ed3177f8}{Subscribe}} (const std::\+string \&topic)
+\begin{DoxyCompactList}\small\item\em Subscribes the object it is assigned to to the given topic; uses \doxylink{class_broker_aa24607114c0e50ce7f350af1bebc572a}{Broker::\+\+Subscribe()} to link the topic and subscriber. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Draw\+Windows} ()
+\begin{DoxyCompactList}\small\item\em Calls IGui\+Window::\+\+Draw\+Window() for every \doxylink{class_i_gui_window}{IGui\+Window} in the Windows vector, and calls itself to check for child windows attached to the items in the vector. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_i_gui_window_a3929457ff21262e6be0c626911a32f66}{Attach\+Child\+Window}} (\doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}} \texorpdfstring{$\ast$}{*}Window)
+\begin{DoxyCompactList}\small\item\em Adds the given Window to the Windows vector. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_i_gui_window_ad8d2cd284c6f3c80d910b6c44c59fe76}{Get\+Child\+Window}} (uint16\+\_\+t Index)
+\begin{DoxyCompactList}\small\item\em Searches for a child window in the Windows vector at the given Index, and returns it if found. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_i_gui_window_a896b7d1642a74846392c2268951e1c8f}{Remove\+Child\+Window}} (uint16\+\_\+t Index)
+\begin{DoxyCompactList}\small\item\em Removes the child window in the Windows vector at the given Index, and returns a copy of the child window. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_i_gui_window_ab89631629a2b0f0dd2e747d00aa60e16}{Remove\+Child\+Window}} (\doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}} \texorpdfstring{$\ast$}{*}window)
+\begin{DoxyCompactList}\small\item\em Removes the given window from the Windows vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_player_a5b702451c74d2e7607e4830d18eec10d}\label{class_player_a5b702451c74d2e7607e4830d18eec10d} 
+bool {\bfseries is\+Moving\+Right} = false
+\item 
+\Hypertarget{class_player_a17d02a838b283674ff1dcea435ec41c3}\label{class_player_a17d02a838b283674ff1dcea435ec41c3} 
+bool {\bfseries is\+Moving\+Left} = false
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \doxymbox{\hyperlink{class_pawn}{Pawn}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries speed} = 1
+\item 
+int {\bfseries gravity} = 1
+\item 
+int {\bfseries max\+Fall\+Speed} = 5
+\item 
+bool {\bfseries Grounded} = false
+\item 
+float {\bfseries y\+Velocity} = 0
+\item 
+int {\bfseries ID} = 0
+\item 
+std::\+string {\bfseries Pawn\+Name}
+\item 
+SDL\+\_\+\+Point {\bfseries Position}
+\item 
+SDL\+\_\+\+Point {\bfseries Delta\+Move}
+\item 
+std::\+vector$<$ \doxymbox{\hyperlink{class_pawn}{Pawn}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries current\+Collisions}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Attributes inherited from \doxymbox{\hyperlink{class_pawn}{Pawn}}}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bfseries Current\+ID} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \doxymbox{\hyperlink{class_pawn}{Pawn}}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{class_bitmap}{Bitmap}} $>$ {\bfseries Sprite}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_player_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_player_a25d4be5d958ab6acbe2efa20e0cfea53}\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily \label{class_player_a25d4be5d958ab6acbe2efa20e0cfea53} 
+Player::\+\+Player (\begin{DoxyParamCaption}\item[{std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$}]{renderer}{, }\item[{const std::\+string}]{path}{, }\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{bool}]{is\+Transparent}{, }\item[{std::\+string}]{pawn\+Name}{, }\item[{std::\+vector$<$ SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} $>$}]{right\+Movement}{, }\item[{std::\+vector$<$ SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} $>$}]{left\+Movement}{, }\item[{std::\+vector$<$ SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} $>$}]{right\+Other}{, }\item[{std::\+vector$<$ SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} $>$}]{left\+Other}{}\end{DoxyParamCaption})}
+
+
+
+Initialises the player; assigns given parameters to private variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & \\
+\hline
+{\em path} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em is\+Transparent} & \\
+\hline
+{\em pawn\+Name} & \\
+\hline
+{\em right\+Movement} & \\
+\hline
+{\em left\+Movement} & \\
+\hline
+{\em right\+Other} & \\
+\hline
+{\em left\+Other} & \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_player_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_player_a5b60ad157bb1e8debca89ed6903ca2a4}\index{Player@{Player}!Draw@{Draw}}
+\index{Draw@{Draw}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily \label{class_player_a5b60ad157bb1e8debca89ed6903ca2a4} 
+void Player::\+\+Draw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calls specific vectors for the \doxylink{class_pawn_a642faaa2929c8fe9958e75f0dae56384}{Pawn::\+\+Draw\+Animation()} function depending on which direction the player character is moving and if the player character is in the air (calls the standard \doxylink{class_pawn_ac74e538926218637e3b372b5a794a638}{Pawn::\+\+Draw()} function if the player character is not moving). 
+
+
+
+Reimplemented from \doxymbox{\hyperlink{class_pawn_ac74e538926218637e3b372b5a794a638}{Pawn}}.
+
+\Hypertarget{class_player_a5e17be3418fa0ac0192c05efaf3dc8bd}\index{Player@{Player}!Update@{Update}}
+\index{Update@{Update}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_player_a5e17be3418fa0ac0192c05efaf3dc8bd} 
+void Player::\+\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handles movement of the player during the game. 
+
+
+
+Reimplemented from \doxymbox{\hyperlink{class_pawn}{Pawn}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Player.\+h\item 
+Player.\+cpp\end{DoxyCompactItemize}

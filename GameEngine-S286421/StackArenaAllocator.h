@@ -15,6 +15,10 @@ private:
 	std::size_t offset;
 public:
 	StackArenaAllocator(std::size_t capacity);
+
+	/// <summary>
+	/// Deconstructs the StackArenaAllocator; deletes the buffer
+	/// </summary>
 	~StackArenaAllocator() override { delete[] buffer; }
 	void reset() noexcept;
 protected:

@@ -1,0 +1,44 @@
+\doxysection{Transform.\+hpp}
+\hypertarget{_transform_8hpp_source}{}\label{_transform_8hpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SDL3/SDL.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_transform}{Transform}}}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00006\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ \ \ \ \ std::vector<Transform*>\ Children;}
+\DoxyCodeLine{00008\ \ \ \ \ SDL\_Point\ Location\ =\ \{0,0\};}
+\DoxyCodeLine{00009\ \ \ \ \ SDL\_Point\ WorldLocation;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{struct_transform_aeb57be4ea5dcad72af25faccb5553e7e}{AddChild}}(\doxymbox{\hyperlink{struct_transform}{Transform}}*\ child)}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ Children.push\_back(child);}
+\DoxyCodeLine{00018\ \ \ \ \ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{struct_transform_a9d371d071641600820959f42670502ce}{removeChild}}(\doxymbox{\hyperlink{struct_transform}{Transform}}*\ child)}
+\DoxyCodeLine{00025\ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::remove(Children.begin(),\ Children.end(),\ child);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ Children.end())}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ Children.erase(it,\ Children.end());}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{struct_transform_aa9c3a74db79c3822632933fead807d30}{UpdateTransform}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_transform}{Transform}}\&\ parentTransform)}
+\DoxyCodeLine{00036\ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ WorldLocation.x\ =\ Location.x\ +\ parentTransform.Location.x;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ WorldLocation.y\ =\ Location.y\ +\ parentTransform.Location.y;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\doxymbox{\hyperlink{struct_transform}{Transform}}*\ child\ :\ Children)}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ child-\/>UpdateTransform(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_transform_a702e8107108914f5c18c66fe797172e6}{GetX}}()}
+\DoxyCodeLine{00052\ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Location.x;}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \};}
+
+\end{DoxyCode}

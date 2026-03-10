@@ -1,0 +1,51 @@
+\doxysection{Subscriber Class Reference}
+\hypertarget{class_subscriber}{}\label{class_subscriber}\index{Subscriber@{Subscriber}}
+Inheritance diagram for Subscriber:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_subscriber}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_subscriber_a67399a5f52fd66780f0150b1ed3177f8}{Subscribe}} (const std::\+string \&topic)
+\begin{DoxyCompactList}\small\item\em Subscribes the object it is assigned to to the given topic; uses \doxylink{class_broker_aa24607114c0e50ce7f350af1bebc572a}{Broker::\+\+Subscribe()} to link the topic and subscriber. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_subscriber_a168d08aaf7da824a313c7b9850347cc8}{Receive}} (const \doxymbox{\hyperlink{class_i_event_data}{IEvent\+Data}} \texorpdfstring{$\ast$}{*}message, const std::\+string \&topic)=0
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_subscriber_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_subscriber_a168d08aaf7da824a313c7b9850347cc8}\index{Subscriber@{Subscriber}!Receive@{Receive}}
+\index{Receive@{Receive}!Subscriber@{Subscriber}}
+\doxysubsubsection{\texorpdfstring{Receive()}{Receive()}}
+{\footnotesize\ttfamily \label{class_subscriber_a168d08aaf7da824a313c7b9850347cc8} 
+virtual void Subscriber::\+\+Receive (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_i_event_data}{IEvent\+Data}} \texorpdfstring{$\ast$}{*}}]{message}{, }\item[{const std::\+string \&}]{topic}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \doxymbox{\hyperlink{class_editor_gui_aa3e2a92ed56a7ce6b140e030693225af}{Editor\+Gui}}, \doxymbox{\hyperlink{class_monster_a20709f18431315bf9f292327829ebe9b}{Monster}}, and \doxymbox{\hyperlink{class_pawn_a3cb7893000282da4caac2f1faf51a6ea}{Pawn}}.
+
+\Hypertarget{class_subscriber_a67399a5f52fd66780f0150b1ed3177f8}\index{Subscriber@{Subscriber}!Subscribe@{Subscribe}}
+\index{Subscribe@{Subscribe}!Subscriber@{Subscriber}}
+\doxysubsubsection{\texorpdfstring{Subscribe()}{Subscribe()}}
+{\footnotesize\ttfamily \label{class_subscriber_a67399a5f52fd66780f0150b1ed3177f8} 
+void Subscriber::\+\+Subscribe (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{topic}{}\end{DoxyParamCaption})}
+
+
+
+Subscribes the object it is assigned to to the given topic; uses \doxylink{class_broker_aa24607114c0e50ce7f350af1bebc572a}{Broker::\+\+Subscribe()} to link the topic and subscriber. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em topic} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Subscriber.\+h\item 
+Subscriber.\+cpp\end{DoxyCompactItemize}

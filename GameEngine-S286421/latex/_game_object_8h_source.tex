@@ -1,0 +1,48 @@
+\doxysection{Game\+Object.\+h}
+\hypertarget{_game_object_8h_source}{}\label{_game_object_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Transform.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}I\_ComponentBase.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}BitmapComponent.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}ScriptComponent.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00010\ \textcolor{keyword}{concept\ }\doxymbox{\hyperlink{conceptcomponent_type}{componentType}}\ =\ std::is\_same\_v<\ T,\ I\_ComponentBase\ >;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_game_object}{GameObject}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_i_save_loadable}{ISaveLoadable}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \doxymbox{\hyperlink{struct_transform}{Transform}}\ transform;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ std::vector<std::shared\_ptr<I\_ComponentBase>>\ Components;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_game_object_a691996daafc3022e875d0b07ca43b29c}{AddComponent}}(std::shared\_ptr<I\_ComponentBase>\ component);}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_game_object_a899e1822ff8b01fe8936e05bf2bf31bb}{RemoveComponent}}(std::shared\_ptr<I\_ComponentBase>\ component);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_game_object_a1bd14aa169f501f94f1721943d716535}{Update}}();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ componentType>}
+\DoxyCodeLine{00025\ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \doxymbox{\hyperlink{conceptcomponent_type}{componentType}}*\ \doxymbox{\hyperlink{class_game_object_a359e1a23ded2fed9c767f645c721b0b8}{GetComponentByType}}()}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::find\_if(Components.begin(),\ Components.end(),\ [](\textcolor{keyword}{const}\ std::shared\_ptr<I\_ComponentBase>\&\ obj)}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ dynamic\_cast<componentType*>(obj.get())\ !=\ nullptr;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ Components.end())}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{dynamic\_cast<}\doxymbox{\hyperlink{conceptcomponent_type}{componentType}}*\textcolor{keyword}{>}\ ((*it).get());}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ nlohmann::json\ \doxymbox{\hyperlink{class_game_object_ab02e58574f2390bcffa3e02c708a41c1}{Save}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_game_object_aa31186381003e4a2038990191abd2d1e}{Load}}(nlohmann::json\ LoadData,\ std::shared\_ptr<SDL\_Renderer>\ renderer)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ }
+
+\end{DoxyCode}

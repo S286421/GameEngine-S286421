@@ -1,0 +1,29 @@
+\doxysection{IDirectory\+Item.\+h}
+\hypertarget{_i_directory_item_8h_source}{}\label{_i_directory_item_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}EditorGui.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{struct\ }SDL\_Texture;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_i_directory_item_aa4de898355a0a0f2af29fbf2ba363bb8}{IDirectoryItem}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00012\ \ \ \ \ std::shared\_ptr<SDL\_Texture>\ IconTexture;}
+\DoxyCodeLine{00013\ \ \ \ \ std::filesystem::directory\_entry\ Entry;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \doxymbox{\hyperlink{class_i_directory_item_aa4de898355a0a0f2af29fbf2ba363bb8}{IDirectoryItem}}(std::shared\_ptr<SDL\_Texture>\ iconTexture,\ std::filesystem::directory\_entry\ entry);}
+\DoxyCodeLine{00016\ \ \ \ \ \doxymbox{\hyperlink{class_i_directory_item_aa4de898355a0a0f2af29fbf2ba363bb8}{\string~IDirectoryItem}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ OnClick();}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_i_directory_item_a4167dde2103af24f2ee706d01f664696}{DrawIconButton}}();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ std::shared\_ptr<SDL\_Texture>\ \doxymbox{\hyperlink{class_i_directory_item_af5361306a5b3d8bf6727997e8a0944b4}{GetTextureRef}}();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{const}\ std::filesystem::directory\_entry\&\ \doxymbox{\hyperlink{class_i_directory_item_a4ea30ff144dcc5fd8839c8252227e43c}{GetDirectoryEntry}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+
+\end{DoxyCode}

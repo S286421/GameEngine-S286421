@@ -1,0 +1,97 @@
+\doxysection{IDirectory\+Item Class Reference}
+\hypertarget{class_i_directory_item}{}\label{class_i_directory_item}\index{IDirectoryItem@{IDirectoryItem}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_i_directory_item_aa4de898355a0a0f2af29fbf2ba363bb8}{IDirectory\+Item}} (std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Texture $>$ icon\+Texture, std::\+filesystem::\+directory\+\_\+entry entry)
+\begin{DoxyCompactList}\small\item\em Initialises \doxylink{class_i_directory_item}{IDirectory\+Item}; sets the \doxylink{class_i_directory_item}{IDirectory\+Item} class\textquotesingle{} Icon\+Texture and Entry variables to the given icon\+Texture and entry. \end{DoxyCompactList}\item 
+\Hypertarget{class_i_directory_item_adc8633c5ad14aa03c46d7ab655701599}\label{class_i_directory_item_adc8633c5ad14aa03c46d7ab655701599} 
+void {\bfseries On\+Click} ()
+\item 
+bool \doxymbox{\hyperlink{class_i_directory_item_a4167dde2103af24f2ee706d01f664696}{Draw\+Icon\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Draws the icons of files in the asset window; used by \doxylink{class_asset_window}{Asset\+Window} in \doxylink{class_asset_window_aa6ab83cffd1a47405ce2c0f4e6dd421a}{Asset\+Window::\+\+Draw\+Window()}. \end{DoxyCompactList}\item 
+std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Texture $>$ \doxymbox{\hyperlink{class_i_directory_item_af5361306a5b3d8bf6727997e8a0944b4}{Get\+Texture\+Ref}} ()
+\begin{DoxyCompactList}\small\item\em Return the std::\+shared\+\_\+ptr$<$\+SDL\+\_\+\+Texture$>$ Icon\+Texture. \end{DoxyCompactList}\item 
+const std::\+filesystem::\+directory\+\_\+entry \& \doxymbox{\hyperlink{class_i_directory_item_a4ea30ff144dcc5fd8839c8252227e43c}{Get\+Directory\+Entry}} () const
+\begin{DoxyCompactList}\small\item\em Returns the std::\+filesystem::\+directory\+\_\+entry\& Entry. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_i_directory_item_a7498b4cb29be0d9fd059dfca099fc16b}\label{class_i_directory_item_a7498b4cb29be0d9fd059dfca099fc16b} 
+std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Texture $>$ {\bfseries Icon\+Texture}
+\item 
+\Hypertarget{class_i_directory_item_a1a43fc27d5cfc687b9dff7064eb4e84b}\label{class_i_directory_item_a1a43fc27d5cfc687b9dff7064eb4e84b} 
+std::\+filesystem::\+directory\+\_\+entry {\bfseries Entry}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_i_directory_item_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_i_directory_item_aa4de898355a0a0f2af29fbf2ba363bb8}\index{IDirectoryItem@{IDirectoryItem}!IDirectoryItem@{IDirectoryItem}}
+\index{IDirectoryItem@{IDirectoryItem}!IDirectoryItem@{IDirectoryItem}}
+\doxysubsubsection{\texorpdfstring{IDirectoryItem()}{IDirectoryItem()}}
+{\footnotesize\ttfamily \label{class_i_directory_item_aa4de898355a0a0f2af29fbf2ba363bb8} 
+IDirectory\+Item::\+\+IDirectory\+Item (\begin{DoxyParamCaption}\item[{std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Texture $>$}]{icon\+Texture}{, }\item[{std::\+filesystem::\+directory\+\_\+entry}]{entry}{}\end{DoxyParamCaption})}
+
+
+
+Initialises \doxylink{class_i_directory_item}{IDirectory\+Item}; sets the \doxylink{class_i_directory_item}{IDirectory\+Item} class\textquotesingle{} Icon\+Texture and Entry variables to the given icon\+Texture and entry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em icon\+Texture} & \\
+\hline
+{\em entry} & \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_i_directory_item_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i_directory_item_a4167dde2103af24f2ee706d01f664696}\index{IDirectoryItem@{IDirectoryItem}!DrawIconButton@{DrawIconButton}}
+\index{DrawIconButton@{DrawIconButton}!IDirectoryItem@{IDirectoryItem}}
+\doxysubsubsection{\texorpdfstring{DrawIconButton()}{DrawIconButton()}}
+{\footnotesize\ttfamily \label{class_i_directory_item_a4167dde2103af24f2ee706d01f664696} 
+bool IDirectory\+Item::\+\+Draw\+Icon\+Button (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws the icons of files in the asset window; used by \doxylink{class_asset_window}{Asset\+Window} in \doxylink{class_asset_window_aa6ab83cffd1a47405ce2c0f4e6dd421a}{Asset\+Window::\+\+Draw\+Window()}. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_i_directory_item_a4ea30ff144dcc5fd8839c8252227e43c}\index{IDirectoryItem@{IDirectoryItem}!GetDirectoryEntry@{GetDirectoryEntry}}
+\index{GetDirectoryEntry@{GetDirectoryEntry}!IDirectoryItem@{IDirectoryItem}}
+\doxysubsubsection{\texorpdfstring{GetDirectoryEntry()}{GetDirectoryEntry()}}
+{\footnotesize\ttfamily \label{class_i_directory_item_a4ea30ff144dcc5fd8839c8252227e43c} 
+const std::\+filesystem::\+directory\+\_\+entry \& IDirectory\+Item::\+\+Get\+Directory\+Entry (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the std::\+filesystem::\+directory\+\_\+entry\& Entry. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_i_directory_item_af5361306a5b3d8bf6727997e8a0944b4}\index{IDirectoryItem@{IDirectoryItem}!GetTextureRef@{GetTextureRef}}
+\index{GetTextureRef@{GetTextureRef}!IDirectoryItem@{IDirectoryItem}}
+\doxysubsubsection{\texorpdfstring{GetTextureRef()}{GetTextureRef()}}
+{\footnotesize\ttfamily \label{class_i_directory_item_af5361306a5b3d8bf6727997e8a0944b4} 
+std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Texture $>$ IDirectory\+Item::\+\+Get\+Texture\+Ref (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Return the std::\+shared\+\_\+ptr$<$\+SDL\+\_\+\+Texture$>$ Icon\+Texture. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+IDirectory\+Item.\+h\item 
+IDirectory\+Item.\+cpp\end{DoxyCompactItemize}

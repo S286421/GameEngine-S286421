@@ -1,5 +1,13 @@
 #include "MovementSystem.h"
 
+/// <summary>
+/// Creates an Entity Component System (ECS) with the given InitialX and InitialY, and adds it to the entity specified with the EntityID; returns the PositionECS
+/// </summary>
+/// <param name="EntityID"></param>
+/// <param name="ecs"></param>
+/// <param name="InitialX"></param>
+/// <param name="InitialY"></param>
+/// <returns></returns>
 PositionECS MovementSystem::AddPositionComponentToEntity(uint32_t EntityID, ECS& const ecs, float InitialX, float InitialY)
 {
 	PositionECS pos;
@@ -12,6 +20,15 @@ PositionECS MovementSystem::AddPositionComponentToEntity(uint32_t EntityID, ECS&
 	return pos;
 }
 
+/// <summary>
+/// Creates an Entity Component System (ECS) with the given InitialDx, InitialDy, and Gravity, and adds it to the entity specified with the EntityID; returns the VelocityECS
+/// </summary>
+/// <param name="EntityID"></param>
+/// <param name="ecs"></param>
+/// <param name="InitialDx"></param>
+/// <param name="InitialDy"></param>
+/// <param name="Gravity"></param>
+/// <returns></returns>
 VelocityECS MovementSystem::AddVelocityComponentToEntity(uint32_t EntityID, ECS& const ecs, float InitialDx, float InitialDy, float Gravity)
 {
 	VelocityECS vel;
@@ -25,6 +42,10 @@ VelocityECS MovementSystem::AddVelocityComponentToEntity(uint32_t EntityID, ECS&
 	return vel;
 }
 
+/// <summary>
+/// Updates PositionECS and VelocityECS of all entities
+/// </summary>
+/// <param name="ecs"></param>
 void MovementSystem::UpdatePositions(ECS& const ecs)
 {
 	for (int entityID = 0; entityID < MAX_ENTITIES; entityID++)

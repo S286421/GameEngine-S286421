@@ -45,7 +45,6 @@ void Bitmap::Draw(int x, int y)
 	SDL_RenderTexture(_renderer.get(), _texture.get(), NULL, &dstRect);
 }
 
-
 /// <summary>
 /// Renders the player with the next animation sprite in a vector of sprites every five frames
 /// </summary>

@@ -1,0 +1,130 @@
+\doxysection{Hierarchy Class Reference}
+\hypertarget{class_hierarchy}{}\label{class_hierarchy}\index{Hierarchy@{Hierarchy}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_hierarchy_a4c0dd9ef984fbc98b97f5ec64d20a06e}{Init}} (const std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$ \&renderer\+Ptr)
+\begin{DoxyCompactList}\small\item\em Initialises the \doxylink{class_hierarchy}{Hierarchy}; sets the \doxylink{class_hierarchy}{Hierarchy} class\textquotesingle{} renderer variable to the given renderer\+Ptr. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_hierarchy_afdb013ed7ed6f369fdfbe93812d545fa}{Add\+Game\+Object}} (\doxymbox{\hyperlink{class_pawn}{Pawn}} \texorpdfstring{$\ast$}{*}pawn)
+\begin{DoxyCompactList}\small\item\em Adds the given pawn to the Hierarchy\+List. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_pawn}{Pawn}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_hierarchy_a5186a03edf39cc585812b2d50d68cb49}{Add\+Game\+Object}} (std::\+string path, int x, int y, bool is\+Transparent)
+\begin{DoxyCompactList}\small\item\em Creates a pawn object with the given variables, and adds that to the Hierarchy\+List; returns the created pawn. \end{DoxyCompactList}\item 
+\Hypertarget{class_hierarchy_abbaf497739b5f00240b09411fe59451e}\label{class_hierarchy_abbaf497739b5f00240b09411fe59451e} 
+void {\bfseries Draw\+Hierarchy\+Items} ()
+\begin{DoxyCompactList}\small\item\em Calls \doxylink{class_pawn_ac74e538926218637e3b372b5a794a638}{Pawn::\+\+Draw()} for all pawns in the Hierarchy\+List. \end{DoxyCompactList}\item 
+\Hypertarget{class_hierarchy_aaea682095920b63581fe2d5595b972e1}\label{class_hierarchy_aaea682095920b63581fe2d5595b972e1} 
+void {\bfseries Update\+Hierarchy\+Items} ()
+\begin{DoxyCompactList}\small\item\em Calls Pawn::\+\+Update() for all pawns in the Hierarchy\+List. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{class_pawn}{Pawn}} \texorpdfstring{$\ast$}{*} $>$ \doxymbox{\hyperlink{class_hierarchy_a46ac2472287d820533eacaa202638aa9}{Get\+Hierarchy\+List}} () const
+\begin{DoxyCompactList}\small\item\em Returns the Hierarchy\+List. \end{DoxyCompactList}\item 
+\Hypertarget{class_hierarchy_a67c2e5a5fd44e07d91fff2d79cdd2f92}\label{class_hierarchy_a67c2e5a5fd44e07d91fff2d79cdd2f92} 
+void {\bfseries Draw\+Hierarchy} ()
+\begin{DoxyCompactList}\small\item\em Draws a hierarchy window; this window shows all pawns in the Hierarchy\+List in hierarchical order. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_hierarchy}{Hierarchy}} \&const \doxymbox{\hyperlink{class_hierarchy_ae49c9156a5c169f2122a87ce4747e126}{INSTANCE}} ()
+\begin{DoxyCompactList}\small\item\em Creates a hierarchy instance and returns it; used to call the hierarchy in other files. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_hierarchy_a179e9d67e448d30fa1e2f296a109f7b5}\label{class_hierarchy_a179e9d67e448d30fa1e2f296a109f7b5} 
+std::\+vector$<$ \doxymbox{\hyperlink{class_pawn}{Pawn}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries Hierarchy\+List}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_hierarchy_ab74fb8b3e69eaf55ea0419e9672a2ed8}\label{class_hierarchy_ab74fb8b3e69eaf55ea0419e9672a2ed8} 
+static \doxymbox{\hyperlink{class_hierarchy}{Hierarchy}} \texorpdfstring{$\ast$}{*} {\bfseries \+\_\+instance} = nullptr
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_hierarchy_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_hierarchy_afdb013ed7ed6f369fdfbe93812d545fa}\index{Hierarchy@{Hierarchy}!AddGameObject@{AddGameObject}}
+\index{AddGameObject@{AddGameObject}!Hierarchy@{Hierarchy}}
+\doxysubsubsection{\texorpdfstring{AddGameObject()}{AddGameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_hierarchy_afdb013ed7ed6f369fdfbe93812d545fa} 
+void Hierarchy::\+\+Add\+Game\+Object (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_pawn}{Pawn}} \texorpdfstring{$\ast$}{*}}]{pawn}{}\end{DoxyParamCaption})}
+
+
+
+Adds the given pawn to the Hierarchy\+List. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pawn} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_hierarchy_a5186a03edf39cc585812b2d50d68cb49}\index{Hierarchy@{Hierarchy}!AddGameObject@{AddGameObject}}
+\index{AddGameObject@{AddGameObject}!Hierarchy@{Hierarchy}}
+\doxysubsubsection{\texorpdfstring{AddGameObject()}{AddGameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_hierarchy_a5186a03edf39cc585812b2d50d68cb49} 
+\doxymbox{\hyperlink{class_pawn}{Pawn}} \texorpdfstring{$\ast$}{*} Hierarchy::\+\+Add\+Game\+Object (\begin{DoxyParamCaption}\item[{std::\+string}]{path}{, }\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{bool}]{is\+Transparent}{}\end{DoxyParamCaption})}
+
+
+
+Creates a pawn object with the given variables, and adds that to the Hierarchy\+List; returns the created pawn. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em is\+Transparent} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_hierarchy_a46ac2472287d820533eacaa202638aa9}\index{Hierarchy@{Hierarchy}!GetHierarchyList@{GetHierarchyList}}
+\index{GetHierarchyList@{GetHierarchyList}!Hierarchy@{Hierarchy}}
+\doxysubsubsection{\texorpdfstring{GetHierarchyList()}{GetHierarchyList()}}
+{\footnotesize\ttfamily \label{class_hierarchy_a46ac2472287d820533eacaa202638aa9} 
+std::\+vector$<$ \doxymbox{\hyperlink{class_pawn}{Pawn}} \texorpdfstring{$\ast$}{*} $>$ Hierarchy::\+\+Get\+Hierarchy\+List (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the Hierarchy\+List. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_hierarchy_a4c0dd9ef984fbc98b97f5ec64d20a06e}\index{Hierarchy@{Hierarchy}!Init@{Init}}
+\index{Init@{Init}!Hierarchy@{Hierarchy}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{class_hierarchy_a4c0dd9ef984fbc98b97f5ec64d20a06e} 
+void Hierarchy::\+\+Init (\begin{DoxyParamCaption}\item[{const std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$ \&}]{renderer\+Ptr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initialises the \doxylink{class_hierarchy}{Hierarchy}; sets the \doxylink{class_hierarchy}{Hierarchy} class\textquotesingle{} renderer variable to the given renderer\+Ptr. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer\+Ptr} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_hierarchy_ae49c9156a5c169f2122a87ce4747e126}\index{Hierarchy@{Hierarchy}!INSTANCE@{INSTANCE}}
+\index{INSTANCE@{INSTANCE}!Hierarchy@{Hierarchy}}
+\doxysubsubsection{\texorpdfstring{INSTANCE()}{INSTANCE()}}
+{\footnotesize\ttfamily \label{class_hierarchy_ae49c9156a5c169f2122a87ce4747e126} 
+\doxymbox{\hyperlink{class_hierarchy}{Hierarchy}} \&const Hierarchy::\+\+INSTANCE (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a hierarchy instance and returns it; used to call the hierarchy in other files. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Hierarchy.\+h\item 
+Hierarchy.\+cpp\end{DoxyCompactItemize}

@@ -1,5 +1,10 @@
 #include "include.h"
 
+/// <summary>
+/// Saves the X and Y position of the given player to the given savefile (file is created if not found)
+/// </summary>
+/// <param name="player"></param>
+/// <param name="savefile"></param>
 void SavePlayerToJson(Pawn& player, std::string savefile)
 {
 	nlohmann::json SaveData;
@@ -12,6 +17,12 @@ void SavePlayerToJson(Pawn& player, std::string savefile)
 	std::cout << "Saved to " + savefile + "\n";
 }
 
+/// <summary>
+/// Sets the player X and Y position to the position data found in the given savefile (will return an error if not found)
+/// </summary>
+/// <param name="player"></param>
+/// <param name="savefile"></param>
+/// <returns></returns>
 int LoadPlayerFromJson(Pawn& player, std::string savefile)
 {
 	std::ifstream file(savefile);
@@ -39,6 +50,10 @@ int LoadPlayerFromJson(Pawn& player, std::string savefile)
 	}
 }
 
+/// <summary>
+/// Draws a window and flame graph with profiler data
+/// </summary>
+/// <param name="io"></param>
 void DrawProfileData(ImGuiIO& io)
 {
 	ImGui::Begin("Profiler");
@@ -133,6 +148,12 @@ void DrawProfileData(ImGuiIO& io)
 	ImGui::End();
 }
 
+/// <summary>
+/// The main loop; this is the main code that is run when the program is started
+/// </summary>
+/// <param name="argc"></param>
+/// <param name="argv"></param>
+/// <returns></returns>
 int main(int argc, char* argv[])
 
 {
@@ -272,7 +293,7 @@ int main(int argc, char* argv[])
 
 	for(int i = 0; i < MAX_ENTITIES; i++)
 	{
-		RendererSystem::AddBitmapComponentToEntity(i, ecs, "./../Assets/kaboom.png", rendere,false);
+		RendererSystem::AddBitmapComponentToEntity(i, ecs, "./../Assets/kaboom.png", rendere, false);
 		MovementSystem::AddPositionComponentToEntity(i, ecs, 400, 400);
 		float RandomX = dist(gen);
 		float RandomY = dist(gen);

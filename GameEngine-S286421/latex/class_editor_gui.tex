@@ -1,0 +1,108 @@
+\doxysection{Editor\+Gui Class Reference}
+\hypertarget{class_editor_gui}{}\label{class_editor_gui}\index{EditorGui@{EditorGui}}
+Inheritance diagram for Editor\+Gui:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_editor_gui}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_editor_gui_ab957bb372b6014e4a0c7c83f52bd4f70}\label{class_editor_gui_ab957bb372b6014e4a0c7c83f52bd4f70} 
+{\bfseries Editor\+Gui} ()
+\begin{DoxyCompactList}\small\item\em Initialises the \doxylink{class_editor_gui}{Editor\+Gui}; subscribes to the "{}\+Mouse\+Button\+Update"{} message. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_editor_gui_aa20850b2d63e4b049f8be84dd971b4b8}{Draw\+Window}} () override
+\item 
+void \doxymbox{\hyperlink{class_editor_gui_aa3e2a92ed56a7ce6b140e030693225af}{Receive}} (const \doxymbox{\hyperlink{class_i_event_data}{IEvent\+Data}} \texorpdfstring{$\ast$}{*}message, const std::\+string \&topic) override
+\begin{DoxyCompactList}\small\item\em Handles clicking and drag and drop functionality using \doxylink{class_mouse_event_data}{Mouse\+Event\+Data}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Draw\+Windows} ()
+\begin{DoxyCompactList}\small\item\em Calls IGui\+Window::\+\+Draw\+Window() for every \doxylink{class_i_gui_window}{IGui\+Window} in the Windows vector, and calls itself to check for child windows attached to the items in the vector. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_i_gui_window_a3929457ff21262e6be0c626911a32f66}{Attach\+Child\+Window}} (\doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}} \texorpdfstring{$\ast$}{*}Window)
+\begin{DoxyCompactList}\small\item\em Adds the given Window to the Windows vector. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_i_gui_window_ad8d2cd284c6f3c80d910b6c44c59fe76}{Get\+Child\+Window}} (uint16\+\_\+t Index)
+\begin{DoxyCompactList}\small\item\em Searches for a child window in the Windows vector at the given Index, and returns it if found. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_i_gui_window_a896b7d1642a74846392c2268951e1c8f}{Remove\+Child\+Window}} (uint16\+\_\+t Index)
+\begin{DoxyCompactList}\small\item\em Removes the child window in the Windows vector at the given Index, and returns a copy of the child window. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_i_gui_window_ab89631629a2b0f0dd2e747d00aa60e16}{Remove\+Child\+Window}} (\doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}} \texorpdfstring{$\ast$}{*}window)
+\begin{DoxyCompactList}\small\item\em Removes the given window from the Windows vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_subscriber}{Subscriber}}}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_subscriber_a67399a5f52fd66780f0150b1ed3177f8}{Subscribe}} (const std::\+string \&topic)
+\begin{DoxyCompactList}\small\item\em Subscribes the object it is assigned to to the given topic; uses \doxylink{class_broker_aa24607114c0e50ce7f350af1bebc572a}{Broker::\+\+Subscribe()} to link the topic and subscriber. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_editor_gui}{Editor\+Gui}} \&const \doxymbox{\hyperlink{class_editor_gui_a270713a6b5a864a927743712d8efb256}{INSTANCE}} ()
+\begin{DoxyCompactList}\small\item\em Creates an \doxylink{class_editor_gui}{Editor\+Gui} instance and returns it; used to call the \doxylink{class_editor_gui}{Editor\+Gui} in other files. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_editor_gui_a9413d5ae6d62a41a8e2f1197bea73b95}\label{class_editor_gui_a9413d5ae6d62a41a8e2f1197bea73b95} 
+\doxymbox{\hyperlink{class_i_directory_item}{IDirectory\+Item}} \texorpdfstring{$\ast$}{*} {\bfseries Asset\+Mouse\+Drag} = nullptr
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_editor_gui_adf8ed3146e24213031bae27fb8dc33ed}\label{class_editor_gui_adf8ed3146e24213031bae27fb8dc33ed} 
+static \doxymbox{\hyperlink{class_editor_gui}{Editor\+Gui}} \texorpdfstring{$\ast$}{*} {\bfseries \+\_\+instance} = nullptr
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_editor_gui_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_editor_gui_aa20850b2d63e4b049f8be84dd971b4b8}\index{EditorGui@{EditorGui}!DrawWindow@{DrawWindow}}
+\index{DrawWindow@{DrawWindow}!EditorGui@{EditorGui}}
+\doxysubsubsection{\texorpdfstring{DrawWindow()}{DrawWindow()}}
+{\footnotesize\ttfamily \label{class_editor_gui_aa20850b2d63e4b049f8be84dd971b4b8} 
+void Editor\+Gui::\+\+Draw\+Window (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{class_i_gui_window}{IGui\+Window}}.
+
+\Hypertarget{class_editor_gui_a270713a6b5a864a927743712d8efb256}\index{EditorGui@{EditorGui}!INSTANCE@{INSTANCE}}
+\index{INSTANCE@{INSTANCE}!EditorGui@{EditorGui}}
+\doxysubsubsection{\texorpdfstring{INSTANCE()}{INSTANCE()}}
+{\footnotesize\ttfamily \label{class_editor_gui_a270713a6b5a864a927743712d8efb256} 
+\doxymbox{\hyperlink{class_editor_gui}{Editor\+Gui}} \&const Editor\+Gui::\+\+INSTANCE (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates an \doxylink{class_editor_gui}{Editor\+Gui} instance and returns it; used to call the \doxylink{class_editor_gui}{Editor\+Gui} in other files. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_editor_gui_aa3e2a92ed56a7ce6b140e030693225af}\index{EditorGui@{EditorGui}!Receive@{Receive}}
+\index{Receive@{Receive}!EditorGui@{EditorGui}}
+\doxysubsubsection{\texorpdfstring{Receive()}{Receive()}}
+{\footnotesize\ttfamily \label{class_editor_gui_aa3e2a92ed56a7ce6b140e030693225af} 
+void Editor\+Gui::\+\+Receive (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_i_event_data}{IEvent\+Data}} \texorpdfstring{$\ast$}{*}}]{message}{, }\item[{const std::\+string \&}]{topic}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handles clicking and drag and drop functionality using \doxylink{class_mouse_event_data}{Mouse\+Event\+Data}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+{\em topic} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{class_subscriber}{Subscriber}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Editor\+Gui.\+h\item 
+Editor\+Gui.\+cpp\end{DoxyCompactItemize}

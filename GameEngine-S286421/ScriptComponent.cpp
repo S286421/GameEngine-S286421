@@ -1,5 +1,10 @@
 #include "ScriptComponent.h"
 
+/// <summary>
+/// Initialises the ScriptComponent; assigns ScriptPath to FilePath, and calls ScriptComponent::LoadScript()
+/// </summary>
+/// <param name="FilePath"></param>
+/// <param name="ParentObj"></param>
 ScriptComponent::ScriptComponent(const std::string FilePath, GameObject* ParentObj) : I_ComponentBase(ParentObj)
 {
 	ScriptPath = FilePath;
@@ -7,6 +12,9 @@ ScriptComponent::ScriptComponent(const std::string FilePath, GameObject* ParentO
 	LoadScript();
 }
 
+/// <summary>
+/// Attempts to load the lua file at ScriptPath (throws an error if the file cannot be found)
+/// </summary>
 void ScriptComponent::LoadScript()
 {
 	try
@@ -21,6 +29,9 @@ void ScriptComponent::LoadScript()
 	}
 }
 
+/// <summary>
+/// Updates the variables used by the lua file, and calls the update function in the lua file
+/// </summary>
 void ScriptComponent::Update()
 {
 	reloadIfChanged();
@@ -49,6 +60,9 @@ void ScriptComponent::Update()
 	}
 }
 
+/// <summary>
+/// Allows for the lua file to be changed during runtime
+/// </summary>
 void ScriptComponent::reloadIfChanged()
 {
 	std::filesystem::file_time_type newTime = std::filesystem::last_write_time(ScriptPath);
@@ -60,6 +74,10 @@ void ScriptComponent::reloadIfChanged()
 	}
 }
 
+/// <summary>
+/// Saves the ScriptPath and Type() to BitmapSaveData and returns it
+/// </summary>
+/// <returns></returns>
 nlohmann::json ScriptComponent::Save() const
 {
 	nlohmann::json BitmapSaveData;
@@ -69,6 +87,11 @@ nlohmann::json ScriptComponent::Save() const
 	return BitmapSaveData;
 }
 
+/// <summary>
+/// Loads data from ScriptPath, and calls ScriptComponent::LoadScript()
+/// </summary>
+/// <param name="LoadData"></param>
+/// <param name="renderer"></param>
 void ScriptComponent::Load(nlohmann::json LoadData, std::shared_ptr<SDL_Renderer> renderer)
 {
 	ScriptPath = LoadData["scriptPath"].get<std::string>();

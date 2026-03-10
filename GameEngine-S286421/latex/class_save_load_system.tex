@@ -1,0 +1,80 @@
+\doxysection{Save\+Load\+System Class Reference}
+\hypertarget{class_save_load_system}{}\label{class_save_load_system}\index{SaveLoadSystem@{SaveLoadSystem}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_save_load_system_aad0641960b2c6e146d7ccb7d38f6c556}{Save\+Game}} (const std::\+string \&filename, const \doxymbox{\hyperlink{class_game_object}{Game\+Object}} \&To\+Save)
+\begin{DoxyCompactList}\small\item\em Finds the file from the given filename (or creates it if not found) and calls \doxylink{class_game_object_ab02e58574f2390bcffa3e02c708a41c1}{Game\+Object::\+\+Save()} for the object To\+Save. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_save_load_system_a37286e4f3d83159bb72f3dc838d65fed}{Load\+Game}} (const std::\+string \&filename, \doxymbox{\hyperlink{class_game_object}{Game\+Object}} \&To\+Load, std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$ renderer)
+\begin{DoxyCompactList}\small\item\em If the given filename can be found, calls the \doxylink{class_game_object_aa31186381003e4a2038990191abd2d1e}{Game\+Object::\+\+Load()} function using the \doxylink{class_game_object}{Game\+Object} To\+Load, the given renderer, and the load\+Data in the file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_save_load_system}{Save\+Load\+System}} \&const \doxymbox{\hyperlink{class_save_load_system_af6152387b1d411d077a395a4bbc39ec2}{INSTANCE}} ()
+\begin{DoxyCompactList}\small\item\em Creates a save/\+load system instance and returns it; used to call the save/\+load system in other files. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_save_load_system_a0b2c9f1234d8bd3f0272ea673964032d}\label{class_save_load_system_a0b2c9f1234d8bd3f0272ea673964032d} 
+static \doxymbox{\hyperlink{class_save_load_system}{Save\+Load\+System}} \texorpdfstring{$\ast$}{*} {\bfseries \+\_\+instance} = nullptr
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_save_load_system_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_save_load_system_af6152387b1d411d077a395a4bbc39ec2}\index{SaveLoadSystem@{SaveLoadSystem}!INSTANCE@{INSTANCE}}
+\index{INSTANCE@{INSTANCE}!SaveLoadSystem@{SaveLoadSystem}}
+\doxysubsubsection{\texorpdfstring{INSTANCE()}{INSTANCE()}}
+{\footnotesize\ttfamily \label{class_save_load_system_af6152387b1d411d077a395a4bbc39ec2} 
+\doxymbox{\hyperlink{class_save_load_system}{Save\+Load\+System}} \&const Save\+Load\+System::\+\+INSTANCE (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a save/\+load system instance and returns it; used to call the save/\+load system in other files. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_save_load_system_a37286e4f3d83159bb72f3dc838d65fed}\index{SaveLoadSystem@{SaveLoadSystem}!LoadGame@{LoadGame}}
+\index{LoadGame@{LoadGame}!SaveLoadSystem@{SaveLoadSystem}}
+\doxysubsubsection{\texorpdfstring{LoadGame()}{LoadGame()}}
+{\footnotesize\ttfamily \label{class_save_load_system_a37286e4f3d83159bb72f3dc838d65fed} 
+void Save\+Load\+System::\+\+Load\+Game (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{filename}{, }\item[{\doxymbox{\hyperlink{class_game_object}{Game\+Object}} \&}]{To\+Load}{, }\item[{std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$}]{renderer}{}\end{DoxyParamCaption})}
+
+
+
+If the given filename can be found, calls the \doxylink{class_game_object_aa31186381003e4a2038990191abd2d1e}{Game\+Object::\+\+Load()} function using the \doxylink{class_game_object}{Game\+Object} To\+Load, the given renderer, and the load\+Data in the file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & \\
+\hline
+{\em To\+Load} & \\
+\hline
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_save_load_system_aad0641960b2c6e146d7ccb7d38f6c556}\index{SaveLoadSystem@{SaveLoadSystem}!SaveGame@{SaveGame}}
+\index{SaveGame@{SaveGame}!SaveLoadSystem@{SaveLoadSystem}}
+\doxysubsubsection{\texorpdfstring{SaveGame()}{SaveGame()}}
+{\footnotesize\ttfamily \label{class_save_load_system_aad0641960b2c6e146d7ccb7d38f6c556} 
+void Save\+Load\+System::\+\+Save\+Game (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{filename}{, }\item[{const \doxymbox{\hyperlink{class_game_object}{Game\+Object}} \&}]{To\+Save}{}\end{DoxyParamCaption})}
+
+
+
+Finds the file from the given filename (or creates it if not found) and calls \doxylink{class_game_object_ab02e58574f2390bcffa3e02c708a41c1}{Game\+Object::\+\+Save()} for the object To\+Save. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & \\
+\hline
+{\em To\+Save} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Save\+Load\+System.\+h\item 
+Save\+Load\+System.\+cpp\end{DoxyCompactItemize}

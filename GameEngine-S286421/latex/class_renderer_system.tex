@@ -1,0 +1,63 @@
+\doxysection{Renderer\+System Class Reference}
+\hypertarget{class_renderer_system}{}\label{class_renderer_system}\index{RendererSystem@{RendererSystem}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{struct_bitmap_e_c_s}{Bitmap\+ECS}} \doxymbox{\hyperlink{class_renderer_system_a6bc7b9c2f91da46df8cd20cc44595515}{Add\+Bitmap\+Component\+To\+Entity}} (uint32\+\_\+t Entity\+ID, \doxymbox{\hyperlink{class_e_c_s}{ECS}} \&const ecs, std::\+string File\+Location, std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$ renderer, bool is\+Transparent=true)
+\begin{DoxyCompactList}\small\item\em Creates an Entity Component System (\doxylink{class_e_c_s}{ECS}) with the given File\+Location, renderer, and transparency boolean, and adds it to the entity specified with the Entity\+ID; returns the \doxylink{struct_bitmap_e_c_s}{Bitmap\+ECS}. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{class_renderer_system_adf8400f57751d324536b8eac0cf7fde1}{Render}} (\doxymbox{\hyperlink{class_e_c_s}{ECS}} \&const ecs, std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$ renderer)
+\begin{DoxyCompactList}\small\item\em Renders each entity using their given \doxylink{struct_bitmap_e_c_s}{Bitmap\+ECS}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_renderer_system_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_renderer_system_a6bc7b9c2f91da46df8cd20cc44595515}\index{RendererSystem@{RendererSystem}!AddBitmapComponentToEntity@{AddBitmapComponentToEntity}}
+\index{AddBitmapComponentToEntity@{AddBitmapComponentToEntity}!RendererSystem@{RendererSystem}}
+\doxysubsubsection{\texorpdfstring{AddBitmapComponentToEntity()}{AddBitmapComponentToEntity()}}
+{\footnotesize\ttfamily \label{class_renderer_system_a6bc7b9c2f91da46df8cd20cc44595515} 
+\doxymbox{\hyperlink{struct_bitmap_e_c_s}{Bitmap\+ECS}} Renderer\+System::\+\+Add\+Bitmap\+Component\+To\+Entity (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Entity\+ID}{, }\item[{\doxymbox{\hyperlink{class_e_c_s}{ECS}} \&const}]{ecs}{, }\item[{std::\+string}]{File\+Location}{, }\item[{std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$}]{renderer}{, }\item[{bool}]{is\+Transparent}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates an Entity Component System (\doxylink{class_e_c_s}{ECS}) with the given File\+Location, renderer, and transparency boolean, and adds it to the entity specified with the Entity\+ID; returns the \doxylink{struct_bitmap_e_c_s}{Bitmap\+ECS}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Entity\+ID} & \\
+\hline
+{\em ecs} & \\
+\hline
+{\em File\+Location} & \\
+\hline
+{\em renderer} & \\
+\hline
+{\em is\+Transparent} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_renderer_system_adf8400f57751d324536b8eac0cf7fde1}\index{RendererSystem@{RendererSystem}!Render@{Render}}
+\index{Render@{Render}!RendererSystem@{RendererSystem}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily \label{class_renderer_system_adf8400f57751d324536b8eac0cf7fde1} 
+void Renderer\+System::\+\+Render (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_e_c_s}{ECS}} \&const}]{ecs}{, }\item[{std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$}]{renderer}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Renders each entity using their given \doxylink{struct_bitmap_e_c_s}{Bitmap\+ECS}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ecs} & \\
+\hline
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Renderer\+System.\+h\item 
+Renderer\+System.\+cpp\end{DoxyCompactItemize}

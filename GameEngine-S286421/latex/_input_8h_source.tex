@@ -1,0 +1,32 @@
+\doxysection{Input.\+h}
+\hypertarget{_input_8h_source}{}\label{_input_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}SDL3/SDL.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}MouseEventData.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Publisher.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_input_abae3f379d3f157cf42dc857309832dba}{Input}}\ :\ \textcolor{keyword}{public}\ Publisher}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_input_ae169899dae11bce9419ba1f34ee2cfc2}{UpdateKeyBoard}}();}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_input_a8a4c912fd9e5e21bf624ea9f793e502a}{UpdateMouse}}(\textcolor{keyword}{const}\ SDL\_Event\&\ event);}
+\DoxyCodeLine{00011\ \ \ \ \ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{bool}\ lastFrameKeyState[SDL\_SCANCODE\_COUNT];}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}*\ currentKeyState;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_input_a87be1313f06b6968428cfec9dabbb1b5}{IsKeyDown}}(SDL\_Scancode\ scanCode);}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_input_a22aab3c78520f17770145ce8b0b49062}{IsKeyHeld}}(SDL\_Scancode\ scanCode);}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_input_a26e5c590738652aa1957d7fabbad1426}{IsKeyUp}}(SDL\_Scancode\ scanCode);}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_input_a2f68ff36a8933f0e4fcab9f79be1f53d}{LateUpdate}}();}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_input_abae3f379d3f157cf42dc857309832dba}{Input}}*\ \_instance;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_input_abae3f379d3f157cf42dc857309832dba}{Input}}\&\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_input_a8304e2f8d3936dea268205a5b4e4b41c}{INSTANCE}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \doxymbox{\hyperlink{class_input_abae3f379d3f157cf42dc857309832dba}{Input}}();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ SDL\_MouseButtonEvent\ mouseButton;}
+\DoxyCodeLine{00024\ \ \ \ \ SDL\_MouseMotionEvent\ mousePosition;}
+\DoxyCodeLine{00025\ \ \ \ \ SDL\_MouseWheelEvent\ mouseWheel;}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+
+\end{DoxyCode}

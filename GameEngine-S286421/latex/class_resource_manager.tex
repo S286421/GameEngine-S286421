@@ -1,0 +1,64 @@
+\doxysection{Resource\+Manager Class Reference}
+\hypertarget{class_resource_manager}{}\label{class_resource_manager}\index{ResourceManager@{ResourceManager}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Texture $>$ \doxymbox{\hyperlink{class_resource_manager_ab9f72524a3a96217cdccf91c96273d4c}{Load\+Texture}} (std::\+string, bool, std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$)
+\begin{DoxyCompactList}\small\item\em Loads an image from a given File\+Path, and converts it to a texture map (creating a transparent background if is\+Transparent is true). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \&const \doxymbox{\hyperlink{class_resource_manager_a0ac126565bbc5f9b649f4bc96a93e343}{INSTANCE}} ()
+\begin{DoxyCompactList}\small\item\em Creates a resource manager instance and returns it; used to call the resource manager in other files. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_resource_manager_ab69b05e0d4264aad96ca825707d18f28}\label{class_resource_manager_ab69b05e0d4264aad96ca825707d18f28} 
+static \doxymbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \texorpdfstring{$\ast$}{*} {\bfseries \+\_\+instance} = nullptr
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_resource_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_resource_manager_a0ac126565bbc5f9b649f4bc96a93e343}\index{ResourceManager@{ResourceManager}!INSTANCE@{INSTANCE}}
+\index{INSTANCE@{INSTANCE}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{INSTANCE()}{INSTANCE()}}
+{\footnotesize\ttfamily \label{class_resource_manager_a0ac126565bbc5f9b649f4bc96a93e343} 
+\doxymbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \&const Resource\+Manager::\+\+INSTANCE (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a resource manager instance and returns it; used to call the resource manager in other files. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_resource_manager_ab9f72524a3a96217cdccf91c96273d4c}\index{ResourceManager@{ResourceManager}!LoadTexture@{LoadTexture}}
+\index{LoadTexture@{LoadTexture}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{LoadTexture()}{LoadTexture()}}
+{\footnotesize\ttfamily \label{class_resource_manager_ab9f72524a3a96217cdccf91c96273d4c} 
+std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Texture $>$ Resource\+Manager::\+\+Load\+Texture (\begin{DoxyParamCaption}\item[{std::\+string}]{File\+Path}{, }\item[{bool}]{is\+Transparent}{, }\item[{std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$}]{renderer}{}\end{DoxyParamCaption})}
+
+
+
+Loads an image from a given File\+Path, and converts it to a texture map (creating a transparent background if is\+Transparent is true). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em File\+Path} & \\
+\hline
+{\em is\+Transparent} & \\
+\hline
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Resource\+Manager.\+h\item 
+Resource\+Manager.\+cpp\end{DoxyCompactItemize}

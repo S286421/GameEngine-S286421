@@ -2,6 +2,12 @@
 
 int g_verbosity = 4;
 
+/// <summary>
+/// Returns charsWritten and outputs the s_buffer as a debug string
+/// </summary>
+/// <param name="format"></param>
+/// <param name="argList"></param>
+/// <returns></returns>
 int VDebugPrintF(const char* format, va_list argList)
 {
 	const unsigned int MAX_CHARS = 1024;
@@ -15,6 +21,12 @@ int VDebugPrintF(const char* format, va_list argList)
 	return charsWritten;
 }
 
+/// <summary>
+/// Calls Debug::VDebugPrintF(); seperate function required to start and end a va_list
+/// </summary>
+/// <param name="format"></param>
+/// <param name=""></param>
+/// <returns></returns>
 int DebugPrintF(const char* format, ...)
 {
 	va_list argList;
@@ -28,6 +40,13 @@ int DebugPrintF(const char* format, ...)
 
 }
 
+/// <summary>
+/// Almost identical to Debug::DebugPrintF, but includes a verbosity level; this allows to avoid messages that are lower than g_verbosity
+/// </summary>
+/// <param name="verbosity"></param>
+/// <param name="format"></param>
+/// <param name=""></param>
+/// <returns></returns>
 int VerboseDebugPrintF(int verbosity, const char* format, ...)
 {
 	if (g_verbosity < verbosity) return 0;

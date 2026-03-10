@@ -1,0 +1,93 @@
+\doxysection{Transform Struct Reference}
+\hypertarget{struct_transform}{}\label{struct_transform}\index{Transform@{Transform}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{struct_transform_aeb57be4ea5dcad72af25faccb5553e7e}{Add\+Child}} (\doxymbox{\hyperlink{struct_transform}{Transform}} \texorpdfstring{$\ast$}{*}child)
+\begin{DoxyCompactList}\small\item\em Adds the given Transform\texorpdfstring{$\ast$}{*} to the Children vector. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{struct_transform_a9d371d071641600820959f42670502ce}{remove\+Child}} (\doxymbox{\hyperlink{struct_transform}{Transform}} \texorpdfstring{$\ast$}{*}child)
+\begin{DoxyCompactList}\small\item\em Removes the given Transform\texorpdfstring{$\ast$}{*} from the Children vector. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{struct_transform_aa9c3a74db79c3822632933fead807d30}{Update\+Transform}} (const \doxymbox{\hyperlink{struct_transform}{Transform}} \&parent\+Transform)
+\begin{DoxyCompactList}\small\item\em Updates the position of the parent object, then calls the same transform for every child in the Children vector. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{struct_transform_a702e8107108914f5c18c66fe797172e6}{GetX}} ()
+\begin{DoxyCompactList}\small\item\em Returns the x position as an int. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_transform_a0ec5c21dd26d33a628433ae716474974}\label{struct_transform_a0ec5c21dd26d33a628433ae716474974} 
+std::\+vector$<$ \doxymbox{\hyperlink{struct_transform}{Transform}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries Children}
+\item 
+\Hypertarget{struct_transform_ab1819996e691bb292abb77c98a928920}\label{struct_transform_ab1819996e691bb292abb77c98a928920} 
+SDL\+\_\+\+Point {\bfseries Location} = \{0,0\}
+\item 
+\Hypertarget{struct_transform_a002cbf4d402c8305fdd45b2659de820f}\label{struct_transform_a002cbf4d402c8305fdd45b2659de820f} 
+SDL\+\_\+\+Point {\bfseries World\+Location}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{struct_transform_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_transform_aeb57be4ea5dcad72af25faccb5553e7e}\index{Transform@{Transform}!AddChild@{AddChild}}
+\index{AddChild@{AddChild}!Transform@{Transform}}
+\doxysubsubsection{\texorpdfstring{AddChild()}{AddChild()}}
+{\footnotesize\ttfamily \label{struct_transform_aeb57be4ea5dcad72af25faccb5553e7e} 
+void Transform::\+\+Add\+Child (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_transform}{Transform}} \texorpdfstring{$\ast$}{*}}]{child}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds the given Transform\texorpdfstring{$\ast$}{*} to the Children vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em child} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{struct_transform_a702e8107108914f5c18c66fe797172e6}\index{Transform@{Transform}!GetX@{GetX}}
+\index{GetX@{GetX}!Transform@{Transform}}
+\doxysubsubsection{\texorpdfstring{GetX()}{GetX()}}
+{\footnotesize\ttfamily \label{struct_transform_a702e8107108914f5c18c66fe797172e6} 
+int Transform::\+\+GetX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the x position as an int. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{struct_transform_a9d371d071641600820959f42670502ce}\index{Transform@{Transform}!removeChild@{removeChild}}
+\index{removeChild@{removeChild}!Transform@{Transform}}
+\doxysubsubsection{\texorpdfstring{removeChild()}{removeChild()}}
+{\footnotesize\ttfamily \label{struct_transform_a9d371d071641600820959f42670502ce} 
+void Transform::\+remove\+Child (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_transform}{Transform}} \texorpdfstring{$\ast$}{*}}]{child}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Removes the given Transform\texorpdfstring{$\ast$}{*} from the Children vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em child} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{struct_transform_aa9c3a74db79c3822632933fead807d30}\index{Transform@{Transform}!UpdateTransform@{UpdateTransform}}
+\index{UpdateTransform@{UpdateTransform}!Transform@{Transform}}
+\doxysubsubsection{\texorpdfstring{UpdateTransform()}{UpdateTransform()}}
+{\footnotesize\ttfamily \label{struct_transform_aa9c3a74db79c3822632933fead807d30} 
+void Transform::\+\+Update\+Transform (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_transform}{Transform}} \&}]{parent\+Transform}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates the position of the parent object, then calls the same transform for every child in the Children vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent\+Transform} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Transform.\+hpp\end{DoxyCompactItemize}

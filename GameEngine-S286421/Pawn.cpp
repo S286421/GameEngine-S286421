@@ -149,7 +149,6 @@ void Pawn::Receive(const IEventData* EventData, const std::string& topic)
 
 }
 
-
 /// <summary>
 /// Detects if the pawn entity is interacting with any other entities
 /// </summary>

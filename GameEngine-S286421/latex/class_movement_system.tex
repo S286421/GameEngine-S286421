@@ -1,0 +1,87 @@
+\doxysection{Movement\+System Class Reference}
+\hypertarget{class_movement_system}{}\label{class_movement_system}\index{MovementSystem@{MovementSystem}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{struct_position_e_c_s}{Position\+ECS}} \doxymbox{\hyperlink{class_movement_system_a2e6e9d4758b22c5c7aa2feb496a3cb51}{Add\+Position\+Component\+To\+Entity}} (uint32\+\_\+t Entity\+ID, \doxymbox{\hyperlink{class_e_c_s}{ECS}} \&const ecs, float InitialX, float InitialY)
+\begin{DoxyCompactList}\small\item\em Creates an Entity Component System (\doxylink{class_e_c_s}{ECS}) with the given InitialX and InitialY, and adds it to the entity specified with the Entity\+ID; returns the \doxylink{struct_position_e_c_s}{Position\+ECS}. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{struct_velocity_e_c_s}{Velocity\+ECS}} \doxymbox{\hyperlink{class_movement_system_a3dae36438749c388e098a31d89bb94ce}{Add\+Velocity\+Component\+To\+Entity}} (uint32\+\_\+t Entity\+ID, \doxymbox{\hyperlink{class_e_c_s}{ECS}} \&const ecs, float Initial\+Dx, float Initial\+Dy, float Gravity=1.\+0f)
+\begin{DoxyCompactList}\small\item\em Creates an Entity Component System (\doxylink{class_e_c_s}{ECS}) with the given Initial\+Dx, Initial\+Dy, and Gravity, and adds it to the entity specified with the Entity\+ID; returns the \doxylink{struct_velocity_e_c_s}{Velocity\+ECS}. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{class_movement_system_aab23628587260d2f01560b14d5505f1d}{Update\+Positions}} (\doxymbox{\hyperlink{class_e_c_s}{ECS}} \&const ecs)
+\begin{DoxyCompactList}\small\item\em Updates \doxylink{struct_position_e_c_s}{Position\+ECS} and \doxylink{struct_velocity_e_c_s}{Velocity\+ECS} of all entities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_movement_system_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_movement_system_a2e6e9d4758b22c5c7aa2feb496a3cb51}\index{MovementSystem@{MovementSystem}!AddPositionComponentToEntity@{AddPositionComponentToEntity}}
+\index{AddPositionComponentToEntity@{AddPositionComponentToEntity}!MovementSystem@{MovementSystem}}
+\doxysubsubsection{\texorpdfstring{AddPositionComponentToEntity()}{AddPositionComponentToEntity()}}
+{\footnotesize\ttfamily \label{class_movement_system_a2e6e9d4758b22c5c7aa2feb496a3cb51} 
+\doxymbox{\hyperlink{struct_position_e_c_s}{Position\+ECS}} Movement\+System::\+\+Add\+Position\+Component\+To\+Entity (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Entity\+ID}{, }\item[{\doxymbox{\hyperlink{class_e_c_s}{ECS}} \&const}]{ecs}{, }\item[{float}]{InitialX}{, }\item[{float}]{InitialY}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates an Entity Component System (\doxylink{class_e_c_s}{ECS}) with the given InitialX and InitialY, and adds it to the entity specified with the Entity\+ID; returns the \doxylink{struct_position_e_c_s}{Position\+ECS}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Entity\+ID} & \\
+\hline
+{\em ecs} & \\
+\hline
+{\em InitialX} & \\
+\hline
+{\em InitialY} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_movement_system_a3dae36438749c388e098a31d89bb94ce}\index{MovementSystem@{MovementSystem}!AddVelocityComponentToEntity@{AddVelocityComponentToEntity}}
+\index{AddVelocityComponentToEntity@{AddVelocityComponentToEntity}!MovementSystem@{MovementSystem}}
+\doxysubsubsection{\texorpdfstring{AddVelocityComponentToEntity()}{AddVelocityComponentToEntity()}}
+{\footnotesize\ttfamily \label{class_movement_system_a3dae36438749c388e098a31d89bb94ce} 
+\doxymbox{\hyperlink{struct_velocity_e_c_s}{Velocity\+ECS}} Movement\+System::\+\+Add\+Velocity\+Component\+To\+Entity (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Entity\+ID}{, }\item[{\doxymbox{\hyperlink{class_e_c_s}{ECS}} \&const}]{ecs}{, }\item[{float}]{Initial\+Dx}{, }\item[{float}]{Initial\+Dy}{, }\item[{float}]{Gravity}{ = {\ttfamily 1.0f}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates an Entity Component System (\doxylink{class_e_c_s}{ECS}) with the given Initial\+Dx, Initial\+Dy, and Gravity, and adds it to the entity specified with the Entity\+ID; returns the \doxylink{struct_velocity_e_c_s}{Velocity\+ECS}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Entity\+ID} & \\
+\hline
+{\em ecs} & \\
+\hline
+{\em Initial\+Dx} & \\
+\hline
+{\em Initial\+Dy} & \\
+\hline
+{\em Gravity} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_movement_system_aab23628587260d2f01560b14d5505f1d}\index{MovementSystem@{MovementSystem}!UpdatePositions@{UpdatePositions}}
+\index{UpdatePositions@{UpdatePositions}!MovementSystem@{MovementSystem}}
+\doxysubsubsection{\texorpdfstring{UpdatePositions()}{UpdatePositions()}}
+{\footnotesize\ttfamily \label{class_movement_system_aab23628587260d2f01560b14d5505f1d} 
+void Movement\+System::\+\+Update\+Positions (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_e_c_s}{ECS}} \&const}]{ecs}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Updates \doxylink{struct_position_e_c_s}{Position\+ECS} and \doxylink{struct_velocity_e_c_s}{Velocity\+ECS} of all entities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ecs} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Movement\+System.\+h\item 
+Movement\+System.\+cpp\end{DoxyCompactItemize}

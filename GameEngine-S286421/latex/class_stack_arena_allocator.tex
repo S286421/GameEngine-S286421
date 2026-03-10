@@ -1,0 +1,79 @@
+\doxysection{Stack\+Arena\+Allocator Class Reference}
+\hypertarget{class_stack_arena_allocator}{}\label{class_stack_arena_allocator}\index{StackArenaAllocator@{StackArenaAllocator}}
+Inheritance diagram for Stack\+Arena\+Allocator:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_stack_arena_allocator}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_stack_arena_allocator_ae70720993940361453965220cf2d05b3}\label{class_stack_arena_allocator_ae70720993940361453965220cf2d05b3} 
+{\bfseries Stack\+Arena\+Allocator} (std::\+size\+\_\+t capacity)
+\item 
+\Hypertarget{class_stack_arena_allocator_abced8fd5e0989dac7ba548c9d17e859f}\label{class_stack_arena_allocator_abced8fd5e0989dac7ba548c9d17e859f} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Stack\+Arena\+Allocator} () override
+\begin{DoxyCompactList}\small\item\em Deconstructs the \doxylink{class_stack_arena_allocator}{Stack\+Arena\+Allocator}; deletes the buffer. \end{DoxyCompactList}\item 
+\Hypertarget{class_stack_arena_allocator_aa04e2debef8d86f9058d39e6ec5a2bff}\label{class_stack_arena_allocator_aa04e2debef8d86f9058d39e6ec5a2bff} 
+void {\bfseries reset} () noexcept
+\begin{DoxyCompactList}\small\item\em Sets the offset variable to 0 (resetting the offset). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_stack_arena_allocator_ae3253a0eec8e99e1b03043cefb37447a}{do\+\_\+allocate}} (std::\+size\+\_\+t bytes, std::\+size\+\_\+t alignment) override
+\begin{DoxyCompactList}\small\item\em Allocates data to memory addresses; uses bytes and alignment to calculate offset of data. \end{DoxyCompactList}\item 
+\Hypertarget{class_stack_arena_allocator_a8b71763a1056196a591356b0f75fecac}\label{class_stack_arena_allocator_a8b71763a1056196a591356b0f75fecac} 
+void {\bfseries do\+\_\+deallocate} (void \texorpdfstring{$\ast$}{*}ptr, size\+\_\+t bytes, size\+\_\+t align) override
+\item 
+bool \doxymbox{\hyperlink{class_stack_arena_allocator_a3fa91bc853fec71bfcd0af4ac3b97b43}{do\+\_\+is\+\_\+equal}} (const memory\+\_\+resource \&that) const noexcept override
+\begin{DoxyCompactList}\small\item\em Checks if the current memory\+\_\+resource is the same as the given memory\+\_\+resource (that). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_stack_arena_allocator_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_stack_arena_allocator_ae3253a0eec8e99e1b03043cefb37447a}\index{StackArenaAllocator@{StackArenaAllocator}!do\_allocate@{do\_allocate}}
+\index{do\_allocate@{do\_allocate}!StackArenaAllocator@{StackArenaAllocator}}
+\doxysubsubsection{\texorpdfstring{do\_allocate()}{do\_allocate()}}
+{\footnotesize\ttfamily \label{class_stack_arena_allocator_ae3253a0eec8e99e1b03043cefb37447a} 
+void \texorpdfstring{$\ast$}{*} Stack\+Arena\+Allocator::\+do\+\_\+allocate (\begin{DoxyParamCaption}\item[{std::\+size\+\_\+t}]{bytes}{, }\item[{std::\+size\+\_\+t}]{alignment}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Allocates data to memory addresses; uses bytes and alignment to calculate offset of data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bytes} & \\
+\hline
+{\em alignment} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_stack_arena_allocator_a3fa91bc853fec71bfcd0af4ac3b97b43}\index{StackArenaAllocator@{StackArenaAllocator}!do\_is\_equal@{do\_is\_equal}}
+\index{do\_is\_equal@{do\_is\_equal}!StackArenaAllocator@{StackArenaAllocator}}
+\doxysubsubsection{\texorpdfstring{do\_is\_equal()}{do\_is\_equal()}}
+{\footnotesize\ttfamily \label{class_stack_arena_allocator_a3fa91bc853fec71bfcd0af4ac3b97b43} 
+bool Stack\+Arena\+Allocator::\+do\+\_\+is\+\_\+equal (\begin{DoxyParamCaption}\item[{const memory\+\_\+resource \&}]{that}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+
+
+Checks if the current memory\+\_\+resource is the same as the given memory\+\_\+resource (that). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em that} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Stack\+Arena\+Allocator.\+h\item 
+Stack\+Arena\+Allocator.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,155 @@
+\doxysection{Input Class Reference}
+\hypertarget{class_input}{}\label{class_input}\index{Input@{Input}}
+Inheritance diagram for Input:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_input}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_input_ae169899dae11bce9419ba1f34ee2cfc2}\label{class_input_ae169899dae11bce9419ba1f34ee2cfc2} 
+void {\bfseries Update\+Key\+Board} ()
+\begin{DoxyCompactList}\small\item\em Checks for the latest input from the keyboard. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_input_a8a4c912fd9e5e21bf624ea9f793e502a}{Update\+Mouse}} (const SDL\+\_\+\+Event \&event)
+\begin{DoxyCompactList}\small\item\em Used to check the movements and inputs of the mouse. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_input_a87be1313f06b6968428cfec9dabbb1b5}{Is\+Key\+Down}} (SDL\+\_\+\+Scancode scan\+Code)
+\begin{DoxyCompactList}\small\item\em Checks to see if a key on the keyboard has been pressed. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_input_a22aab3c78520f17770145ce8b0b49062}{Is\+Key\+Held}} (SDL\+\_\+\+Scancode scan\+Code)
+\begin{DoxyCompactList}\small\item\em Checks to see if a key on the keyboard is being held. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_input_a26e5c590738652aa1957d7fabbad1426}{Is\+Key\+Up}} (SDL\+\_\+\+Scancode scan\+Code)
+\begin{DoxyCompactList}\small\item\em Checks to see if a key on the keyboard has been released. \end{DoxyCompactList}\item 
+\Hypertarget{class_input_a2f68ff36a8933f0e4fcab9f79be1f53d}\label{class_input_a2f68ff36a8933f0e4fcab9f79be1f53d} 
+void {\bfseries Late\+Update} ()
+\begin{DoxyCompactList}\small\item\em Sets the last\+Frame\+Key\+State variable to the current\+Key\+State variable ready for the next frame. \end{DoxyCompactList}\item 
+\Hypertarget{class_input_abae3f379d3f157cf42dc857309832dba}\label{class_input_abae3f379d3f157cf42dc857309832dba} 
+{\bfseries Input} ()
+\begin{DoxyCompactList}\small\item\em Initialises the input system; nullifies the last frame\textquotesingle{}s key state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_publisher}{Publisher}}}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_publisher_aa40a9d39dde7d91ecf2bf781cb1d40c4}{Publish}} (const std::\+string \&topic, \doxymbox{\hyperlink{class_i_event_data}{IEvent\+Data}} \texorpdfstring{$\ast$}{*}Event\+Data) const
+\begin{DoxyCompactList}\small\item\em Calls \doxylink{class_broker_a50b0c2e0420ccbe451ac4db8f5b41e4e}{Broker::\+\+Publish()} using the given topic and Event\+Data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_input}{Input}} \&const \doxymbox{\hyperlink{class_input_a8304e2f8d3936dea268205a5b4e4b41c}{INSTANCE}} ()
+\begin{DoxyCompactList}\small\item\em Creates an instance of the input manager for use in main.\+cpp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_input_a956f3251958af308fff660e28f486b47}\label{class_input_a956f3251958af308fff660e28f486b47} 
+bool {\bfseries last\+Frame\+Key\+State} \+[SDL\+\_\+\+SCANCODE\+\_\+\+COUNT]\+
+\item 
+\Hypertarget{class_input_a346c4ad62cfdf4be70165ee8a5dca478}\label{class_input_a346c4ad62cfdf4be70165ee8a5dca478} 
+const bool \texorpdfstring{$\ast$}{*} {\bfseries current\+Key\+State}
+\item 
+\Hypertarget{class_input_a3d8a16e8605a7aaa6e9f6d1cc362b9b9}\label{class_input_a3d8a16e8605a7aaa6e9f6d1cc362b9b9} 
+SDL\+\_\+\+Mouse\+Button\+Event {\bfseries mouse\+Button}
+\item 
+\Hypertarget{class_input_a887f21f5e3619d3c7b731ebcb8c13fac}\label{class_input_a887f21f5e3619d3c7b731ebcb8c13fac} 
+SDL\+\_\+\+Mouse\+Motion\+Event {\bfseries mouse\+Position}
+\item 
+\Hypertarget{class_input_a9ee99ae2ea6583209bf159ab5d26ca98}\label{class_input_a9ee99ae2ea6583209bf159ab5d26ca98} 
+SDL\+\_\+\+Mouse\+Wheel\+Event {\bfseries mouse\+Wheel}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_input_ab7223d632a0ae9a9244f33e6c2eaa071}\label{class_input_ab7223d632a0ae9a9244f33e6c2eaa071} 
+static \doxymbox{\hyperlink{class_input}{Input}} \texorpdfstring{$\ast$}{*} {\bfseries \+\_\+instance} = nullptr
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_input_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_input_a8304e2f8d3936dea268205a5b4e4b41c}\index{Input@{Input}!INSTANCE@{INSTANCE}}
+\index{INSTANCE@{INSTANCE}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{INSTANCE()}{INSTANCE()}}
+{\footnotesize\ttfamily \label{class_input_a8304e2f8d3936dea268205a5b4e4b41c} 
+\doxymbox{\hyperlink{class_input}{Input}} \&const Input::\+\+INSTANCE (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates an instance of the input manager for use in main.\+cpp. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_input_a87be1313f06b6968428cfec9dabbb1b5}\index{Input@{Input}!IsKeyDown@{IsKeyDown}}
+\index{IsKeyDown@{IsKeyDown}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{IsKeyDown()}{IsKeyDown()}}
+{\footnotesize\ttfamily \label{class_input_a87be1313f06b6968428cfec9dabbb1b5} 
+bool Input::\+\+Is\+Key\+Down (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Scancode}]{scan\+Code}{}\end{DoxyParamCaption})}
+
+
+
+Checks to see if a key on the keyboard has been pressed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scan\+Code} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_input_a22aab3c78520f17770145ce8b0b49062}\index{Input@{Input}!IsKeyHeld@{IsKeyHeld}}
+\index{IsKeyHeld@{IsKeyHeld}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{IsKeyHeld()}{IsKeyHeld()}}
+{\footnotesize\ttfamily \label{class_input_a22aab3c78520f17770145ce8b0b49062} 
+bool Input::\+\+Is\+Key\+Held (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Scancode}]{scan\+Code}{}\end{DoxyParamCaption})}
+
+
+
+Checks to see if a key on the keyboard is being held. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scan\+Code} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_input_a26e5c590738652aa1957d7fabbad1426}\index{Input@{Input}!IsKeyUp@{IsKeyUp}}
+\index{IsKeyUp@{IsKeyUp}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{IsKeyUp()}{IsKeyUp()}}
+{\footnotesize\ttfamily \label{class_input_a26e5c590738652aa1957d7fabbad1426} 
+bool Input::\+\+Is\+Key\+Up (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Scancode}]{scan\+Code}{}\end{DoxyParamCaption})}
+
+
+
+Checks to see if a key on the keyboard has been released. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scan\+Code} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_input_a8a4c912fd9e5e21bf624ea9f793e502a}\index{Input@{Input}!UpdateMouse@{UpdateMouse}}
+\index{UpdateMouse@{UpdateMouse}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{UpdateMouse()}{UpdateMouse()}}
+{\footnotesize\ttfamily \label{class_input_a8a4c912fd9e5e21bf624ea9f793e502a} 
+void Input::\+\+Update\+Mouse (\begin{DoxyParamCaption}\item[{const SDL\+\_\+\+Event \&}]{event}{}\end{DoxyParamCaption})}
+
+
+
+Used to check the movements and inputs of the mouse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Input.\+h\item 
+Input.\+cpp\end{DoxyCompactItemize}

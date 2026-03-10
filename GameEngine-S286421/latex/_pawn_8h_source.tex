@@ -1,0 +1,60 @@
+\doxysection{Pawn.\+h}
+\hypertarget{_pawn_8h_source}{}\label{_pawn_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Bitmap.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Input.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Publisher.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Subscriber.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}IGuiWindow.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_pawn_a69f251474853dff788dbef98d2d7f720}{Pawn}}\ :\ \textcolor{keyword}{public}\ Publisher,\ \textcolor{keyword}{public}\ Subscriber,\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_i_gui_window}{IGuiWindow}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00013\ \ \ \ \ std::unique\_ptr<Bitmap>\ Sprite;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \doxymbox{\hyperlink{class_pawn_a69f251474853dff788dbef98d2d7f720}{Pawn}}(std::shared\_ptr<SDL\_Renderer>\ renderer,\ \textcolor{keyword}{const}\ std::string\ path,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{bool}\ isTransparent,\ std::string\ pawnName);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ speed\ =\ 1;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ gravity\ =\ 1;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ maxFallSpeed\ =\ 5;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ Grounded\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{float}\ yVelocity\ =\ 0;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ ID\ =\ 0;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ CurrentID;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ std::string\ PawnName;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ SDL\_Point\ Position;}
+\DoxyCodeLine{00030\ \ \ \ \ SDL\_Point\ DeltaMove;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_pawn_a25e3daa45ecaf1482f9c28051f125e89}{GetX}}();}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_pawn_aaabf242d10883d30288f75a0591cd822}{SetX}}(\textcolor{keywordtype}{int}\ x);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_pawn_a68b1d19bffb1517f94723bfc0eac0d43}{GetY}}();}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_pawn_a9c64bed81d7d587510d74e4f1f6d346c}{SetY}}(\textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_pawn_a945ef035d2f77ce1994fc3581d3e53f7}{UpdatePosition}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_pawn_ac74e538926218637e3b372b5a794a638}{Draw}}();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Update();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ SDL\_Rect\ \doxymbox{\hyperlink{class_pawn_a2f97ed02c514e6bd2bb2cdf30705cd8c}{GetCollisionBounds}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_pawn_ae3b6d2d283ead7b804f74231e9f3bc1b}{DrawCollider}}(SDL\_Rect\ Collider)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_pawn_a31a8c5cc3c5c6ae6f882d12dfc7b13d0}{SetDeltaMove}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_pawn_a63d0f19582ee00e3d4f8de578863104f}{IsOverlapping}}(\textcolor{keyword}{const}\ std::vector<Pawn*>\&\ ListOfOtherpawns,\ \textcolor{keyword}{const}\ SDL\_Point\&\ Delta);}
+\DoxyCodeLine{00047\ \ \ \ \ std::vector<Pawn*>\ currentCollisions;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_pawn_a3cb7893000282da4caac2f1faf51a6ea}{Receive}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_i_event_data}{IEventData}}*\ message,\ \textcolor{keyword}{const}\ std::string\&\ topic)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_pawn_a183ed266b817027468956d8ccf4d147c}{DrawWindow}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_pawn_a642faaa2929c8fe9958e75f0dae56384}{DrawAnimation}}(\textcolor{keyword}{const}\ std::vector<\ SDL\_Texture*>\ \&moveSprites,\ \textcolor{keywordtype}{int}\ Frame,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00054\ \};}
+\DoxyCodeLine{00055\ }
+
+\end{DoxyCode}

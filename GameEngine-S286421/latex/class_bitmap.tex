@@ -1,0 +1,320 @@
+\doxysection{Bitmap Class Reference}
+\hypertarget{class_bitmap}{}\label{class_bitmap}\index{Bitmap@{Bitmap}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_bitmap_a1657e2cac6e7cc3fc7a38e988354e7b1}{Bitmap}} (std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$ renderer, const std::\+string path, int x, int y, bool is\+Transparent)
+\begin{DoxyCompactList}\small\item\em Initialises the bitmap; \textquotesingle{}path\textquotesingle{} represents the file location of the texture, \textquotesingle{}x\textquotesingle{} and \textquotesingle{}y\textquotesingle{} represent the x and y positions for the bitmap. \end{DoxyCompactList}\item 
+\Hypertarget{class_bitmap_a6bee6c1f00faf97ad49b40a7ee56fe0e}\label{class_bitmap_a6bee6c1f00faf97ad49b40a7ee56fe0e} 
+void {\bfseries Draw} ()
+\begin{DoxyCompactList}\small\item\em Calls the \doxylink{class_bitmap_a6f44f0c5fbc1e86840119c70ea345ecb}{Draw(int x, int y)} function; used if no x or y positions are given. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_a6f44f0c5fbc1e86840119c70ea345ecb}{Draw}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Renders the bitmap at the specified x and y positions. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_ad204a21b411f7d8ea71aae8d5febb2a3}{Draw\+Animation}} (const std::\+vector$<$ SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} $>$ \&move\+Sprites, int Frame, int x, int y)
+\begin{DoxyCompactList}\small\item\em Renders the player with the next animation sprite in a vector of sprites every five frames. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Rect \doxymbox{\hyperlink{class_bitmap_a1499f43dfb461905921639ee56f3d2b3}{Get\+Image\+Bounds}} () const
+\begin{DoxyCompactList}\small\item\em Returns the bounds of the image as a SDL\+\_\+\+Rect. \end{DoxyCompactList}\item 
+std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$ \doxymbox{\hyperlink{class_bitmap_a66e4a094887a2403e6ff2765a4f46793}{Get\+Renderer}} ()
+\begin{DoxyCompactList}\small\item\em Returns the shared\+\_\+ptr of the renderer used by the bitmap. \end{DoxyCompactList}\item 
+std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Texture $>$ \doxymbox{\hyperlink{class_bitmap_a4e8e58e8fe7d36967ade5b49feed3ddf}{Get\+Texture\+Ref}} ()
+\begin{DoxyCompactList}\small\item\em Returns the shared\+\_\+ptr of the texture currently used by the bitmap. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_bitmap_ae9c9fb96a25644e393337e988a8998ac}{GetX}} () const
+\begin{DoxyCompactList}\small\item\em Returns the x position of the bitmap as an int. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_bitmap_abe0dbad0fce305986eeceb50e0bd102e}{GetY}} () const
+\begin{DoxyCompactList}\small\item\em Returns the y position of the bitmap as an int. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_bitmap_a8f6990bace1ee118b4799987ff619ad1}{Get\+Width}} () const
+\begin{DoxyCompactList}\small\item\em Returns the width of the bitmap as an int. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_bitmap_a7007912b0cf48167e69900f5bc0e889c}{Get\+Height}} () const
+\begin{DoxyCompactList}\small\item\em Returns the height of the bitmap as an int. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_af0e7d9f66b7217957927409b01e9749f}{Set\+Width}} (int width)
+\begin{DoxyCompactList}\small\item\em Sets the width of the bitmap to the given int. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_aba297d2d1666adcf10c9129e9f72a1b9}{Set\+Height}} (int height)
+\begin{DoxyCompactList}\small\item\em Sets the height of the bitmap to the given width. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_bitmap_abb9050b470470933790cd602cb1e20cb}{Get\+Path}} () const
+\begin{DoxyCompactList}\small\item\em Returns the path of the texture used by the bitmap as a std::\+string. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_acef89aa6a6cd2f7166d96c591b0b031a}{Set\+Path}} (const std::\+string \&new\+Path)
+\begin{DoxyCompactList}\small\item\em Sets the path of the texture used by the bitmap to the given path. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_bitmap_a2946fac7c2e0121b08e9bed1913dbb53}{get\+Is\+Transparent}} () const
+\begin{DoxyCompactList}\small\item\em Returns whether the bitmap should have a transparent background as a boolean value. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_a6f3913eac3b0db10afc7beca621fa504}{set\+Is\+Transparent}} (bool is\+Transparent)
+\begin{DoxyCompactList}\small\item\em Sets the \+\_\+is\+Transparent variable to the given boolean value. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_a14a7f619668e5b270db60798351aac4c}{Set\+Frame\+Rate}} (int frame\+Rate)
+\begin{DoxyCompactList}\small\item\em Sets the \+\_\+frame\+Rate value to the given int. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_bitmap_ad19619bdb03c503a2f9c8720ad4cec1b}\label{class_bitmap_ad19619bdb03c503a2f9c8720ad4cec1b} 
+bool {\bfseries \+\_\+is\+Transparent}
+\item 
+\Hypertarget{class_bitmap_a909cb95a3129c4bf8d3a9a75e636bc32}\label{class_bitmap_a909cb95a3129c4bf8d3a9a75e636bc32} 
+std::\+string {\bfseries path}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_bitmap_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_bitmap_a1657e2cac6e7cc3fc7a38e988354e7b1}\index{Bitmap@{Bitmap}!Bitmap@{Bitmap}}
+\index{Bitmap@{Bitmap}!Bitmap@{Bitmap}}
+\doxysubsubsection{\texorpdfstring{Bitmap()}{Bitmap()}}
+{\footnotesize\ttfamily \label{class_bitmap_a1657e2cac6e7cc3fc7a38e988354e7b1} 
+Bitmap::\+\+Bitmap (\begin{DoxyParamCaption}\item[{std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$}]{renderer}{, }\item[{const std::\+string}]{path}{, }\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{bool}]{is\+Transparent}{}\end{DoxyParamCaption})}
+
+
+
+Initialises the bitmap; \textquotesingle{}path\textquotesingle{} represents the file location of the texture, \textquotesingle{}x\textquotesingle{} and \textquotesingle{}y\textquotesingle{} represent the x and y positions for the bitmap. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & \\
+\hline
+{\em path} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em is\+Transparent} & \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_bitmap_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_bitmap_a6f44f0c5fbc1e86840119c70ea345ecb}\index{Bitmap@{Bitmap}!Draw@{Draw}}
+\index{Draw@{Draw}!Bitmap@{Bitmap}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily \label{class_bitmap_a6f44f0c5fbc1e86840119c70ea345ecb} 
+void Bitmap::\+\+Draw (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Renders the bitmap at the specified x and y positions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_bitmap_ad204a21b411f7d8ea71aae8d5febb2a3}\index{Bitmap@{Bitmap}!DrawAnimation@{DrawAnimation}}
+\index{DrawAnimation@{DrawAnimation}!Bitmap@{Bitmap}}
+\doxysubsubsection{\texorpdfstring{DrawAnimation()}{DrawAnimation()}}
+{\footnotesize\ttfamily \label{class_bitmap_ad204a21b411f7d8ea71aae8d5febb2a3} 
+void Bitmap::\+\+Draw\+Animation (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} $>$ \&}]{move\+Sprites}{, }\item[{int}]{Frame}{, }\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Renders the player with the next animation sprite in a vector of sprites every five frames. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em move\+Sprites} & \\
+\hline
+{\em Frame} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_bitmap_a7007912b0cf48167e69900f5bc0e889c}\index{Bitmap@{Bitmap}!GetHeight@{GetHeight}}
+\index{GetHeight@{GetHeight}!Bitmap@{Bitmap}}
+\doxysubsubsection{\texorpdfstring{GetHeight()}{GetHeight()}}
+{\footnotesize\ttfamily \label{class_bitmap_a7007912b0cf48167e69900f5bc0e889c} 
+int Bitmap::\+\+Get\+Height (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the height of the bitmap as an int. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_bitmap_a1499f43dfb461905921639ee56f3d2b3}\index{Bitmap@{Bitmap}!GetImageBounds@{GetImageBounds}}
+\index{GetImageBounds@{GetImageBounds}!Bitmap@{Bitmap}}
+\doxysubsubsection{\texorpdfstring{GetImageBounds()}{GetImageBounds()}}
+{\footnotesize\ttfamily \label{class_bitmap_a1499f43dfb461905921639ee56f3d2b3} 
+SDL\+\_\+\+Rect Bitmap::\+\+Get\+Image\+Bounds (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the bounds of the image as a SDL\+\_\+\+Rect. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_bitmap_a2946fac7c2e0121b08e9bed1913dbb53}\index{Bitmap@{Bitmap}!getIsTransparent@{getIsTransparent}}
+\index{getIsTransparent@{getIsTransparent}!Bitmap@{Bitmap}}
+\doxysubsubsection{\texorpdfstring{getIsTransparent()}{getIsTransparent()}}
+{\footnotesize\ttfamily \label{class_bitmap_a2946fac7c2e0121b08e9bed1913dbb53} 
+bool Bitmap::\+get\+Is\+Transparent (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns whether the bitmap should have a transparent background as a boolean value. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_bitmap_abb9050b470470933790cd602cb1e20cb}\index{Bitmap@{Bitmap}!GetPath@{GetPath}}
+\index{GetPath@{GetPath}!Bitmap@{Bitmap}}
+\doxysubsubsection{\texorpdfstring{GetPath()}{GetPath()}}
+{\footnotesize\ttfamily \label{class_bitmap_abb9050b470470933790cd602cb1e20cb} 
+std::\+string Bitmap::\+\+Get\+Path (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the path of the texture used by the bitmap as a std::\+string. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_bitmap_a66e4a094887a2403e6ff2765a4f46793}\index{Bitmap@{Bitmap}!GetRenderer@{GetRenderer}}
+\index{GetRenderer@{GetRenderer}!Bitmap@{Bitmap}}
+\doxysubsubsection{\texorpdfstring{GetRenderer()}{GetRenderer()}}
+{\footnotesize\ttfamily \label{class_bitmap_a66e4a094887a2403e6ff2765a4f46793} 
+std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Renderer $>$ Bitmap::\+\+Get\+Renderer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the shared\+\_\+ptr of the renderer used by the bitmap. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_bitmap_a4e8e58e8fe7d36967ade5b49feed3ddf}\index{Bitmap@{Bitmap}!GetTextureRef@{GetTextureRef}}
+\index{GetTextureRef@{GetTextureRef}!Bitmap@{Bitmap}}
+\doxysubsubsection{\texorpdfstring{GetTextureRef()}{GetTextureRef()}}
+{\footnotesize\ttfamily \label{class_bitmap_a4e8e58e8fe7d36967ade5b49feed3ddf} 
+std::\+shared\+\_\+ptr$<$ SDL\+\_\+\+Texture $>$ Bitmap::\+\+Get\+Texture\+Ref (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the shared\+\_\+ptr of the texture currently used by the bitmap. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_bitmap_a8f6990bace1ee118b4799987ff619ad1}\index{Bitmap@{Bitmap}!GetWidth@{GetWidth}}
+\index{GetWidth@{GetWidth}!Bitmap@{Bitmap}}
+\doxysubsubsection{\texorpdfstring{GetWidth()}{GetWidth()}}
+{\footnotesize\ttfamily \label{class_bitmap_a8f6990bace1ee118b4799987ff619ad1} 
+int Bitmap::\+\+Get\+Width (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the width of the bitmap as an int. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_bitmap_ae9c9fb96a25644e393337e988a8998ac}\index{Bitmap@{Bitmap}!GetX@{GetX}}
+\index{GetX@{GetX}!Bitmap@{Bitmap}}
+\doxysubsubsection{\texorpdfstring{GetX()}{GetX()}}
+{\footnotesize\ttfamily \label{class_bitmap_ae9c9fb96a25644e393337e988a8998ac} 
+int Bitmap::\+\+GetX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the x position of the bitmap as an int. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_bitmap_abe0dbad0fce305986eeceb50e0bd102e}\index{Bitmap@{Bitmap}!GetY@{GetY}}
+\index{GetY@{GetY}!Bitmap@{Bitmap}}
+\doxysubsubsection{\texorpdfstring{GetY()}{GetY()}}
+{\footnotesize\ttfamily \label{class_bitmap_abe0dbad0fce305986eeceb50e0bd102e} 
+int Bitmap::\+\+GetY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the y position of the bitmap as an int. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_bitmap_a14a7f619668e5b270db60798351aac4c}\index{Bitmap@{Bitmap}!SetFrameRate@{SetFrameRate}}
+\index{SetFrameRate@{SetFrameRate}!Bitmap@{Bitmap}}
+\doxysubsubsection{\texorpdfstring{SetFrameRate()}{SetFrameRate()}}
+{\footnotesize\ttfamily \label{class_bitmap_a14a7f619668e5b270db60798351aac4c} 
+void Bitmap::\+\+Set\+Frame\+Rate (\begin{DoxyParamCaption}\item[{int}]{frame\+Rate}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the \+\_\+frame\+Rate value to the given int. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame\+Rate} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_bitmap_aba297d2d1666adcf10c9129e9f72a1b9}\index{Bitmap@{Bitmap}!SetHeight@{SetHeight}}
+\index{SetHeight@{SetHeight}!Bitmap@{Bitmap}}
+\doxysubsubsection{\texorpdfstring{SetHeight()}{SetHeight()}}
+{\footnotesize\ttfamily \label{class_bitmap_aba297d2d1666adcf10c9129e9f72a1b9} 
+void Bitmap::\+\+Set\+Height (\begin{DoxyParamCaption}\item[{int}]{height}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the height of the bitmap to the given width. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em height} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_bitmap_a6f3913eac3b0db10afc7beca621fa504}\index{Bitmap@{Bitmap}!setIsTransparent@{setIsTransparent}}
+\index{setIsTransparent@{setIsTransparent}!Bitmap@{Bitmap}}
+\doxysubsubsection{\texorpdfstring{setIsTransparent()}{setIsTransparent()}}
+{\footnotesize\ttfamily \label{class_bitmap_a6f3913eac3b0db10afc7beca621fa504} 
+void Bitmap::\+set\+Is\+Transparent (\begin{DoxyParamCaption}\item[{bool}]{is\+Transparent}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the \+\_\+is\+Transparent variable to the given boolean value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Transparent} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_bitmap_acef89aa6a6cd2f7166d96c591b0b031a}\index{Bitmap@{Bitmap}!SetPath@{SetPath}}
+\index{SetPath@{SetPath}!Bitmap@{Bitmap}}
+\doxysubsubsection{\texorpdfstring{SetPath()}{SetPath()}}
+{\footnotesize\ttfamily \label{class_bitmap_acef89aa6a6cd2f7166d96c591b0b031a} 
+void Bitmap::\+\+Set\+Path (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{new\+Path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the path of the texture used by the bitmap to the given path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Path} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_bitmap_af0e7d9f66b7217957927409b01e9749f}\index{Bitmap@{Bitmap}!SetWidth@{SetWidth}}
+\index{SetWidth@{SetWidth}!Bitmap@{Bitmap}}
+\doxysubsubsection{\texorpdfstring{SetWidth()}{SetWidth()}}
+{\footnotesize\ttfamily \label{class_bitmap_af0e7d9f66b7217957927409b01e9749f} 
+void Bitmap::\+\+Set\+Width (\begin{DoxyParamCaption}\item[{int}]{width}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the width of the bitmap to the given int. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Bitmap.\+h\item 
+Bitmap.\+cpp\end{DoxyCompactItemize}

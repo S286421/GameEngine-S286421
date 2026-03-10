@@ -22,6 +22,11 @@ public:
 	void Update();
 
 	template<typename componentType>
+	
+	/// <summary>
+	///	Returns a dynamic_cast of componentType variables that match the componentType of obj; returns nullptr if none are found
+	/// </summary>
+	/// <returns></returns>
 	componentType* GetComponentByType()
 	{
 		auto it = std::find_if(Components.begin(), Components.end(), [](const std::shared_ptr<I_ComponentBase>& obj)
