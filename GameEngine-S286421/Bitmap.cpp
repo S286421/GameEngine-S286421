@@ -89,3 +89,16 @@ std::shared_ptr<SDL_Texture> Bitmap::GetTextureRef()
 {
 	return _texture;
 }
+
+SDL_Texture* Bitmap::BMPtoTexture(const char* bmp, SDL_Renderer* renderer)
+{
+	SDL_Surface* sprite = SDL_LoadBMP(bmp);
+	Uint32 colourKey = SDL_MapSurfaceRGBA(sprite, 255, 0, 255, 0);
+	SDL_SetSurfaceColorKey(sprite, true, colourKey);
+
+	SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, sprite);
+	return texture;
+}
+
+Bitmap::Bitmap()
+{ }

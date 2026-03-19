@@ -14,7 +14,7 @@
 \DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_bitmap_a1657e2cac6e7cc3fc7a38e988354e7b1}{Bitmap}}}
 \DoxyCodeLine{00012\ \{}
 \DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00014\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_a1657e2cac6e7cc3fc7a38e988354e7b1}{Bitmap}}(}
+\DoxyCodeLine{00014\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_aa6ef6d8c0b66664350ef4dd062db3aec}{Bitmap}}(}
 \DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ std::shared\_ptr<SDL\_Renderer>\ renderer,}
 \DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ path,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{bool}\ isTransparent);}
 \DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_bitmap_a6bee6c1f00faf97ad49b40a7ee56fe0e}{Draw}}();}
@@ -49,16 +49,20 @@
 \DoxyCodeLine{00086\ }
 \DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_bitmap_a14a7f619668e5b270db60798351aac4c}{SetFrameRate}}(\textcolor{keywordtype}{int}\ frameRate)\ \{\ \_frameRate\ =\ frameRate;\ \}}
 \DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00094\ \ \ \ \ std::shared\_ptr<SDL\_Renderer>\ \_renderer;}
-\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{int}\ \_xPosition;}
-\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{int}\ \_yPosition;}
-\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{int}\ \_width;}
-\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{int}\ \_height;}
-\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{int}\ \_frameRate\ =\ 8;}
+\DoxyCodeLine{00099\ \ \ \ \ SDL\_Texture*\ \doxymbox{\hyperlink{class_bitmap_a838a94d11ce726a88f93e8840ba52505}{BMPtoTexture}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ bmp,\ SDL\_Renderer*\ renderer);}
 \DoxyCodeLine{00100\ }
-\DoxyCodeLine{00101\ \ \ \ \ std::shared\_ptr<SDL\_Texture>\ \_texture;}
-\DoxyCodeLine{00102\ \};}
-\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_aa6ef6d8c0b66664350ef4dd062db3aec}{Bitmap}}();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00107\ \ \ \ \ std::shared\_ptr<SDL\_Renderer>\ \_renderer;}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{int}\ \_xPosition;}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{int}\ \_yPosition;}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{int}\ \_width;}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{int}\ \_height;}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{int}\ \_frameRate\ =\ 8;}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ std::shared\_ptr<SDL\_Texture>\ \_texture;}
+\DoxyCodeLine{00115\ \};}
+\DoxyCodeLine{00116\ }
 
 \end{DoxyCode}

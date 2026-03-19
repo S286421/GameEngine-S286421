@@ -1,4 +1,4 @@
-dofile("./../luaSrc/EnginePrint.lua")
+--dofile("./../luaSrc/EnginePrint.lua")
 
 Script = {}
 

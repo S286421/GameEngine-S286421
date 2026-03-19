@@ -90,6 +90,19 @@ public:
 	/// <param name="frameRate"></param>
 	void SetFrameRate(int frameRate) { _frameRate = frameRate; }
 
+	/// <summary>
+	/// Converts the given .bmp file to a SDL_Texture object with transparent background, and returns it
+	/// </summary>
+	/// <param name="bmp"></param>
+	/// <param name="renderer"></param>
+	/// <returns></returns>
+	SDL_Texture* BMPtoTexture(const char* bmp, SDL_Renderer* renderer);
+
+	/// <summary>
+	/// Empty initialiser; only used for Bitmap::BMPtoTexture
+	/// </summary>
+	Bitmap();
+
 private:
 	std::shared_ptr<SDL_Renderer> _renderer;
 	int _xPosition;

@@ -39,7 +39,12 @@ bool \doxymbox{\hyperlink{class_bitmap_a2946fac7c2e0121b08e9bed1913dbb53}{get\+I
 void \doxymbox{\hyperlink{class_bitmap_a6f3913eac3b0db10afc7beca621fa504}{set\+Is\+Transparent}} (bool is\+Transparent)
 \begin{DoxyCompactList}\small\item\em Sets the \+\_\+is\+Transparent variable to the given boolean value. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_bitmap_a14a7f619668e5b270db60798351aac4c}{Set\+Frame\+Rate}} (int frame\+Rate)
-\begin{DoxyCompactList}\small\item\em Sets the \+\_\+frame\+Rate value to the given int. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sets the \+\_\+frame\+Rate value to the given int. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_bitmap_a838a94d11ce726a88f93e8840ba52505}{BMPto\+Texture}} (const char \texorpdfstring{$\ast$}{*}bmp, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\begin{DoxyCompactList}\small\item\em Converts the given .bmp file to a SDL\+\_\+\+Texture object with transparent background, and returns it. \end{DoxyCompactList}\item 
+\Hypertarget{class_bitmap_aa6ef6d8c0b66664350ef4dd062db3aec}\label{class_bitmap_aa6ef6d8c0b66664350ef4dd062db3aec} 
+{\bfseries Bitmap} ()
+\begin{DoxyCompactList}\small\item\em Empty initialiser; only used for \doxylink{class_bitmap_a838a94d11ce726a88f93e8840ba52505}{Bitmap::\+\+BMPto\+Texture}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -82,6 +87,26 @@ Initialises the bitmap; \textquotesingle{}path\textquotesingle{} represents the 
 \label{doc-func-members}
 \Hypertarget{class_bitmap_doc-func-members}
 \doxysubsection{Member Function Documentation}
+\Hypertarget{class_bitmap_a838a94d11ce726a88f93e8840ba52505}\index{Bitmap@{Bitmap}!BMPtoTexture@{BMPtoTexture}}
+\index{BMPtoTexture@{BMPtoTexture}!Bitmap@{Bitmap}}
+\doxysubsubsection{\texorpdfstring{BMPtoTexture()}{BMPtoTexture()}}
+{\footnotesize\ttfamily \label{class_bitmap_a838a94d11ce726a88f93e8840ba52505} 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} Bitmap::\+\+BMPto\+Texture (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{bmp}{, }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer}{}\end{DoxyParamCaption})}
+
+
+
+Converts the given .bmp file to a SDL\+\_\+\+Texture object with transparent background, and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bmp} & \\
+\hline
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 \Hypertarget{class_bitmap_a6f44f0c5fbc1e86840119c70ea345ecb}\index{Bitmap@{Bitmap}!Draw@{Draw}}
 \index{Draw@{Draw}!Bitmap@{Bitmap}}
 \doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}

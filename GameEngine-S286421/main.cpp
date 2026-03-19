@@ -182,71 +182,35 @@ int main(int argc, char* argv[])
 	std::shared_ptr<SDL_Renderer> rendere = std::shared_ptr<SDL_Renderer>(SDL_CreateRenderer(win,NULL), sdl_deleter());
 
 	Hierarchy::INSTANCE().Init(rendere);
+	Bitmap bitmap;
 
-	SDL_Surface* sprite1L = SDL_LoadBMP("./../Assets/Sprites/mario-1l.bmp");
-	SDL_Surface* sprite2L = SDL_LoadBMP("./../Assets/Sprites/mario-2l.bmp");
-	SDL_Surface* sprite3L = SDL_LoadBMP("./../Assets/Sprites/mario-3l.bmp");
-	SDL_Surface* sprite4L = SDL_LoadBMP("./../Assets/Sprites/mario-4l.bmp");
-	SDL_Surface* sprite5L = SDL_LoadBMP("./../Assets/Sprites/mario-5l.bmp");
-	SDL_Surface* sprite6L = SDL_LoadBMP("./../Assets/Sprites/mario-6l.bmp");
-	SDL_Surface* jumpSpriteL = SDL_LoadBMP("./../Assets/Sprites/mario-jumpl.bmp");
-
-	SDL_Surface* sprite1R = SDL_LoadBMP("./../Assets/Sprites/mario-1r.bmp");
-	SDL_Surface* sprite2R = SDL_LoadBMP("./../Assets/Sprites/mario-2r.bmp");
-	SDL_Surface* sprite3R = SDL_LoadBMP("./../Assets/Sprites/mario-3r.bmp");
-	SDL_Surface* sprite4R = SDL_LoadBMP("./../Assets/Sprites/mario-4r.bmp");
-	SDL_Surface* sprite5R = SDL_LoadBMP("./../Assets/Sprites/mario-5r.bmp");
-	SDL_Surface* sprite6R = SDL_LoadBMP("./../Assets/Sprites/mario-6r.bmp");
-	SDL_Surface* jumpSpriteR = SDL_LoadBMP("./../Assets/Sprites/mario-jumpr.bmp");
-
-	std::vector<SDL_Surface*> colourKeySpritesL = { sprite1L, sprite2L, sprite3L, sprite4L, sprite5L, sprite6L };
-
-	for (int i = 0; i < colourKeySpritesL.size(); i++)
-	{
-		Uint32 colourKey = SDL_MapSurfaceRGBA(colourKeySpritesL[i], 255, 0, 255, 0);
-		SDL_SetSurfaceColorKey(colourKeySpritesL[i], true, colourKey);
-	}
-
-	std::vector<SDL_Surface*> colourKeySpritesR = { sprite1R, sprite2R, sprite3R, sprite4R, sprite5R, sprite6R };
-
-	for (int i = 0; i < colourKeySpritesR.size(); i++)
-	{
-		Uint32 colourKey = SDL_MapSurfaceRGBA(colourKeySpritesR[i], 255, 0, 255, 0);
-		SDL_SetSurfaceColorKey(colourKeySpritesR[i], true, colourKey);
-	}
-
-	Uint32 colourKey = SDL_MapSurfaceRGBA(jumpSpriteL, 255, 0, 255, 0);
-	SDL_SetSurfaceColorKey(jumpSpriteL, true, colourKey);
-	SDL_SetSurfaceColorKey(jumpSpriteR, true, colourKey);
-
-	SDL_Texture* texture1L = SDL_CreateTextureFromSurface(rendere.get(), sprite1L);
-	SDL_Texture* texture2L = SDL_CreateTextureFromSurface(rendere.get(), sprite2L);
-	SDL_Texture* texture3L = SDL_CreateTextureFromSurface(rendere.get(), sprite3L);
-	SDL_Texture* texture4L = SDL_CreateTextureFromSurface(rendere.get(), sprite4L);
-	SDL_Texture* texture5L = SDL_CreateTextureFromSurface(rendere.get(), sprite5L);
-	SDL_Texture* texture6L = SDL_CreateTextureFromSurface(rendere.get(), sprite6L);
-	SDL_Texture* jumpTextureL = SDL_CreateTextureFromSurface(rendere.get(), jumpSpriteL);
+	SDL_Texture* texture1L = bitmap.BMPtoTexture("./../Assets/Sprites/mario-1l.bmp", rendere.get());
+	SDL_Texture* texture2L = bitmap.BMPtoTexture("./../Assets/Sprites/mario-2l.bmp", rendere.get());
+	SDL_Texture* texture3L = bitmap.BMPtoTexture("./../Assets/Sprites/mario-3l.bmp", rendere.get());
+	SDL_Texture* texture4L = bitmap.BMPtoTexture("./../Assets/Sprites/mario-4l.bmp", rendere.get());
+	SDL_Texture* texture5L = bitmap.BMPtoTexture("./../Assets/Sprites/mario-5l.bmp", rendere.get());
+	SDL_Texture* texture6L = bitmap.BMPtoTexture("./../Assets/Sprites/mario-6l.bmp", rendere.get());
+	SDL_Texture* jumpTextureL = bitmap.BMPtoTexture("./../Assets/Sprites/mario-jumpl.bmp", rendere.get());
 	std::vector<SDL_Texture*> moveSpritesR = { texture1L, texture2L, texture3L, texture4L, texture5L, texture6L };
 	std::vector<SDL_Texture*> otherSpritesR = { jumpTextureL };
 
-	SDL_Texture* texture1R = SDL_CreateTextureFromSurface(rendere.get(), sprite1R);
-	SDL_Texture* texture2R = SDL_CreateTextureFromSurface(rendere.get(), sprite2R);
-	SDL_Texture* texture3R = SDL_CreateTextureFromSurface(rendere.get(), sprite3R);
-	SDL_Texture* texture4R = SDL_CreateTextureFromSurface(rendere.get(), sprite4R);
-	SDL_Texture* texture5R = SDL_CreateTextureFromSurface(rendere.get(), sprite5R);
-	SDL_Texture* texture6R = SDL_CreateTextureFromSurface(rendere.get(), sprite6R);
-	SDL_Texture* jumpTextureR = SDL_CreateTextureFromSurface(rendere.get(), jumpSpriteR);
+	SDL_Texture* texture1R = bitmap.BMPtoTexture("./../Assets/Sprites/mario-1r.bmp", rendere.get());
+	SDL_Texture* texture2R = bitmap.BMPtoTexture("./../Assets/Sprites/mario-2r.bmp", rendere.get());
+	SDL_Texture* texture3R = bitmap.BMPtoTexture("./../Assets/Sprites/mario-3r.bmp", rendere.get());
+	SDL_Texture* texture4R = bitmap.BMPtoTexture("./../Assets/Sprites/mario-4r.bmp", rendere.get());
+	SDL_Texture* texture5R = bitmap.BMPtoTexture("./../Assets/Sprites/mario-5r.bmp", rendere.get());
+	SDL_Texture* texture6R = bitmap.BMPtoTexture("./../Assets/Sprites/mario-6r.bmp", rendere.get());
+	SDL_Texture* jumpTextureR = bitmap.BMPtoTexture("./../Assets/Sprites/mario-jumpr.bmp", rendere.get());
 	std::vector<SDL_Texture*> moveSpritesL = { texture1R, texture2R, texture3R, texture4R, texture5R, texture6R };
 	std::vector<SDL_Texture*> otherSpritesL = { jumpTextureR };
-
 
 	Player player(rendere, "./../Assets/Sprites/mario-idle.bmp", 215, 184, true, "player", moveSpritesR, moveSpritesL, otherSpritesR, otherSpritesL);
 	Hierarchy::INSTANCE().AddGameObject(&player);
 
-	Pawn platform(rendere, "./../Assets/Sprites/platform-test.bmp", 215, 300, true, "platform");
+	Pawn platform(rendere, "./../Assets/Sprites/platform.bmp", 215, 300, true, "platform");
 	Hierarchy::INSTANCE().AddGameObject(&platform);
 
-	Pawn platform2(rendere, "./../Assets/Sprites/platform-test.bmp", 250, 600, true, "platform2");
+	Pawn platform2(rendere, "./../Assets/Sprites/platform.bmp", 250, 600, true, "platform2");
 	Hierarchy::INSTANCE().AddGameObject(&platform2);
 
 	Pawn platform3(rendere, "./../Assets/Sprites/other-platform.bmp", 125, 700, true, "platform3");
@@ -272,7 +236,7 @@ int main(int argc, char* argv[])
 	player.Subscribe("MousePositionUpdate");
 	player.Subscribe("MouseWheelUpdate");
 
-	SDL_Surface* background = SDL_LoadBMP("./../Assets/nicerbackground.bmp");
+	SDL_Surface* background = SDL_LoadBMP("./../Assets/background.bmp");
 	SDL_Texture* backgroundTexture = SDL_CreateTextureFromSurface(rendere.get(), background);
 
 	//VerboseDebugPrintF(Verbosity::Info, "UOSGameEngine started with %d arguments\n", argc);
@@ -281,8 +245,8 @@ int main(int argc, char* argv[])
 	GameObject gameObject;
 	std::shared_ptr<BitmapComponent> temp = std::make_shared<BitmapComponent>(rendere, "./../Assets/Sprites/sun.bmp", 300, 200, false, &gameObject);
 	gameObject.AddComponent(temp);
-	gameObject.transform.Location.x = 500;
-	gameObject.transform.Location.y = 200;
+	gameObject.transform.Location.x = 800;
+	gameObject.transform.Location.y = 0;
 	RootTransform.AddChild(&gameObject.transform);
 
 	ECS ecs;

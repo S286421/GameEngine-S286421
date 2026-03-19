@@ -131,6 +131,11 @@ void&#160;</td><td class="memItemRight"><b>Draw</b> ()</td></tr>
 <tr class="memdesc:a6f3913eac3b0db10afc7beca621fa504"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the _isTransparent variable to the given boolean value.  <br /></td></tr>
 <tr class="memitem:a14a7f619668e5b270db60798351aac4c" id="r_a14a7f619668e5b270db60798351aac4c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a14a7f619668e5b270db60798351aac4c">SetFrameRate</a> (int frameRate)</td></tr>
 <tr class="memdesc:a14a7f619668e5b270db60798351aac4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the _frameRate value to the given int.  <br /></td></tr>
+<tr class="memitem:a838a94d11ce726a88f93e8840ba52505" id="r_a838a94d11ce726a88f93e8840ba52505"><td class="memItemLeft">SDL_Texture *&#160;</td><td class="memItemRight"><a class="el" href="#a838a94d11ce726a88f93e8840ba52505">BMPtoTexture</a> (const char *bmp, SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:a838a94d11ce726a88f93e8840ba52505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the given .bmp file to a SDL_Texture object with transparent background, and returns it.  <br /></td></tr>
+<tr class="memitem:aa6ef6d8c0b66664350ef4dd062db3aec" id="r_aa6ef6d8c0b66664350ef4dd062db3aec"><td class="memItemLeft"><a id="aa6ef6d8c0b66664350ef4dd062db3aec" name="aa6ef6d8c0b66664350ef4dd062db3aec"></a>
+&#160;</td><td class="memItemRight"><b>Bitmap</b> ()</td></tr>
+<tr class="memdesc:aa6ef6d8c0b66664350ef4dd062db3aec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empty initialiser; only used for <a class="el" href="#a838a94d11ce726a88f93e8840ba52505" title="Converts the given .bmp file to a SDL_Texture object with transparent background, and returns it.">Bitmap::BMPtoTexture</a>. <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -189,6 +194,37 @@ std::string&#160;</td><td class="memItemRight"><b>path</b></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a838a94d11ce726a88f93e8840ba52505" name="a838a94d11ce726a88f93e8840ba52505"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a838a94d11ce726a88f93e8840ba52505">&#9670;&#160;</a></span>BMPtoTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Texture * Bitmap::BMPtoTexture </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>bmp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *</td>          <td class="paramname"><span class="paramname"><em>renderer</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts the given .bmp file to a SDL_Texture object with transparent background, and returns it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bmp</td><td></td></tr>
+    <tr><td class="paramname">renderer</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
 <a id="a6f44f0c5fbc1e86840119c70ea345ecb" name="a6f44f0c5fbc1e86840119c70ea345ecb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6f44f0c5fbc1e86840119c70ea345ecb">&#9670;&#160;</a></span>Draw()</h2>
 
